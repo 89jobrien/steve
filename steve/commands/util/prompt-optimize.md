@@ -148,6 +148,7 @@ gpt4_optimized = """
 ```
 
 ## EXAMPLES ##
+
 {few_shot_examples}
 """
 
