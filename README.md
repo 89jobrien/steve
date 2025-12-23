@@ -4,12 +4,12 @@ Centralized repository for Claude Code agent configurations, hooks, commands, sk
 
 ## Project Status
 
-| Metric | Value |
-|--------|-------|
+| Metric         | Value                                                                  |
+| -------------- | ---------------------------------------------------------------------- |
 | **Components** | 377 total (137 agents, 97 commands, 57 skills, 59 hooks, 27 templates) |
-| **Test Suite** | 415 tests passing |
-| **Coverage** | 82.5% |
-| **Python** | 3.10+ |
+| **Test Suite** | 415 tests passing                                                      |
+| **Coverage**   | 82.5%                                                                  |
+| **Python**     | 3.10+                                                                  |
 
 ## Overview
 
@@ -21,6 +21,50 @@ This repository provides a well-organized collection of reusable components for 
 - **Skills** - Reusable skills with bundled resources
 - **Rules** - Language and format-specific coding rules
 - **Templates** - Templates for creating new components
+
+## Map of Contents
+
+### Core Modules
+
+| Module                        | Description                        | Location           |
+| ----------------------------- | ---------------------------------- | ------------------ |
+| [Agents](steve/agents/)       | Sub-agent configurations by domain | `steve/agents/`    |
+| [Commands](steve/commands/)   | Slash commands for workflows       | `steve/commands/`  |
+| [Skills](steve/skills/)       | Reusable domain knowledge bundles  | `steve/skills/`    |
+| [Hooks](steve/hooks/)         | Event-driven automation            | `steve/hooks/`     |
+| [Templates](steve/templates/) | Component scaffolds                | `steve/templates/` |
+| [Rules](steve/rules/)         | Language-specific coding rules     | `steve/rules/`     |
+| [Helpers](steve/helpers/)     | Python utility modules             | `steve/helpers/`   |
+
+### Scripts
+
+| Script                                              | Description                  | Location                        |
+| --------------------------------------------------- | ---------------------------- | ------------------------------- |
+| [build_index](scripts/build_index.py)               | Build component index        | `scripts/build_index.py`        |
+| [list_components](scripts/list_components.py)       | Search and list components   | `scripts/list_components.py`    |
+| [install_component](scripts/install_component.py)   | Install by name              | `scripts/install_component.py`  |
+| [install_from_gist](scripts/install_from_gist.py)   | Install from GitHub Gist     | `scripts/install_from_gist.py`  |
+| [publish_to_gist](scripts/publish_to_gist.py)       | Publish to Gist              | `scripts/publish_to_gist.py`    |
+| [publish_all](scripts/publish_all.py)               | Batch publish all components | `scripts/publish_all.py`        |
+| [add_metadata](scripts/add_metadata.py)             | Update frontmatter metadata  | `scripts/add_metadata.py`       |
+| [batch_add_metadata](scripts/batch_add_metadata.py) | Batch metadata updates       | `scripts/batch_add_metadata.py` |
+| [detect_secrets](scripts/detect_secrets.py)         | Security scanning            | `scripts/detect_secrets.py`     |
+
+### Documentation
+
+| Document                                       | Description                |
+| ---------------------------------------------- | -------------------------- |
+| [Getting Started](docs/GETTING_STARTED.md)     | Quick start guide          |
+| [Installation](docs/INSTALLATION.md)           | Detailed installation      |
+| [Architecture](docs/ARCHITECTURE.md)           | System design              |
+| [Development](docs/DEVELOPMENT.md)             | Development workflow       |
+| [Using Agents](docs/USING_AGENTS.md)           | Agent usage guide          |
+| [Using Commands](docs/USING_COMMANDS.md)       | Command usage guide        |
+| [Using Skills](docs/USING_SKILLS.md)           | Skill usage guide          |
+| [Using Hooks](docs/USING_HOOKS.md)             | Hook usage guide           |
+| [Contributing](docs/CONTRIBUTING.md)           | Contribution guidelines    |
+| [Scripts Reference](docs/SCRIPTS_REFERENCE.md) | Script documentation       |
+| [FAQ](docs/FAQ.md)                             | Frequently asked questions |
 
 ## Repository Structure
 
@@ -184,12 +228,9 @@ model: sonnet
 color: cyan
 skills: skill1, skill2
 ---
-
 # Purpose
-...
-
+---
 ## Instructions
-...
 ```
 
 ### Skill Files
@@ -199,9 +240,7 @@ skills: skill1, skill2
 name: skill-name
 description: Third-person description
 ---
-
 # Skill Title
-...
 ```
 
 ## Contributing
@@ -220,17 +259,17 @@ description: Third-person description
 
 ## Scripts Reference
 
-| Script | Description |
-|--------|-------------|
-| `build_index.py` | Build component index from repository |
-| `list_components.py` | List and search components |
-| `install_component.py` | Install components to Claude Code |
-| `install_from_gist.py` | Install from GitHub Gist |
-| `publish_to_gist.py` | Publish components to Gist |
-| `publish_registry.py` | Publish registry to Gist |
-| `add_metadata.py` | Update component frontmatter |
-| `detect_secrets.py` | Scan for secrets in codebase |
-| `python_to_markdown.py` | Convert Python to Markdown |
+| Script                  | Description                           |
+| ----------------------- | ------------------------------------- |
+| `build_index.py`        | Build component index from repository |
+| `list_components.py`    | List and search components            |
+| `install_component.py`  | Install components to Claude Code     |
+| `install_from_gist.py`  | Install from GitHub Gist              |
+| `publish_to_gist.py`    | Publish components to Gist            |
+| `publish_registry.py`   | Publish registry to Gist              |
+| `add_metadata.py`       | Update component frontmatter          |
+| `detect_secrets.py`     | Scan for secrets in codebase          |
+| `python_to_markdown.py` | Convert Python to Markdown            |
 
 ## Documentation
 
