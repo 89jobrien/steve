@@ -1,3 +1,7 @@
+.cursor/
+CLAUDE.md
+*.local.md
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -182,9 +186,9 @@ cython_debug/
 .abstra/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#  and can be added to the global gitignore or merged into this file. However, if you prefer,
 #  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 
@@ -205,3 +209,36 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Agent Config Repository Specific
+# Secrets detection baseline
+.secrets.baseline
+.secrets.baseline.json
+
+# Gist registry and metadata
+# Note: .gist-registry.json is tracked (contains public component info)
+# Only exclude private gist metadata files
+*.gist.json
+.gist-registry-url
+
+# Sensitive configuration files
+**/secrets.yaml
+**/secrets.yml
+**/credentials.yaml
+**/credentials.yml
+**/*.secret.*
+**/*.private.*
+
+# Cursor plans (may contain sensitive info)
+.cursor/plans/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

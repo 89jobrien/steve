@@ -1,0 +1,9 @@
+# Python dependencies for steve repository scripts
+
+# Core dependencies
+pyyaml>=6.0
+requests>=2.31.0
+
+# Optional: for enhanced functionality
+# detect-secrets>=1.4.0  # Already installed separately
+# pre-commit>=3.5.0  # Already installed separately

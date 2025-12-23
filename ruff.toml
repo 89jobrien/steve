@@ -1,0 +1,172 @@
+#:schema https://json.schemastore.org/ruff.json
+# =============================================================================
+# Ruff Configuration - Fast Python Linter & Formatter
+# =============================================================================
+
+# Target Python version
+target-version = "py310"
+
+# Line length
+line-length = 100
+
+# Exclude directories
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "*.egg-info",
+    "build",
+    "dist",
+    "node_modules",
+]
+
+# Fix auto-fixable issues when possible
+fix = true
+
+[lint]
+# Enable comprehensive rule sets
+select = [
+    # Core Python
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # Pyflakes
+    "I",  # isort
+    "N",  # pep8-naming
+    "UP", # pyupgrade
+
+    # Code Quality
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+    "PIE", # flake8-pie
+    "RET", # flake8-return
+    "PTH", # flake8-use-pathlib
+
+    # Security
+    "S", # flake8-bandit (security)
+
+    # Documentation
+    "D", # pydocstyle
+
+    # Type Checking
+    "TCH", # flake8-type-checking
+    "ANN", # flake8-annotations
+
+    # Testing
+    "PT", # flake8-pytest-style
+
+    # Import Organization
+    "TID", # flake8-tidy-imports
+
+    # Ruff-specific
+    "RUF", # Ruff-specific rules
+
+    # Performance
+    "PERF", # Perflint
+
+    # Error messages
+    "EM", # flake8-errmsg
+
+    # Logging
+    "LOG", # flake8-logging
+    "G",   # flake8-logging-format
+
+    # Complexity
+    "C90", # mccabe complexity
+    "PL",  # Pylint
+]
+
+# Rules to ignore
+ignore = [
+    # Allow missing docstrings in some cases
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package
+    "D107", # Missing docstring in __init__
+
+    # Allow flexible line length for URLs/paths
+    "E501", # Line too long (handled by formatter)
+
+    # Allow print statements (hooks use stdout for output)
+    "T201", # print found
+
+    # Allow broad exception catching in hooks
+    "BLE001", # Blind except
+
+    # Relax annotation requirements
+    "ANN401", # Dynamically typed expressions (Any)
+
+    # Allow subprocess (needed for hooks)
+    "S603", # subprocess call - check for untrusted input
+    "S607", # Starting a process with a partial executable path
+
+    # Allow assert in tests
+    "S101", # Use of assert detected
+
+    # Allow magic values in comparisons
+    "PLR2004", # Magic value used in comparison
+
+    # Relax complexity for existing code
+    "C901",    # Function is too complex
+    "PLR0912", # Too many branches
+    "PLR0913", # Too many arguments
+    "PLR0915", # Too many statements
+]
+
+# Allow autofix for all enabled rules
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[lint.per-file-ignores]
+# Tests can use assert and don't need docstrings
+"**/test_*.py" = ["S101", "D", "ANN"]
+"**/tests/*.py" = ["S101", "D", "ANN"]
+
+# Scripts can have simpler structure
+"scripts/*.py" = ["D", "ANN", "T201"]
+
+# Templates are examples, relax rules
+"**/templates/*.py" = ["D", "ANN", "INP001"]
+
+# Hooks need print for output and subprocess for commands
+"**/hooks/**/*.py" = ["T201", "S603", "S607", "D103"]
+
+# __init__.py files don't need docstrings
+"__init__.py" = ["D"]
+
+[lint.isort]
+# Import sorting configuration
+known-first-party = ["steve"]
+force-single-line = false
+lines-after-imports = 2
+combine-as-imports = true
+
+[lint.pydocstyle]
+# Use Google-style docstrings
+convention = "google"
+
+[lint.mccabe]
+# Maximum complexity threshold
+max-complexity = 15
+
+[format]
+# Use double quotes
+quote-style = "double"
+
+# Indent with spaces
+indent-style = "space"
+
+# Skip magic trailing comma
+skip-magic-trailing-comma = false
+
+# Unix line endings
+line-ending = "auto"
+
+# Enable docstring formatting
+docstring-code-format = true

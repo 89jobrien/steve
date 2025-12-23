@@ -1,0 +1,89 @@
+# Centralized configuration for Claude Code hooks
+# This file is loaded by workflows and provides settings for all checks
+# Set 'enabled: false' to disable any check
+
+guards:
+  dangerous_commands:
+    enabled: true
+  branch_protection:
+    enabled: false
+  secrets:
+    enabled: true
+  file_protection:
+    enabled: true
+  large_file:
+    enabled: true
+    warn_threshold_kb: 100
+    block_threshold_kb: 1024
+  path_validation:
+    enabled: true
+  readonly:
+    enabled: true
+
+analyzers:
+  lint:
+    enabled: true
+    auto_fix: true
+    timeout_seconds: 30
+  complexity:
+    enabled: true
+    warn_threshold: 10
+    error_threshold: 15
+  todo_tracker:
+    enabled: true
+  typecheck:
+    enabled: false
+    timeout_seconds: 60
+  test:
+    enabled: true
+    timeout_seconds: 120
+
+context:
+  project_detector:
+    enabled: true
+  recent_changes:
+    enabled: true
+    trigger_keywords:
+      - recent
+      - history
+      - diff
+      - changelog
+      - "what changed"
+      - "last commit"
+  related_files:
+    enabled: true
+    max_results: 5
+
+lifecycle:
+  metrics:
+    enabled: true
+    min_tool_calls: 3
+    output_dir: ~/.claude/logs
+  commit_suggester:
+    enabled: true
+    conventional_commits: true
+  knowledge_update:
+    enabled: true
+  session_summary:
+    enabled: true
+  checkpoint:
+    enabled: true
+  export_conversation:
+    enabled: false
+    output_dir: ~/.claude/logs/exported_chatlogs
+
+session:
+  # SessionStart hooks
+  git_context:
+    enabled: true
+  env_setup:
+    enabled: false
+  # SessionEnd hooks
+  session_logging:
+    enabled: true
+    log_dir: ~/.claude/logs
+
+subagent:
+  # SubagentStop hooks
+  verify_completion:
+    enabled: true
