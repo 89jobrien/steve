@@ -1,45 +1,9 @@
 # Pre-commit hooks configuration
-# Install: pip install pre-commit && pre-commit install
 
 default_language_version:
   python: python3.10
 
 repos:
-  # ==========================================================================
-  # Ruff - Fast Python Linter & Formatter
-  # ==========================================================================
-  # - repo: https://github.com/astral-sh/ruff-pre-commit
-  #   rev: v0.8.3
-  #   hooks:
-  #     # Linter
-  #     - id: ruff
-  #       name: ruff (lint)
-  #       args: [--fix, --exit-non-zero-on-fix]
-  #       types_or: [python, pyi]
-
-  #     # Formatter
-  #     - id: ruff-format
-  #       name: ruff (format)
-  #       types_or: [python, pyi]
-
-  # ==========================================================================
-  # MyPy - Static Type Checking
-  # ==========================================================================
-  # - repo: https://github.com/pre-commit/mirrors-mypy
-  #   rev: v1.13.0
-  #   hooks:
-  #     - id: mypy
-  #       name: mypy (type check)
-  #       additional_dependencies:
-  #         - types-requests
-  #         - types-PyYAML
-  #       args: [--config-file=pyproject.toml]
-  #       pass_filenames: false
-  #       entry: mypy steve scripts
-
-  # ==========================================================================
-  # General Pre-commit Hooks
-  # ==========================================================================
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -70,55 +34,7 @@ repos:
       #   name: check executables have shebangs
       # - id: check-shebang-scripts-are-executable
       #   name: check shebang scripts are executable
-
-  # ==========================================================================
-  # Secret Detection
-  # ==========================================================================
-  # - repo: https://github.com/Yelp/detect-secrets
-  #   rev: v1.4.0
-  #   hooks:
-  #     - id: detect-secrets
-  #       name: detect secrets
-  #       args: ["--baseline", ".secrets.baseline"]
-  #       exclude: |
-  #         (?x)^(
-  #           \.secrets\.baseline|
-  #           \.git/|
-  #           __pycache__/|
-  #           \.venv/|
-  #           venv/|
-  #           node_modules/|
-  #           \.pytest_cache/|
-  #           \.ruff_cache/|
-  #           \.mypy_cache/
-  #         )
-
-  # ==========================================================================
-  # Markdown Linting
-  # ==========================================================================
-  # - repo: https://github.com/igorshubovych/markdownlint-cli
-  #   rev: v0.43.0
-  #   hooks:
-  #     - id: markdownlint
-  #       name: lint markdown
-  #       args: [--fix]
-  #       exclude: |
-  #         (?x)^(
-  #           \.git/|
-  #           node_modules/|
-  #           CHANGELOG\.md
-  #         )
-
-  # ==========================================================================
-  # Shell Script Linting
-  # ==========================================================================
-  # - repo: https://github.com/shellcheck-py/shellcheck-py
-  #   rev: v0.10.0.1
-  #   hooks:
-  #     - id: shellcheck
-  #       name: shellcheck
-  #       args: [--severity=warning]
-
+      
 # Configuration
 ci:
   autofix_commit_msg: |
