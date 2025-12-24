@@ -36,20 +36,6 @@ This repository provides a well-organized collection of reusable components for 
 | [Rules](steve/rules/)         | Language-specific coding rules     | `steve/rules/`     |
 | [Helpers](steve/helpers/)     | Python utility modules             | `steve/helpers/`   |
 
-### Scripts
-
-| Script                                              | Description                  | Location                        |
-| --------------------------------------------------- | ---------------------------- | ------------------------------- |
-| [build_index](scripts/build_index.py)               | Build component index        | `scripts/build_index.py`        |
-| [list_components](scripts/list_components.py)       | Search and list components   | `scripts/list_components.py`    |
-| [install_component](scripts/install_component.py)   | Install by name              | `scripts/install_component.py`  |
-| [install_from_gist](scripts/install_from_gist.py)   | Install from GitHub Gist     | `scripts/install_from_gist.py`  |
-| [publish_to_gist](scripts/publish_to_gist.py)       | Publish to Gist              | `scripts/publish_to_gist.py`    |
-| [publish_all](scripts/publish_all.py)               | Batch publish all components | `scripts/publish_all.py`        |
-| [add_metadata](scripts/add_metadata.py)             | Update frontmatter metadata  | `scripts/add_metadata.py`       |
-| [batch_add_metadata](scripts/batch_add_metadata.py) | Batch metadata updates       | `scripts/batch_add_metadata.py` |
-| [detect_secrets](scripts/detect_secrets.py)         | Security scanning            | `scripts/detect_secrets.py`     |
-
 ### Documentation
 
 | Document                                       | Description                |

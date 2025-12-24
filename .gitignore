@@ -1,6 +1,8 @@
 .cursor/
 CLAUDE.md
 *.local.md
+john_cena/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
