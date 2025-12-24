@@ -14,7 +14,7 @@ from __future__ import annotations
 import hashlib
 import re
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 
 
 _FUNC_DEF_1 = re.compile(r"(?m)^(?!\s*#)\s*([A-Za-z_][A-Za-z0-9_+-]*)\s*\(\)\s*\{")
@@ -33,8 +33,18 @@ class AgentStateSnapshot(BaseModel):
     export_names: list[str]
     setopt_lines: list[str]
 
-    def __post_init__(self) -> None:
-        """Compute derived fields after initialization."""
+    # Derived fields computed after validation
+    sha256: str = ""
+    bytes: int = 0
+    line_count: int = 0
+    function_count: int = 0
+    alias_count: int = 0
+    export_count: int = 0
+    setopt_line_count: int = 0
+
+    @model_validator(mode="after")
+    def compute_derived_fields(self) -> AgentStateSnapshot:
+        """Compute derived fields after validation."""
         self.sha256 = self._sha256_text(self.snapshot_text)
         self.bytes = len(self.snapshot_text.encode("utf-8", "replace"))
         self.line_count = self.snapshot_text.count("\n") + 1
@@ -42,6 +52,7 @@ class AgentStateSnapshot(BaseModel):
         self.alias_count = len(self.alias_names)
         self.export_count = len(self.export_names)
         self.setopt_line_count = len(self.setopt_lines)
+        return self
 
     @staticmethod
     def _sha256_text(text: str) -> str:

@@ -2,7 +2,15 @@
 
 from pathlib import Path
 
-from scripts.build_index import build_index, parse_frontmatter, scan_directory
+from scripts.build_index import (
+    build_index,
+    build_index_incremental,
+    get_file_hash,
+    load_cache,
+    parse_frontmatter,
+    save_cache,
+    scan_directory,
+)
 
 
 class TestParseFrontmatter:
@@ -127,8 +135,18 @@ Content
         assert result[0]["name"] == "agent"
 
     def test_scan_directory_with_skill_type(self, tmp_path: Path) -> None:
-        """Test scanning skills adds skill-specific fields."""
-        skills_dir = tmp_path / "skills"
+        """Test scanning skills via build_index adds skill-specific fields.
+
+        Note: Skills are handled specially in build_index() rather than through
+        scan_directory() because they need skill_dir context for has_* checks.
+        """
+        steve_dir = tmp_path / "steve"
+        steve_dir.mkdir()
+        (steve_dir / "agents").mkdir()
+        (steve_dir / "commands").mkdir()
+        (steve_dir / "hooks").mkdir()
+
+        skills_dir = steve_dir / "skills"
         skills_dir.mkdir()
 
         skill_dir = skills_dir / "test-skill"
@@ -138,7 +156,7 @@ Content
         (skill_dir / "references").mkdir()
         (skill_dir / "scripts").mkdir()
 
-        skill_file = skill_dir / "test-skill.md"
+        skill_file = skill_dir / "SKILL.md"
         skill_file.write_text("""---
 name: test-skill
 description: A test skill
@@ -146,12 +164,12 @@ description: A test skill
 Skill content
 """)
 
-        result = scan_directory(skill_dir, "skill", tmp_path)
+        result = build_index(tmp_path)
 
-        assert len(result) == 1
-        assert result[0]["has_references"] is True
-        assert result[0]["has_scripts"] is True
-        assert result[0]["has_assets"] is False
+        assert len(result["skills"]) == 1
+        assert result["skills"][0]["has_references"] is True
+        assert result["skills"][0]["has_scripts"] is True
+        assert result["skills"][0]["has_assets"] is False
 
 
 class TestBuildIndex:
@@ -201,3 +219,94 @@ Content
 
         assert len(index["agents"]) == 1
         assert index["agents"][0]["name"] == "test"
+
+
+class TestIncrementalCaching:
+    """Tests for incremental caching functions."""
+
+    def test_get_file_hash(self, tmp_path: Path) -> None:
+        """Test file hash generation based on mtime and size."""
+        test_file = tmp_path / "test.txt"
+        test_file.write_text("content")
+
+        hash1 = get_file_hash(test_file)
+        assert isinstance(hash1, str)
+        assert len(hash1) == 32  # MD5 hex digest length
+
+        # Same file should produce same hash
+        hash2 = get_file_hash(test_file)
+        assert hash1 == hash2
+
+    def test_save_and_load_cache(self, tmp_path: Path) -> None:
+        """Test saving and loading cache."""
+        cache_path = tmp_path / "test-cache.json"
+        test_data = {"key": {"hash": "abc123", "data": {"name": "test"}}}
+
+        save_cache(test_data, cache_path)
+        loaded = load_cache(cache_path)
+
+        assert loaded == test_data
+
+    def test_load_cache_nonexistent(self, tmp_path: Path) -> None:
+        """Test loading nonexistent cache returns empty dict."""
+        cache_path = tmp_path / "nonexistent.json"
+
+        result = load_cache(cache_path)
+
+        assert result == {}
+
+    def test_build_index_incremental_cold_cache(self, tmp_path: Path) -> None:
+        """Test incremental build with cold cache (all misses)."""
+        steve_dir = tmp_path / "steve"
+        agents_dir = steve_dir / "agents" / "core"
+        agents_dir.mkdir(parents=True)
+
+        agent_file = agents_dir / "test.md"
+        agent_file.write_text("""---
+name: test
+description: Test agent
+tools: Read
+---
+Content
+""")
+
+        # Create other required directories
+        (steve_dir / "commands").mkdir()
+        (steve_dir / "skills").mkdir()
+        (steve_dir / "hooks").mkdir()
+
+        index, stats = build_index_incremental(tmp_path)
+
+        assert len(index["agents"]) == 1
+        assert stats["misses"] == 1
+        assert stats["hits"] == 0
+
+    def test_build_index_incremental_warm_cache(self, tmp_path: Path) -> None:
+        """Test incremental build with warm cache (all hits)."""
+        steve_dir = tmp_path / "steve"
+        agents_dir = steve_dir / "agents" / "core"
+        agents_dir.mkdir(parents=True)
+
+        agent_file = agents_dir / "test.md"
+        agent_file.write_text("""---
+name: test
+description: Test agent
+tools: Read
+---
+Content
+""")
+
+        # Create other required directories
+        (steve_dir / "commands").mkdir()
+        (steve_dir / "skills").mkdir()
+        (steve_dir / "hooks").mkdir()
+
+        # First build populates cache
+        build_index_incremental(tmp_path)
+
+        # Second build should hit cache
+        index, stats = build_index_incremental(tmp_path)
+
+        assert len(index["agents"]) == 1
+        assert stats["hits"] == 1
+        assert stats["misses"] == 0

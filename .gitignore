@@ -217,6 +217,9 @@ __marimo__/
 .secrets.baseline
 .secrets.baseline.json
 
+# Index build cache (local incremental build optimization)
+.index-cache.json
+
 # Gist registry and metadata
 # Note: .gist-registry.json is tracked (contains public component info)
 # Only exclude private gist metadata files

@@ -129,7 +129,7 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 "**/tests/*.py" = ["S101", "D", "ANN"]
 
 # Scripts can have simpler structure
-"scripts/*.py" = ["D", "ANN", "T201"]
+"scripts/*.py" = ["D", "ANN", "T201", "S110", "S112", "PERF203", "PERF401", "EM101", "S324"]
 
 # Templates are examples, relax rules
 "**/templates/*.py" = ["D", "ANN", "INP001"]

@@ -31,26 +31,28 @@ from steve.helpers.history_archival import archive_history, process_entry, write
 from steve.helpers.projects_extract import extract_events
 
 
-class TestAgentStateSnapshotPostInitBug:
-    """Tests exposing the __post_init__ bug.
+class TestAgentStateSnapshotDerivedFields:
+    """Tests verifying derived fields are computed correctly.
 
-    CRITICAL: These tests will likely fail, exposing that __post_init__
-    is never called because Pydantic BaseModel doesn't call it automatically.
+    The implementation uses Pydantic's model_validator to compute derived
+    fields after validation, which properly replaces the broken __post_init__.
     """
 
-    def test_post_init_never_called_sha256_missing(self) -> None:
-        """EXPECTED TO FAIL: Demonstrates sha256 field is not computed."""
-        snapshot = AgentStateSnapshot.extract_shell_snapshot_state("test")
-        # This will fail because __post_init__ is never called
-        # Expected: hasattr(snapshot, 'sha256') == True
-        # Actual: hasattr(snapshot, 'sha256') == False
+    def test_derived_fields_computed_on_creation(self) -> None:
+        """Verify sha256 and other derived fields are computed."""
+        snapshot = AgentStateSnapshot.extract_shell_snapshot_state("test content")
 
-        # Workaround test - verify the method exists but is never used
-        assert hasattr(AgentStateSnapshot, "_sha256_text")
-        # TODO: Fix implementation to actually compute derived fields
+        # Derived fields should be computed via model_validator
+        assert hasattr(snapshot, "sha256")
+        assert snapshot.sha256 != ""
+        assert len(snapshot.sha256) == 64  # SHA256 hex digest length
 
-        # Use snapshot to avoid unused variable warning
-        assert snapshot.snapshot_text == "test"
+        # Verify other derived fields
+        assert snapshot.bytes == len(b"test content")
+        assert snapshot.line_count == 1
+        assert snapshot.function_count == 0
+        assert snapshot.alias_count == 0
+        assert snapshot.export_count == 0
 
     def test_post_init_static_methods_work(self) -> None:
         """Static methods work, but are never called in practice."""

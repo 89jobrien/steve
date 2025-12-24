@@ -1,7 +1,7 @@
 # Steve - Claude Code Components
 # Common development workflows
 
-.PHONY: help install dev lint format typecheck test clean index pre-commit hooks \
+.PHONY: help install dev lint format typecheck test clean index index-fast pre-commit hooks \
         run-index run-list run-install run-publish run-publish-all run-secrets run-metadata run-batch-metadata
 
 # Default target
@@ -26,6 +26,7 @@ help:
 	@echo ""
 	@echo "Components:"
 	@echo "  make index        Build component index"
+	@echo "  make index-fast   Build index with caching (~4x faster)"
 	@echo "  make list         List all components"
 	@echo ""
 	@echo "Scripts:"
@@ -91,6 +92,9 @@ test-cov:
 
 index:
 	uv run python scripts/build_index.py
+
+index-fast:
+	uv run python scripts/build_index.py --incremental
 
 list:
 	uv run python scripts/list_components.py
