@@ -3,6 +3,7 @@ CLAUDE.md
 *.local.md
 john_cena/
 .idea/
+chatlog__*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
