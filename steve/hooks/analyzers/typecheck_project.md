@@ -1,11 +1,12 @@
 ---
+name: typecheck-project
+description: Run TypeScript validation on entire project.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Typecheck Project
 
 ```python

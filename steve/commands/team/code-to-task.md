@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Grep, Read, Write
+description: Convert code analysis to Linear tasks using full project context
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: code-to-task
 ---
 
 # Convert code analysis to Linear tasks using full project context

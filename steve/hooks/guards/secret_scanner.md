@@ -1,11 +1,12 @@
 ---
+name: secret-scanner
+description: Scan file content for exposed secrets before writing.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Secret Scanner
 
 ```python

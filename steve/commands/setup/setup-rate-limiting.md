@@ -1,4 +1,7 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Implement comprehensive API rate limiting with advanced control mechanisms:
+  **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

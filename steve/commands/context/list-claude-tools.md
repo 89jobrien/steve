@@ -1,4 +1,5 @@
 ---
+allowed-tools: Bash, Read
 argument-hint: ' No arguments required'
 description: Shortcut to see all available Claude tools
 author: Joseph OBrien
@@ -6,6 +7,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: list-claude-tools
 ---
 
 # All Tools

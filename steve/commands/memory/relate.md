@@ -1,10 +1,12 @@
 ---
+allowed-tools: Grep, Write
 description: Create relationships between entities in the knowledge graph
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: relate
 ---
 
 # Memory Relate Command

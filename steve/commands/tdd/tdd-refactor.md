@@ -1,9 +1,12 @@
 ---
+allowed-tools: Read, Task, Write
+description: Use Task tool with subagent_type="tdd-orchestrator" to perform safe refactoring
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: tdd-refactor
 ---
 
 Refactor code with confidence using comprehensive test safety net:

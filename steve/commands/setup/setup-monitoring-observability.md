@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Grep, Read, Write
+description: 'Setup comprehensive monitoring and observability infrastructure: **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

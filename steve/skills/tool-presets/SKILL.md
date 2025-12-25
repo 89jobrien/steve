@@ -1,4 +1,6 @@
 ---
+name: tool-presets
+description: Standardized tool set definitions for Claude Code agents ensuring consistent tool access across similar agent types
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

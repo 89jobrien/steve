@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Grep, Read, Task, Write
+description: Generate failing tests using Task tool with subagent_type="unit-testing::test-automator"
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: tdd-red
 ---
 
 Write comprehensive failing tests following TDD red phase principles.

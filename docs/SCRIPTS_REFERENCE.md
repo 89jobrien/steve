@@ -7,17 +7,17 @@ Complete API reference for the management scripts in the Steve repository.
 The `scripts/` directory contains Python utilities for managing Claude Code components. All scripts use `uv run` for
 execution.
 
-| Script | Purpose |
-|--------|---------|
-| `build_index.py` | Generate component index |
-| `list_components.py` | List and search components |
-| `install_component.py` | Install component by name |
-| `install_from_gist.py` | Install from GitHub Gist |
-| `publish_to_gist.py` | Publish component to Gist |
-| `publish_registry.py` | Publish registry to Gist |
-| `add_metadata.py` | Update component frontmatter |
-| `detect_secrets.py` | Scan for secrets |
-| `python_to_markdown.py` | Convert Python to Markdown |
+| Script                  | Purpose                      |
+| ----------------------- | ---------------------------- |
+| `build_index.py`        | Generate component index     |
+| `list_components.py`    | List and search components   |
+| `install_component.py`  | Install component by name    |
+| `install_from_gist.py`  | Install from GitHub Gist     |
+| `publish_to_gist.py`    | Publish component to Gist    |
+| `publish_registry.py`   | Publish registry to Gist     |
+| `add_metadata.py`       | Update component frontmatter |
+| `detect_secrets.py`     | Scan for secrets             |
+| `python_to_markdown.py` | Convert Python to Markdown   |
 
 ## build_index.py
 
@@ -31,8 +31,8 @@ uv run scripts/build_index.py [--output FILE]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
+| Argument   | Description      | Default      |
+| ---------- | ---------------- | ------------ |
 | `--output` | Output file path | `index.json` |
 
 ### Output Format
@@ -143,13 +143,13 @@ uv run scripts/list_components.py [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--type TYPE` | Filter by type (agent/command/skill/hook) | All types |
-| `--domain DOMAIN` | Filter by domain | All domains |
-| `--search QUERY` | Search in name/description | None |
-| `--from-registry` | Use remote registry | Local |
-| `--json` | Output as JSON | Table format |
+| Argument          | Description                               | Default      |
+| ----------------- | ----------------------------------------- | ------------ |
+| `--type TYPE`     | Filter by type (agent/command/skill/hook) | All types    |
+| `--domain DOMAIN` | Filter by domain                          | All domains  |
+| `--search QUERY`  | Search in name/description                | None         |
+| `--from-registry` | Use remote registry                       | Local        |
+| `--json`          | Output as JSON                            | Table format |
 
 ### Key Functions
 
@@ -197,13 +197,13 @@ uv run scripts/install_component.py NAME [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `NAME` | Component name (required) | - |
-| `--type TYPE` | Component type filter | Auto-detect |
-| `--domain DOMAIN` | Domain filter | Any |
-| `--from-registry` | Use remote registry | Local |
-| `--target PATH` | Installation target | `~/.claude/` |
+| Argument          | Description               | Default      |
+| ----------------- | ------------------------- | ------------ |
+| `NAME`            | Component name (required) | -            |
+| `--type TYPE`     | Component type filter     | Auto-detect  |
+| `--domain DOMAIN` | Domain filter             | Any          |
+| `--from-registry` | Use remote registry       | Local        |
+| `--target PATH`   | Installation target       | `~/.claude/` |
 
 ### Resolution Process
 
@@ -256,23 +256,25 @@ uv run scripts/install_from_gist.py URL [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `URL` | GitHub Gist URL (required) | - |
-| `--target-path PATH` | Override auto-detection | Auto-detect |
-| `--force` | Overwrite existing files | Prompt |
+| Argument             | Description                | Default     |
+| -------------------- | -------------------------- | ----------- |
+| `URL`                | GitHub Gist URL (required) | -           |
+| `--target-path PATH` | Override auto-detection    | Auto-detect |
+| `--force`            | Overwrite existing files   | Prompt      |
 
 ### Auto-Detection Logic
 
 The script determines installation path based on:
 
 1. **Filename extension:**
+
    - `.py` files go to `hooks/`
    - `.md` files analyzed further
 
 2. **Frontmatter type field** (if present)
 
 3. **Content patterns:**
+
    - Contains `skills:` field -> `agents/`
    - Contains `allowed-tools:` field -> `commands/`
    - Contains `SKILL.md` -> `skills/`
@@ -322,18 +324,18 @@ uv run scripts/publish_to_gist.py PATH [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `PATH` | Component file path (required) | - |
-| `--public` | Create public gist | Secret |
-| `--update` | Update existing gist | Create new |
-| `--description TEXT` | Gist description | Auto-generate |
+| Argument             | Description                    | Default       |
+| -------------------- | ------------------------------ | ------------- |
+| `PATH`               | Component file path (required) | -             |
+| `--public`           | Create public gist             | Secret        |
+| `--update`           | Update existing gist           | Create new    |
+| `--description TEXT` | Gist description               | Auto-generate |
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GITHUB_TOKEN` | GitHub personal access token | Yes |
+| Variable       | Description                  | Required |
+| -------------- | ---------------------------- | -------- |
+| `GITHUB_TOKEN` | GitHub personal access token | Yes      |
 
 The token can also be set via `git config github.token`.
 
@@ -414,16 +416,16 @@ uv run scripts/publish_registry.py [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--public` | Create public gist | Secret |
+| Argument   | Description          | Default    |
+| ---------- | -------------------- | ---------- |
+| `--public` | Create public gist   | Secret     |
 | `--update` | Update existing gist | Create new |
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GITHUB_TOKEN` | GitHub personal access token | Yes |
+| Variable       | Description                  | Required |
+| -------------- | ---------------------------- | -------- |
+| `GITHUB_TOKEN` | GitHub personal access token | Yes      |
 
 ### Workflow
 
@@ -469,11 +471,11 @@ uv run scripts/add_metadata.py PATH [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `PATH` | Component file path (required) | - |
-| `--gist-url URL` | Add gist_url field | - |
-| `--key KEY VALUE` | Add custom key-value pair | - |
+| Argument          | Description                    | Default |
+| ----------------- | ------------------------------ | ------- |
+| `PATH`            | Component file path (required) | -       |
+| `--gist-url URL`  | Add gist_url field             | -       |
+| `--key KEY VALUE` | Add custom key-value pair      | -       |
 
 ### Key Functions
 
@@ -517,11 +519,11 @@ uv run scripts/detect_secrets.py [OPTIONS]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--baseline` | Generate baseline file | Scan only |
-| `--scan` | Scan against baseline | - |
-| `--output FILE` | Baseline file path | `.secrets.baseline` |
+| Argument        | Description            | Default             |
+| --------------- | ---------------------- | ------------------- |
+| `--baseline`    | Generate baseline file | Scan only           |
+| `--scan`        | Scan against baseline  | -                   |
+| `--output FILE` | Baseline file path     | `.secrets.baseline` |
 
 ### Workflow
 
@@ -574,21 +576,22 @@ uv run scripts/python_to_markdown.py INPUT [OUTPUT]
 
 ### Arguments
 
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `INPUT` | Python file path (required) | - |
-| `OUTPUT` | Markdown output path | `{input}.md` |
+| Argument | Description                 | Default      |
+| -------- | --------------------------- | ------------ |
+| `INPUT`  | Python file path (required) | -            |
+| `OUTPUT` | Markdown output path        | `{input}.md` |
 
 ### Output Format
 
-```markdown
+````markdown
 # Script Title
 
 ```python
 # Python code here
 ```
+````
 
-```
+````
 
 The title is generated from the filename using title case conversion.
 
@@ -600,7 +603,7 @@ def filename_to_title(filename: str) -> str:
 
 def python_to_markdown(input_file: str, output_file: str | None) -> None:
     """Convert Python file to Markdown."""
-```
+````
 
 ### Example
 
@@ -665,12 +668,12 @@ absolute_path = Path(user_input).resolve()
 
 Scripts require these Python packages (defined in `pyproject.toml`):
 
-| Package | Purpose |
-|---------|---------|
-| `pyyaml` | YAML frontmatter parsing |
-| `requests` | GitHub API interactions |
-| `detect-secrets` | Secrets scanning |
-| `rich` | Terminal formatting (optional) |
+| Package          | Purpose                        |
+| ---------------- | ------------------------------ |
+| `pyyaml`         | YAML frontmatter parsing       |
+| `requests`       | GitHub API interactions        |
+| `detect-secrets` | Secrets scanning               |
+| `rich`           | Terminal formatting (optional) |
 
 Install with:
 

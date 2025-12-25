@@ -1,11 +1,12 @@
 ---
+name: session-end
+description: SessionEnd workflow - runs when a Claude Code session ends.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Session End
 
 ```python

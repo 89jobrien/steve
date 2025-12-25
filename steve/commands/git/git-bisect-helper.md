@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Grep, Read, Write
+description: 'Automated git bisect session to find regression commits: $ARGUMENTS'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

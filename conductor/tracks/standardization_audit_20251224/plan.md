@@ -4,8 +4,10 @@
 
 - [x] Task: Audit file names for `kebab-case` violations in `steve/agents`, `steve/skills`, and `steve/commands`. (audit)
 - [x] Task: Rename identified files to compliant `kebab-case` names. (deb59d7)
-- [ ] Task: Audit all `.md` component files for valid YAML frontmatter.
-- [ ] Task: Add or fix missing frontmatter in identified files.
+- [x] Task: Fix Metadata for Agents (Merge blocks, ensure name/description). (manual)
+- [~] Task: Fix Metadata for Commands (Ensure name/description from content).
+- [ ] Task: Fix Metadata for Hooks (Ensure name/description).
+- [ ] Task: Fix Metadata for Skills (Ensure name/description in SKILL.md).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Naming Convention and Metadata Audit' (Protocol in workflow.md)
 
 ## Phase 2: Code Quality Stabilization

@@ -4,13 +4,24 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: agent
----
-
----
-
 name: technical-researcher
-description: Use this agent when you need to analyze code repositories, technical documentation, implementation details, or evaluate technical solutions. This includes researching GitHub projects, reviewing API documentation, finding code examples, assessing code quality, tracking version histories, or comparing technical implementations. <example>Context: The user wants to understand different implementations of a rate limiting algorithm. user: "I need to implement rate limiting in my API. What are the best approaches?" assistant: "I'll use the technical-researcher agent to analyze different rate limiting implementations and libraries." <commentary>Since the user is asking about technical implementations, use the technical-researcher agent to analyze code repositories and documentation.</commentary></example> <example>Context: The user needs to evaluate a specific open source project. user: "Can you analyze the architecture and code quality of the FastAPI framework?" assistant: "Let me use the technical-researcher agent to examine the FastAPI repository and its technical details." <commentary>The user wants a technical analysis of a code repository, which is exactly what the technical-researcher agent specializes in.</commentary></example>
-tools: Read, Write, Edit, WebSearch, WebFetch, Bash, mcp__context7__get-library-docs, mcp__context7__resolve-library-id
+description: 'Use this agent when you need to analyze code repositories, technical
+  documentation, implementation details, or evaluate technical solutions. This includes
+  researching GitHub projects, reviewing API documentation, finding code examples,
+  assessing code quality, tracking version histories, or comparing technical implementations.
+  <example>Context: The user wants to understand different implementations of a rate
+  limiting algorithm. user: "I need to implement rate limiting in my API. What are
+  the best approaches?" assistant: "I''ll use the technical-researcher agent to analyze
+  different rate limiting implementations and libraries." <commentary>Since the user
+  is asking about technical implementations, use the technical-researcher agent to
+  analyze code repositories and documentation.</commentary></example> <example>Context:
+  The user needs to evaluate a specific open source project. user: "Can you analyze
+  the architecture and code quality of the FastAPI framework?" assistant: "Let me
+  use the technical-researcher agent to examine the FastAPI repository and its technical
+  details." <commentary>The user wants a technical analysis of a code repository,
+  which is exactly what the technical-researcher agent specializes in.</commentary></example>'
+tools: Read, Write, Edit, WebSearch, WebFetch, Bash, mcp__context7__get-library-docs,
+  mcp__context7__resolve-library-id
 model: sonnet
 color: blue
 skills: lead-research-assistant, technical-research

@@ -8,6 +8,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: ctx-restore
 ---
 
 # Context Restoration: Advanced Semantic Memory Rehydration

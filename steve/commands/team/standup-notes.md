@@ -1,9 +1,14 @@
 ---
+allowed-tools: Bash, Grep, Read, Write
+description: You are an expert team communication specialist focused on async-first
+  standup practices, AI-assisted note generation from commit history, and effective
+  remote team coordination patterns
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: standup-notes
 ---
 
 # Standup Notes Generator

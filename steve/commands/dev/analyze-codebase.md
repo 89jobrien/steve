@@ -1,10 +1,12 @@
 ---
+allowed-tools: Task
 description: Run parallel code review, test audit, and architecture analysis
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: analyze-codebase
 ---
 
 # Analyze Codebase

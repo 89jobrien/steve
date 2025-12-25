@@ -10,6 +10,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: multi-agent-review
 ---
 
 # Multi-Agent Code Review Orchestration Tool

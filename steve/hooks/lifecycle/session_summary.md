@@ -1,11 +1,12 @@
 ---
+name: session-summary
+description: Generate markdown summary of what was accomplished in the session when stopping.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Session Summary
 
 ```python

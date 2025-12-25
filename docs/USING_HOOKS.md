@@ -22,51 +22,51 @@ Hooks enable automated code analysis, quality checks, and workflow automation.
 
 Hooks that analyze code when files change:
 
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `lint_changed` | PostToolUse (Write/Edit) | Lint modified files |
-| `typecheck_changed` | PostToolUse (Write/Edit) | Type check modified files |
-| `test_changed` | PostToolUse (Write/Edit) | Run tests for modified files |
-| `security_audit` | PostToolUse (Write/Edit) | Security scan on changes |
-| `complexity_checker` | PostToolUse (Write/Edit) | Check code complexity |
-| `todo_tracker` | PostToolUse (Write/Edit) | Track TODOs in code |
+| Hook                 | Trigger                  | Purpose                      |
+| -------------------- | ------------------------ | ---------------------------- |
+| `lint_changed`       | PostToolUse (Write/Edit) | Lint modified files          |
+| `typecheck_changed`  | PostToolUse (Write/Edit) | Type check modified files    |
+| `test_changed`       | PostToolUse (Write/Edit) | Run tests for modified files |
+| `security_audit`     | PostToolUse (Write/Edit) | Security scan on changes     |
+| `complexity_checker` | PostToolUse (Write/Edit) | Check code complexity        |
+| `todo_tracker`       | PostToolUse (Write/Edit) | Track TODOs in code          |
 
 ### Context Hooks
 
 Hooks that provide context and information:
 
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `jit_context` | UserPrompt | Just-in-time context loading |
-| `context_injector` | SessionStart | Inject relevant context |
-| `project_detector` | SessionStart | Detect project type |
-| `related_files` | PreToolUse (Read) | Find related files |
-| `codebase_map` | SessionStart | Generate codebase overview |
-| `recent_changes` | SessionStart | Show recent git changes |
+| Hook               | Trigger           | Purpose                      |
+| ------------------ | ----------------- | ---------------------------- |
+| `jit_context`      | UserPrompt        | Just-in-time context loading |
+| `context_injector` | SessionStart      | Inject relevant context      |
+| `project_detector` | SessionStart      | Detect project type          |
+| `related_files`    | PreToolUse (Read) | Find related files           |
+| `codebase_map`     | SessionStart      | Generate codebase overview   |
+| `recent_changes`   | SessionStart      | Show recent git changes      |
 
 ### Lifecycle Hooks
 
 Hooks for session lifecycle events:
 
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `session_start` | SessionStart | Initialize session |
-| `session_end` | SessionEnd | Cleanup and summary |
-| `session_summary` | SessionEnd | Generate session summary |
-| `create_checkpoint` | SessionEnd | Save session checkpoint |
-| `knowledge_update` | SessionEnd | Update knowledge graph |
-| `metrics_collector` | SessionEnd | Collect session metrics |
+| Hook                | Trigger      | Purpose                  |
+| ------------------- | ------------ | ------------------------ |
+| `session_start`     | SessionStart | Initialize session       |
+| `session_end`       | SessionEnd   | Cleanup and summary      |
+| `session_summary`   | SessionEnd   | Generate session summary |
+| `create_checkpoint` | SessionEnd   | Save session checkpoint  |
+| `knowledge_update`  | SessionEnd   | Update knowledge graph   |
+| `metrics_collector` | SessionEnd   | Collect session metrics  |
 
 ### Workflow Hooks
 
 Hooks for workflow automation:
 
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `pre_tool_use` | PreToolUse | Validate before tool execution |
-| `post_tool_use` | PostToolUse | Actions after tool execution |
-| `todo_sync` | PostToolUse | Sync TODO items |
-| `commit_suggester` | PostToolUse (Write/Edit) | Suggest commits |
+| Hook               | Trigger                  | Purpose                        |
+| ------------------ | ------------------------ | ------------------------------ |
+| `pre_tool_use`     | PreToolUse               | Validate before tool execution |
+| `post_tool_use`    | PostToolUse              | Actions after tool execution   |
+| `todo_sync`        | PostToolUse              | Sync TODO items                |
+| `commit_suggester` | PostToolUse (Write/Edit) | Suggest commits                |
 
 ## Configuring Hooks
 
@@ -98,22 +98,22 @@ Each hook entry has:
 }
 ```
 
-| Field | Description |
-|-------|-------------|
+| Field     | Description                                  |
+| --------- | -------------------------------------------- |
 | `matcher` | Regex pattern to match tool names (optional) |
-| `command` | Shell command to execute |
-| `timeout` | Maximum execution time in ms (optional) |
+| `command` | Shell command to execute                     |
+| `timeout` | Maximum execution time in ms (optional)      |
 
 ### Environment Variables
 
 Hooks receive context via environment variables:
 
-| Variable | Description |
-|----------|-------------|
-| `$FILE` | Path to the affected file |
-| `$TOOL` | Name of the tool being used |
-| `$SESSION_ID` | Current session identifier |
-| `$WORKING_DIR` | Current working directory |
+| Variable       | Description                 |
+| -------------- | --------------------------- |
+| `$FILE`        | Path to the affected file   |
+| `$TOOL`        | Name of the tool being used |
+| `$SESSION_ID`  | Current session identifier  |
+| `$WORKING_DIR` | Current working directory   |
 
 ## Installing Hooks
 

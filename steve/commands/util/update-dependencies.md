@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Update and modernize project dependencies with safety checks: **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

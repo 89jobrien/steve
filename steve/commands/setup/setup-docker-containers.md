@@ -1,4 +1,7 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Setup comprehensive Docker containerization for development and production:
+  **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

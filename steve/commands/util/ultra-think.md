@@ -1,12 +1,14 @@
 ---
-description: Deep analysis and problem solving with multi-dimensional thinking
+allowed-tools: Grep, Write
 argument-hint:
 - problem or question to analyze
+description: Deep analysis and problem solving with multi-dimensional thinking
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: ultra-think
 ---
 
 # Deep Analysis and Problem Solving Mode

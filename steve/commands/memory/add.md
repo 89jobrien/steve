@@ -1,10 +1,12 @@
 ---
+allowed-tools: Grep, Write
 description: Add new entities or observations to the knowledge graph
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: add
 ---
 
 # Memory Add Command

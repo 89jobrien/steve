@@ -1,9 +1,13 @@
 ---
+allowed-tools: Grep, Read, Write
+description: Scan codebase for TODO/FIXME comments, technical debt markers, and code
+  issues, then output findings to CURRENT_TASKS.local.md
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: code-to-task-scan
 ---
 
 # Scan Code for Tasks

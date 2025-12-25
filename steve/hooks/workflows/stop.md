@@ -1,11 +1,12 @@
 ---
+name: stop
+description: Stop workflow - runs lifecycle hooks when session ends.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Stop
 
 ```python

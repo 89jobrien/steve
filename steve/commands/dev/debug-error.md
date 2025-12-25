@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Glob, Grep, Read, Write
+description: Systematically debug and fix errors
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: debug-error
 ---
 
 # Systematically Debug and Fix Errors

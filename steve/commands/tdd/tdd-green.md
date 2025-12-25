@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Edit, Grep, Read, Task, Write
+description: Use Task tool with subagent_type="unit-testing::test-automator" to implement
+  minimal passing code
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: tdd-green
 ---
 
 Implement minimal code to make failing tests pass in TDD green phase:

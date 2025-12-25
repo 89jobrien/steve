@@ -1,11 +1,12 @@
 ---
+name: check-any-changed
+description: Check for any types in TypeScript files
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Check Any Changed
 
 ```python

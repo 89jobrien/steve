@@ -4,6 +4,11 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: agent
+name: monorepo-architect
+description: Expert in monorepo architecture, build systems, and dependency management
+  at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development.
+  Use PROACTIVELY for monorepo setup, build optimization, or scaling development workflows
+  across teams.
 ---
 
 # Monorepo Architect

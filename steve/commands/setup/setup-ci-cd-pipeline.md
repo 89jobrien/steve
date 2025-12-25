@@ -1,4 +1,7 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Setup comprehensive CI/CD pipeline with automated workflows and deployments:
+  **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

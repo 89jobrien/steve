@@ -17,13 +17,13 @@ Steve uses GitHub Gists as a distribution mechanism for components. This approac
 
 A GitHub token with `gist` scope is required for publishing.
 
-**Option 1: Environment Variable**
+**Option 1: Environment Variable**:
 
 ```bash
 export GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
 ```
 
-**Option 2: Git Config**
+**Option 2: Git Config**:
 
 ```bash
 git config --global github.token "ghp_xxxxxxxxxxxxxxxxxxxx"
@@ -108,15 +108,15 @@ uv run scripts/publish_to_gist.py <component-path> [options]
 
 **Arguments:**
 
-| Argument | Description |
-|----------|-------------|
+| Argument         | Description                                    |
+| ---------------- | ---------------------------------------------- |
 | `component-path` | Path to component file (relative to repo root) |
 
 **Options:**
 
-| Option | Description |
-|--------|-------------|
-| `--public` | Make gist publicly visible |
+| Option     | Description                                  |
+| ---------- | -------------------------------------------- |
+| `--public` | Make gist publicly visible                   |
 | `--update` | Update existing gist instead of creating new |
 
 **Examples:**
@@ -152,9 +152,9 @@ uv run scripts/publish_registry.py [options]
 
 **Options:**
 
-| Option | Description |
-|--------|-------------|
-| `--public` | Make registry gist public |
+| Option     | Description                   |
+| ---------- | ----------------------------- |
+| `--public` | Make registry gist public     |
 | `--update` | Update existing registry gist |
 
 **Examples:**
@@ -204,19 +204,19 @@ The registry tracks all published components:
 
 ### Registry Fields
 
-| Field | Description |
-|-------|-------------|
-| `name` | Component name from frontmatter |
-| `type` | Component type: agent, skill, command, hook |
-| `domain` | Subdirectory/category |
-| `path` | Relative path in repository |
-| `gist_url` | Published gist URL |
-| `gist_id` | Gist ID for API operations |
-| `description` | Component description |
-| `tools` | (Agents) Available tools |
-| `model` | (Agents) Model specification |
-| `published_at` | Initial publication timestamp |
-| `updated_at` | Last update timestamp |
+| Field          | Description                                 |
+| -------------- | ------------------------------------------- |
+| `name`         | Component name from frontmatter             |
+| `type`         | Component type: agent, skill, command, hook |
+| `domain`       | Subdirectory/category                       |
+| `path`         | Relative path in repository                 |
+| `gist_url`     | Published gist URL                          |
+| `gist_id`      | Gist ID for API operations                  |
+| `description`  | Component description                       |
+| `tools`        | (Agents) Available tools                    |
+| `model`        | (Agents) Model specification                |
+| `published_at` | Initial publication timestamp               |
+| `updated_at`   | Last update timestamp                       |
 
 ### Publishing the Registry
 

@@ -1,11 +1,12 @@
 ---
+name: check-comment-replacement
+description: Detect when code is replaced with comments.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Check Comment Replacement
 
 ```python

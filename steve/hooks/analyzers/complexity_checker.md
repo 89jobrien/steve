@@ -1,11 +1,12 @@
 ---
+name: complexity-checker
+description: Complexity checker hook.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Complexity Checker
 
 ```python

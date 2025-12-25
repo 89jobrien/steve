@@ -1,11 +1,12 @@
 ---
+name: check-unused-parameters
+description: Detect lazy refactoring with underscore-prefixed params.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Check Unused Parameters
 
 ```python

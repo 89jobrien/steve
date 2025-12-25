@@ -8,6 +8,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: ctx-save
 ---
 
 # Context Save Tool: Intelligent Context Management Specialist

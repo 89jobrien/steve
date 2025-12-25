@@ -1,11 +1,12 @@
 ---
+name: check-todos
+description: Validate todo completions before stop.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Check Todos
 
 ```python

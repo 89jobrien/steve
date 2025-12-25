@@ -1,11 +1,12 @@
 ---
+name: git-diff-logger
+description: Log git diffs for all file changes in a session.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Git Diff Logger
 
 ```python

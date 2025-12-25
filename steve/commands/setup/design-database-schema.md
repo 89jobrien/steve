@@ -1,4 +1,7 @@
 ---
+allowed-tools: Edit, Grep, Read, Write
+description: 'Design optimized database schemas with comprehensive data modeling:
+  **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

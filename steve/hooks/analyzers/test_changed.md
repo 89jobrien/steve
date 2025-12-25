@@ -1,11 +1,12 @@
 ---
+name: test-changed
+description: Run tests for changed files when saving.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Test Changed
 
 ```python

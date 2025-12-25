@@ -1,9 +1,14 @@
 ---
+allowed-tools: Bash, Glob, Grep, Read, Write
+description: You are an expert error analysis specialist with deep expertise in debugging
+  distributed systems, analyzing production incidents, and implementing comprehensive
+  observability solutions
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: error-analysis
 ---
 
 # Error Analysis and Resolution

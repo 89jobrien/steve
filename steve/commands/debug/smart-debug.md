@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Glob, Grep, Read, Task
+description: 'Process issue from: $ARGUMENTS'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: smart-debug
 ---
 
 You are an expert AI-assisted debugging specialist with deep knowledge of modern debugging tools, observability platforms, and automated root cause analysis.

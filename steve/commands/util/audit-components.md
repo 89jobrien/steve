@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Glob, Grep, Read, Write
+description: 'Audit workspace components against templates: $ARGUMENTS'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

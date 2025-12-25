@@ -1,9 +1,13 @@
 ---
+allowed-tools: Read
+description: Perform comprehensive analysis of $ARGUMENTS to identify code quality
+  issues, security vulnerabilities, and optimization opportunities
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: check-file
 ---
 
 # File Analysis Tool

@@ -1,9 +1,14 @@
 ---
+allowed-tools: Write
+description: You are an expert prompt engineer specializing in crafting effective
+  prompts for LLMs through advanced techniques including constitutional AI, chain-of-thought
+  reasoning, and model-specific optimization
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: prompt-optimize
 ---
 
 # Prompt Optimization

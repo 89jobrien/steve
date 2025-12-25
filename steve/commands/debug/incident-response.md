@@ -1,9 +1,12 @@
 ---
+allowed-tools: Task, Write
+description: Configuration
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: incident-response
 ---
 
 Orchestrate multi-agent incident response with modern SRE practices for rapid resolution and learning:

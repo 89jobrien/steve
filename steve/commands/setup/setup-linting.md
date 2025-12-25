@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Configure comprehensive code linting and quality analysis: **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

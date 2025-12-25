@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Edit, Grep, Read, Write
+description: You are a documentation expert specializing in creating comprehensive,
+  maintainable documentation from code
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: doc-generate
 ---
 
 # Automated Documentation Generation

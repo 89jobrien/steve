@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Create and manage database migrations: **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

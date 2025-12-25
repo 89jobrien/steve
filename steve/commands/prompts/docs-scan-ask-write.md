@@ -8,6 +8,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: docs-scan-ask-write
 ---
 
 @agent-documentation-expert examine the repo to decide what docs need to be written, confirm with me which docs should be written, then write them.

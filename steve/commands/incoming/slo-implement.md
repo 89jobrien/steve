@@ -1,9 +1,13 @@
 ---
+allowed-tools: Grep, Write
+description: You are an SLO (Service Level Objective) expert specializing in implementing
+  reliability standards and error budget-based engineering practices
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: slo-implement
 ---
 
 # SLO Implementation Guide

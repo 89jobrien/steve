@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Read, Write
+description: Show detailed git repository status
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: git-status
 ---
 
 # Git Status Command

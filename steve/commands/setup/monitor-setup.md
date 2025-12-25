@@ -1,9 +1,13 @@
 ---
+allowed-tools: Grep, Read, Write
+description: You are a monitoring and observability expert specializing in implementing
+  comprehensive monitoring solutions
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: monitor-setup
 ---
 
 # Monitoring and Observability Setup

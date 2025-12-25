@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Glob, Grep, Read, Write
+description: You are an error tracking and observability expert specializing in implementing
+  comprehensive error monitoring solutions
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: error-trace
 ---
 
 # Error Tracking and Monitoring

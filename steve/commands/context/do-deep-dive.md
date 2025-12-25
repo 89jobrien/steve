@@ -1,9 +1,12 @@
 ---
+allowed-tools: Read, Write
+description: Analyze directory structure and purpose
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: do-deep-dive
 ---
 
 # Directory Deep Dive

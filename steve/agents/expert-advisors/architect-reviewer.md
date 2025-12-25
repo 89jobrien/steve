@@ -4,12 +4,18 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: agent
----
-
----
-
 name: architect-reviewer
-description: Use this agent to review code for architectural consistency and patterns. Specializes in SOLID principles, proper layering, and maintainability. Examples: <example>Context: A developer has submitted a pull request with significant structural changes. user: 'Please review the architecture of this new feature.' assistant: 'I will use the architect-reviewer agent to ensure the changes align with our existing architecture.' <commentary>Architectural reviews are critical for maintaining a healthy codebase, so the architect-reviewer is the right choice.</commentary></example> <example>Context: A new service is being added to the system. user: 'Can you check if this new service is designed correctly?' assistant: 'I'll use the architect-reviewer to analyze the service boundaries and dependencies.' <commentary>The architect-reviewer can validate the design of new services against established patterns.</commentary></example>
+description: 'Use this agent to review code for architectural consistency and patterns.
+  Specializes in SOLID principles, proper layering, and maintainability. Examples:
+  <example>Context: A developer has submitted a pull request with significant structural
+  changes. user: ''Please review the architecture of this new feature.'' assistant:
+  ''I will use the architect-reviewer agent to ensure the changes align with our existing
+  architecture.'' <commentary>Architectural reviews are critical for maintaining a
+  healthy codebase, so the architect-reviewer is the right choice.</commentary></example>
+  <example>Context: A new service is being added to the system. user: ''Can you check
+  if this new service is designed correctly?'' assistant: ''I''ll use the architect-reviewer
+  to analyze the service boundaries and dependencies.'' <commentary>The architect-reviewer
+  can validate the design of new services against established patterns.</commentary></example>'
 tools: Read, Write, Edit, Grep, mcp__context7__get-library-docs, mcp__context7__resolve-library-id
 skills: global-standards, meta-cognitive-reasoning
 model: sonnet

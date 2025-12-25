@@ -8,6 +8,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: create-command
 ---
 
 Create a new Claude Code slash command based on the user's requirements: $ARGUMENTS

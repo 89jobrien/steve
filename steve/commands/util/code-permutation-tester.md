@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Grep, Read, Write
+description: Test multiple code variations through simulation before implementation
+  with quality gates and performance prediction
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: code-permutation-tester
 ---
 
 # Code Permutation Tester

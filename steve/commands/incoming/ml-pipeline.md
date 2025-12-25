@@ -1,9 +1,12 @@
 ---
+allowed-tools: Read, Task, Write
+description: 'Design and implement a complete ML pipeline for: $ARGUMENTS'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: ml-pipeline
 ---
 
 # Machine Learning Pipeline - Multi-Agent MLOps Orchestration

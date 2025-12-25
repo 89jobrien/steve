@@ -1,9 +1,12 @@
 ---
+allowed-tools: Bash, Read
+description: 'Follow these steps to update the current branch name:'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: update-branch-name
 ---
 
 # Update Branch Name

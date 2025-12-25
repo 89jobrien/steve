@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2025-12-24T17:30:34.175511+00:00",
+  "generated_at": "2025-12-24T19:05:40.035813+00:00",
   "agents": [
     {
       "type": "agent",
@@ -257,7 +257,7 @@
     {
       "type": "agent",
       "path": "agents/core/valerie.local.md",
-      "name": "valerie",
+      "name": "valerie.local",
       "domain": "core",
       "description": "Task and todo management specialist. Use PROACTIVELY when users mention tasks, todos, project tracking, task completion, or ask what to work on next.",
       "tools": "Read, Write, Edit, Bash, WebFetch",
@@ -303,11 +303,11 @@
       "path": "agents/expert-advisors/documentation-expert.md",
       "name": "documentation-expert",
       "domain": "expert-advisors",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent to create, improve, and maintain project documentation. Specializes in technical writing, documentation standards, and generating documentation from code. Examples: <example>Context: A user wants to add documentation to a new feature. user: 'Please help me document this new API endpoint.' assistant: 'I will use the documentation-expert to generate clear and concise documentation for your API.' <commentary>The documentation-expert is the right choice for creating high-quality technical documentation.</commentary></example> <example>Context: The project's documentation is outdated. user: 'Can you help me update our README file?' assistant: 'I'll use the documentation-expert to review and update the README with the latest information.' <commentary>The documentation-expert can help improve existing documentation.</commentary></example>",
+      "tools": "Read, Write, Edit, Grep",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "cyan",
+      "skills": "documentation"
     },
     {
       "type": "agent",
@@ -358,11 +358,11 @@
       "path": "agents/expert-advisors/dependency-manager.md",
       "name": "dependency-manager",
       "domain": "expert-advisors",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent to manage project dependencies. Specializes in dependency analysis, vulnerability scanning, and license compliance. Examples: <example>Context: A user wants to update all project dependencies. user: 'Please update all the dependencies in this project.' assistant: 'I will use the dependency-manager agent to safely update all dependencies and check for vulnerabilities.' <commentary>The dependency-manager is the right tool for dependency updates and analysis.</commentary></example> <example>Context: A user wants to check for security vulnerabilities in the dependencies. user: 'Are there any known vulnerabilities in our dependencies?' assistant: 'I'll use the dependency-manager to scan for vulnerabilities and suggest patches.' <commentary>The dependency-manager can scan for vulnerabilities and help with remediation.</commentary></example>",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "yellow",
+      "skills": "dependency-management"
     },
     {
       "type": "agent",
@@ -402,16 +402,16 @@
       "path": "agents/expert-advisors/architect-reviewer.md",
       "name": "architect-reviewer",
       "domain": "expert-advisors",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent to review code for architectural consistency and patterns. Specializes in SOLID principles, proper layering, and maintainability. Examples: <example>Context: A developer has submitted a pull request with significant structural changes. user: 'Please review the architecture of this new feature.' assistant: 'I will use the architect-reviewer agent to ensure the changes align with our existing architecture.' <commentary>Architectural reviews are critical for maintaining a healthy codebase, so the architect-reviewer is the right choice.</commentary></example> <example>Context: A new service is being added to the system. user: 'Can you check if this new service is designed correctly?' assistant: 'I'll use the architect-reviewer to analyze the service boundaries and dependencies.' <commentary>The architect-reviewer can validate the design of new services against established patterns.</commentary></example>",
+      "tools": "Read, Write, Edit, Grep, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "blue",
+      "skills": "global-standards, meta-cognitive-reasoning"
     },
     {
       "type": "agent",
       "path": "agents/expert-advisors/context-engineering-expert.md",
-      "name": "context-manager",
+      "name": "context-engineering-expert",
       "domain": "expert-advisors",
       "description": "Elite AI context engineering specialist mastering dynamic context management, vector databases, knowledge graphs, and intelligent memory systems. Orchestrates context across multi-agent workflows, enterprise AI systems, and long-running projects with 2024/2025 best practices. Use PROACTIVELY for complex AI orchestration.",
       "tools": "",
@@ -809,7 +809,7 @@
       "path": "agents/ai-specialists/ai-assistant.md",
       "name": "ai-assistant",
       "domain": "ai-specialists",
-      "description": "",
+      "description": "You are an AI assistant development expert specializing in creating intelligent conversational interfaces, chatbots, and AI-powered applications. Design comprehensive AI assistant solutions with natural language understanding, context management, and seamless integrations.",
       "tools": "",
       "model": "sonnet",
       "color": "",
@@ -1117,7 +1117,7 @@
       "path": "agents/devops-infrastructure/monorepo-architect.md",
       "name": "monorepo-architect",
       "domain": "devops-infrastructure",
-      "description": "",
+      "description": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup, build optimization, or scaling development workflows across teams.",
       "tools": "",
       "model": "sonnet",
       "color": "",
@@ -1315,11 +1315,11 @@
       "path": "agents/deep-research-team/research-synthesizer.md",
       "name": "research-synthesizer",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
-      "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "description": "Use this agent when you need to consolidate and synthesize findings from multiple research sources or specialist researchers into a unified, comprehensive analysis. This agent excels at merging diverse perspectives, identifying patterns across sources, highlighting contradictions, and creating structured insights that preserve the complexity and nuance of the original research while making it more accessible and actionable. <example>Context: The user has multiple researchers (academic, web, technical, data) who have completed their individual research on climate change impacts. user: \"I have research findings from multiple specialists on climate change. Can you synthesize these into a coherent analysis?\" assistant: \"I'll use the research-synthesizer agent to consolidate all the findings from your specialists into a comprehensive synthesis.\" <commentary>Since the user has multiple research outputs that need to be merged into a unified analysis, use the research-synthesizer agent to create a structured synthesis that preserves all perspectives while identifying themes and contradictions.</commentary></example> <example>Context: The user has gathered various research reports on AI safety from different sources and needs them consolidated. user: \"Here are 5 different research reports on AI safety. I need a unified view of what they're saying.\" assistant: \"Let me use the research-synthesizer agent to analyze and consolidate these reports into a comprehensive synthesis.\" <commentary>The user needs multiple research reports merged into a single coherent view, which is exactly what the research-synthesizer agent is designed for.</commentary></example>",
+      "tools": "Read, Write, Edit",
+      "model": "opus",
+      "color": "purple",
+      "skills": "lead-research-assistant, meta-cognitive-reasoning"
     },
     {
       "type": "agent",
@@ -1359,22 +1359,22 @@
       "path": "agents/deep-research-team/query-clarifier.md",
       "name": "query-clarifier",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent when you need to analyze research queries for clarity and determine if user clarification is needed before proceeding with research. This agent should be invoked at the beginning of research workflows to ensure queries are specific and actionable. Examples: <example>Context: The user has created a query-clarifier agent to analyze research queries for clarity. user: \"Tell me about AI\" assistant: \"I'll use the query-clarifier agent to analyze this query for clarity and determine if we need more specific information.\" <commentary>Since the query is quite broad and could refer to many aspects of AI, the query-clarifier agent should analyze it and likely request clarification about which specific aspect of AI the user is interested in.</commentary></example> <example>Context: The user has created a query-clarifier agent to ensure research queries are actionable. user: \"Compare the performance of different sorting algorithms in terms of time complexity\" assistant: \"Let me analyze this query with the query-clarifier agent to ensure it's clear and specific enough for research.\" <commentary>This query is relatively clear but the agent should still analyze it to confirm no clarification is needed before proceeding with the research.</commentary></example>",
+      "tools": "Read, Write, Edit",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "cyan",
+      "skills": "lead-research-assistant"
     },
     {
       "type": "agent",
       "path": "agents/deep-research-team/research-brief-generator.md",
       "name": "research-brief-generator",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent when you need to transform a user's research query into a structured, actionable research brief that will guide subsequent research activities. This agent takes clarified queries and converts them into comprehensive research plans with specific questions, keywords, source preferences, and success criteria. <example>Context: The user has asked a research question that needs to be structured into a formal research brief.\\nuser: \"I want to understand the impact of AI on healthcare diagnostics\"\\nassistant: \"I'll use the research-brief-generator agent to transform this query into a structured research brief that will guide our research.\"\\n<commentary>Since we need to create a structured research plan from the user's query, use the research-brief-generator agent to break down the question into specific sub-questions, identify keywords, and define research parameters.</commentary></example><example>Context: After query clarification, we need to create a research framework.\\nuser: \"How are quantum computers being used in drug discovery?\"\\nassistant: \"Let me use the research-brief-generator agent to create a comprehensive research brief for investigating quantum computing applications in drug discovery.\"\\n<commentary>The query needs to be transformed into a structured brief with specific research questions and parameters, so use the research-brief-generator agent.</commentary></example>",
+      "tools": "Read, Write, Edit",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "blue",
+      "skills": "lead-research-assistant"
     },
     {
       "type": "agent",
@@ -1392,16 +1392,16 @@
       "path": "agents/deep-research-team/technical-researcher.md",
       "name": "technical-researcher",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent when you need to analyze code repositories, technical documentation, implementation details, or evaluate technical solutions. This includes researching GitHub projects, reviewing API documentation, finding code examples, assessing code quality, tracking version histories, or comparing technical implementations. <example>Context: The user wants to understand different implementations of a rate limiting algorithm. user: \"I need to implement rate limiting in my API. What are the best approaches?\" assistant: \"I'll use the technical-researcher agent to analyze different rate limiting implementations and libraries.\" <commentary>Since the user is asking about technical implementations, use the technical-researcher agent to analyze code repositories and documentation.</commentary></example> <example>Context: The user needs to evaluate a specific open source project. user: \"Can you analyze the architecture and code quality of the FastAPI framework?\" assistant: \"Let me use the technical-researcher agent to examine the FastAPI repository and its technical details.\" <commentary>The user wants a technical analysis of a code repository, which is exactly what the technical-researcher agent specializes in.</commentary></example>",
+      "tools": "Read, Write, Edit, WebSearch, WebFetch, Bash, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "blue",
+      "skills": "lead-research-assistant, technical-research"
     },
     {
       "type": "agent",
       "path": "agents/deep-research-team/ai-interview-trend-analyst.local.md",
-      "name": "ai-interview-trend-analyst",
+      "name": "ai-interview-trend-analyst.local",
       "domain": "deep-research-team",
       "description": "Specialist for analyzing trends and future directions in AI-powered interviewing. Use proactively to investigate emerging technologies, ethical concerns, regulatory landscape, and innovation patterns.",
       "tools": "WebSearch, WebFetch, Read, Write",
@@ -1436,11 +1436,11 @@
       "path": "agents/deep-research-team/research-coordinator.md",
       "name": "research-coordinator",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
-      "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "description": "Use this agent when you need to strategically plan and coordinate complex research tasks across multiple specialist researchers. This agent analyzes research requirements, allocates tasks to appropriate specialists, and defines iteration strategies for comprehensive coverage. <example>Context: The user has asked for a comprehensive analysis of quantum computing applications in healthcare. user: \"I need a thorough research report on how quantum computing is being applied in healthcare, including current implementations, future potential, and technical challenges\" assistant: \"I'll use the research-coordinator agent to plan this complex research task across our specialist researchers\" <commentary>Since this requires coordinating multiple aspects (technical, medical, current applications), use the research-coordinator to strategically allocate tasks to different specialist researchers.</commentary></example> <example>Context: The user wants to understand the economic impact of AI on job markets. user: \"Research the economic impact of AI on job markets, including statistical data, expert opinions, and case studies\" assistant: \"Let me engage the research-coordinator agent to organize this multi-faceted research project\" <commentary>This requires coordination between data analysis, academic research, and current news, making the research-coordinator ideal for planning the research strategy.</commentary></example>",
+      "tools": "Read, Write, Edit, Task, TodoWrite",
+      "model": "opus",
+      "color": "purple",
+      "skills": "lead-research-assistant"
     },
     {
       "type": "agent",
@@ -1456,7 +1456,7 @@
     {
       "type": "agent",
       "path": "agents/deep-research-team/ai-interview-market-researcher.local.md",
-      "name": "ai-interview-market-researcher",
+      "name": "ai-interview-market-researcher.local",
       "domain": "deep-research-team",
       "description": "Specialist for researching the AI interview and hiring market landscape. Use proactively to investigate major players, market size, growth projections, and competitive analysis.",
       "tools": "WebSearch, WebFetch, Read, Write",
@@ -1502,22 +1502,22 @@
       "path": "agents/deep-research-team/research-orchestrator.md",
       "name": "research-orchestrator",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
-      "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "description": "Use this agent when you need to coordinate a comprehensive research project that requires multiple specialized agents working in sequence. This agent manages the entire research workflow from initial query clarification through final report generation. <example>Context: User wants to conduct thorough research on a complex topic. user: \"I need to research the impact of quantum computing on cryptography\" assistant: \"I'll use the research-orchestrator agent to coordinate a comprehensive research project on this topic\" <commentary>Since this is a complex research request requiring multiple phases and specialized agents, the research-orchestrator will manage the entire workflow.</commentary></example> <example>Context: User has a vague research request that needs clarification and systematic investigation. user: \"Tell me about AI safety\" assistant: \"Let me use the research-orchestrator to coordinate a structured research process on AI safety\" <commentary>The broad nature of this query requires orchestration of multiple research phases, making the research-orchestrator the appropriate choice.</commentary></example>",
+      "tools": "Read, Write, Edit, Task, TodoWrite",
+      "model": "opus",
+      "color": "purple",
+      "skills": "lead-research-assistant"
     },
     {
       "type": "agent",
       "path": "agents/deep-research-team/report-generator.md",
       "name": "report-generator",
       "domain": "deep-research-team",
-      "description": "",
-      "tools": "",
+      "description": "Use this agent when you need to transform synthesized research findings into a comprehensive, well-structured final report. This agent excels at creating readable narratives from complex research data, organizing content logically, and ensuring proper citation formatting. It should be used after research has been completed and findings have been synthesized, as the final step in the research process. Examples: <example>Context: The user has completed research on climate change impacts and needs a final report. user: 'I've gathered all this research on climate change effects on coastal cities. Can you create a comprehensive report?' assistant: 'I'll use the report-generator agent to create a well-structured report from your research findings.' <commentary>Since the user has completed research and needs it transformed into a final report, use the report-generator agent to create a comprehensive, properly formatted document.</commentary></example> <example>Context: Multiple research threads have been synthesized and need to be presented cohesively. user: 'We have findings from 5 different researchers on AI safety. Need a unified report.' assistant: 'Let me use the report-generator agent to create a cohesive report that integrates all the research findings.' <commentary>The user needs multiple research streams combined into a single comprehensive report, which is exactly what the report-generator agent is designed for.</commentary></example>",
+      "tools": "Read, Write, Edit",
       "model": "sonnet",
-      "color": "",
-      "skills": ""
+      "color": "blue",
+      "skills": "lead-research-assistant, documentation"
     }
   ],
   "commands": [
@@ -1533,7 +1533,7 @@
       "path": "commands/context/do-deep-dive.md",
       "name": "do-deep-dive",
       "domain": "context",
-      "description": ""
+      "description": "Analyze directory structure and purpose"
     },
     {
       "type": "command",
@@ -1624,56 +1624,56 @@
       "path": "commands/util/prompt-optimize.md",
       "name": "prompt-optimize",
       "domain": "util",
-      "description": ""
+      "description": "You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanced techniques including constitutional AI, chain-of-thought reasoning, and model-specific optimization"
     },
     {
       "type": "command",
       "path": "commands/util/code-permutation-tester.md",
       "name": "code-permutation-tester",
       "domain": "util",
-      "description": ""
+      "description": "Test multiple code variations through simulation before implementation with quality gates and performance prediction"
     },
     {
       "type": "command",
       "path": "commands/util/check-file.md",
       "name": "check-file",
       "domain": "util",
-      "description": ""
+      "description": "Perform comprehensive analysis of $ARGUMENTS to identify code quality issues, security vulnerabilities, and optimization opportunities"
     },
     {
       "type": "command",
       "path": "commands/util/update-dependencies.md",
       "name": "update-dependencies",
       "domain": "util",
-      "description": ""
+      "description": "Update and modernize project dependencies with safety checks: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/util/create-database-migrations.md",
       "name": "create-database-migrations",
       "domain": "util",
-      "description": ""
+      "description": "Create and manage database migrations: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/util/clean.md",
       "name": "clean",
       "domain": "util",
-      "description": ""
+      "description": "Fix all black, isort, flake8 and mypy issues in the entire codebase"
     },
     {
       "type": "command",
       "path": "commands/util/code-to-task-scan.md",
       "name": "code-to-task-scan",
       "domain": "util",
-      "description": ""
+      "description": "Scan codebase for TODO/FIXME comments, technical debt markers, and code issues, then output findings to CURRENT_TASKS.local.md"
     },
     {
       "type": "command",
       "path": "commands/util/audit-components.md",
       "name": "audit-components",
       "domain": "util",
-      "description": ""
+      "description": "Audit workspace components against templates: $ARGUMENTS"
     },
     {
       "type": "command",
@@ -1694,84 +1694,84 @@
       "path": "commands/util/explain-code.md",
       "name": "explain-code",
       "domain": "util",
-      "description": ""
+      "description": "Analyze and explain code functionality"
     },
     {
       "type": "command",
       "path": "commands/setup/monitor-setup.md",
       "name": "monitor-setup",
       "domain": "setup",
-      "description": ""
+      "description": "You are a monitoring and observability expert specializing in implementing comprehensive monitoring solutions"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-development-environment.md",
       "name": "setup-development-environment",
       "domain": "setup",
-      "description": ""
+      "description": "Setup comprehensive development environment with modern tooling: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/implement-graphql-api.md",
       "name": "implement-graphql-api",
       "domain": "setup",
-      "description": ""
+      "description": "Implement comprehensive GraphQL API with modern best practices: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/design-database-schema.md",
       "name": "design-database-schema",
       "domain": "setup",
-      "description": ""
+      "description": "Design optimized database schemas with comprehensive data modeling: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-ci-cd-pipeline.md",
       "name": "setup-ci-cd-pipeline",
       "domain": "setup",
-      "description": ""
+      "description": "Setup comprehensive CI/CD pipeline with automated workflows and deployments: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-docker-containers.md",
       "name": "setup-docker-containers",
       "domain": "setup",
-      "description": ""
+      "description": "Setup comprehensive Docker containerization for development and production: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-linting.md",
       "name": "setup-linting",
       "domain": "setup",
-      "description": ""
+      "description": "Configure comprehensive code linting and quality analysis: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-rate-limiting.md",
       "name": "setup-rate-limiting",
       "domain": "setup",
-      "description": ""
+      "description": "Implement comprehensive API rate limiting with advanced control mechanisms: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-formatting.md",
       "name": "setup-formatting",
       "domain": "setup",
-      "description": ""
+      "description": "Configure comprehensive code formatting with consistent style enforcement: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-monorepo.md",
       "name": "setup-monorepo",
       "domain": "setup",
-      "description": ""
+      "description": "Configure comprehensive monorepo structure with advanced workspace management: **$ARGUMENTS**"
     },
     {
       "type": "command",
       "path": "commands/setup/setup-monitoring-observability.md",
       "name": "setup-monitoring-observability",
       "domain": "setup",
-      "description": ""
+      "description": "Setup comprehensive monitoring and observability infrastructure: **$ARGUMENTS**"
     },
     {
       "type": "command",
@@ -1834,7 +1834,7 @@
       "path": "commands/docs/doc-generate.md",
       "name": "doc-generate",
       "domain": "docs",
-      "description": ""
+      "description": "You are a documentation expert specializing in creating comprehensive, maintainable documentation from code"
     },
     {
       "type": "command",
@@ -1901,120 +1901,57 @@
     },
     {
       "type": "command",
-      "path": "commands/_team/issue.md",
+      "path": "commands/team/issue.md",
       "name": "issue",
-      "domain": "_team",
+      "domain": "team",
       "description": "Resolve GitHub issues systematically, from triage to deployment, using specialized agents for investigation, implementation, and verification."
     },
     {
       "type": "command",
-      "path": "commands/_team/refactor-clean.md",
+      "path": "commands/team/refactor-clean.md",
       "name": "refactor-clean",
-      "domain": "_team",
+      "domain": "team",
       "description": "Refactor and clean code to improve its quality, maintainability, and performance."
     },
     {
       "type": "command",
-      "path": "commands/_team/standup-notes.md",
+      "path": "commands/team/standup-notes.md",
       "name": "standup-notes",
-      "domain": "_team",
-      "description": ""
+      "domain": "team",
+      "description": "You are an expert team communication specialist focused on async-first standup practices, AI-assisted note generation from commit history, and effective remote team coordination patterns"
     },
     {
       "type": "command",
-      "path": "commands/_team/code-to-task.md",
+      "path": "commands/team/code-to-task.md",
       "name": "code-to-task",
-      "domain": "_team",
-      "description": ""
+      "domain": "team",
+      "description": "Convert code analysis to Linear tasks using full project context"
     },
     {
       "type": "command",
-      "path": "commands/_team/smart-fix.md",
+      "path": "commands/team/smart-fix.md",
       "name": "smart-fix",
-      "domain": "_team",
+      "domain": "team",
       "description": "Resolve GitHub issues systematically, from triage to deployment, using specialized agents for investigation, implementation, and verification."
     },
     {
       "type": "command",
-      "path": "commands/_team/prep-for-standup.md",
+      "path": "commands/team/prep-for-standup.md",
       "name": "prep-for-standup",
-      "domain": "_team",
+      "domain": "team",
       "description": "Generate comprehensive daily standup reports with team activity analysis and progress tracking"
     },
     {
       "type": "command",
-      "path": "commands/_team/multi-agent-review.md",
+      "path": "commands/team/multi-agent-review.md",
       "name": "multi-agent-review",
-      "domain": "_team",
+      "domain": "team",
       "description": "Perform a comprehensive code review using multiple specialized agents."
     },
     {
       "type": "command",
-      "path": "commands/_incoming/test-generate.md",
-      "name": "test-generate",
-      "domain": "_incoming",
-      "description": ""
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/langchain-agent.md",
-      "name": "langchain-agent",
-      "domain": "_incoming",
-      "description": ""
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/slo-implement.md",
-      "name": "slo-implement",
-      "domain": "_incoming",
-      "description": ""
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/deps-audit.md",
-      "name": "deps-audit",
-      "domain": "_incoming",
-      "description": "Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies."
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/data-pipeline.md",
-      "name": "data-pipeline",
-      "domain": "_incoming",
-      "description": "Design and implement a complete data pipeline for batch and streaming data processing."
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/api-mock.md",
-      "name": "api-mock",
-      "domain": "_incoming",
-      "description": "Create a comprehensive API mocking framework for development, testing, and demonstration purposes."
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/data-driven-feature.md",
-      "name": "data-driven-feature",
-      "domain": "_incoming",
-      "description": "Build features guided by data insights, A/B testing, and continuous measurement using specialized agents for analysis, implementation, and experimentation."
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/ml-pipeline.md",
-      "name": "ml-pipeline",
-      "domain": "_incoming",
-      "description": ""
-    },
-    {
-      "type": "command",
-      "path": "commands/_incoming/tech-debt.md",
-      "name": "tech-debt",
-      "domain": "_incoming",
-      "description": ""
-    },
-    {
-      "type": "command",
-      "path": "commands/prompts/docs__scan_ask_write.md",
-      "name": "docs__scan_ask_write",
+      "path": "commands/prompts/docs-scan-ask-write.md",
+      "name": "docs-scan-ask-write",
       "domain": "prompts",
       "description": "Scan for documentation, generate or update documentation according to user input."
     },
@@ -2037,14 +1974,14 @@
       "path": "commands/dev/ai-review.md",
       "name": "ai-review",
       "domain": "dev",
-      "description": ""
+      "description": "You are an expert AI-powered code review specialist combining automated static analysis, intelligent pattern recognition, and modern DevOps practices"
     },
     {
       "type": "command",
       "path": "commands/dev/debug-error.md",
       "name": "debug-error",
       "domain": "dev",
-      "description": ""
+      "description": "Systematically debug and fix errors"
     },
     {
       "type": "command",
@@ -2058,7 +1995,7 @@
       "path": "commands/dev/design-rest-api.md",
       "name": "design-rest-api",
       "domain": "dev",
-      "description": ""
+      "description": "Design comprehensive RESTful API architecture: **$ARGUMENTS**"
     },
     {
       "type": "command",
@@ -2090,115 +2027,178 @@
     },
     {
       "type": "command",
+      "path": "commands/incoming/test-generate.md",
+      "name": "test-generate",
+      "domain": "incoming",
+      "description": "You are a test automation expert specializing in generating comprehensive, maintainable unit tests across multiple languages and frameworks"
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/langchain-agent.md",
+      "name": "langchain-agent",
+      "domain": "incoming",
+      "description": "You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph"
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/slo-implement.md",
+      "name": "slo-implement",
+      "domain": "incoming",
+      "description": "You are an SLO (Service Level Objective) expert specializing in implementing reliability standards and error budget-based engineering practices"
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/deps-audit.md",
+      "name": "deps-audit",
+      "domain": "incoming",
+      "description": "Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies."
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/data-pipeline.md",
+      "name": "data-pipeline",
+      "domain": "incoming",
+      "description": "Design and implement a complete data pipeline for batch and streaming data processing."
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/api-mock.md",
+      "name": "api-mock",
+      "domain": "incoming",
+      "description": "Create a comprehensive API mocking framework for development, testing, and demonstration purposes."
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/data-driven-feature.md",
+      "name": "data-driven-feature",
+      "domain": "incoming",
+      "description": "Build features guided by data insights, A/B testing, and continuous measurement using specialized agents for analysis, implementation, and experimentation."
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/ml-pipeline.md",
+      "name": "ml-pipeline",
+      "domain": "incoming",
+      "description": "Design and implement a complete ML pipeline for: $ARGUMENTS"
+    },
+    {
+      "type": "command",
+      "path": "commands/incoming/tech-debt.md",
+      "name": "tech-debt",
+      "domain": "incoming",
+      "description": "You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical debt in software projects"
+    },
+    {
+      "type": "command",
       "path": "commands/tdd/tdd-red.md",
       "name": "tdd-red",
       "domain": "tdd",
-      "description": ""
+      "description": "Generate failing tests using Task tool with subagent_type=\"unit-testing::test-automator\""
     },
     {
       "type": "command",
       "path": "commands/tdd/tdd-refactor.md",
       "name": "tdd-refactor",
       "domain": "tdd",
-      "description": ""
+      "description": "Use Task tool with subagent_type=\"tdd-orchestrator\" to perform safe refactoring"
     },
     {
       "type": "command",
       "path": "commands/tdd/tdd-green.md",
       "name": "tdd-green",
       "domain": "tdd",
-      "description": ""
+      "description": "Use Task tool with subagent_type=\"unit-testing::test-automator\" to implement minimal passing code"
     },
     {
       "type": "command",
       "path": "commands/tdd/tdd-cycle.md",
       "name": "tdd-cycle",
       "domain": "tdd",
-      "description": ""
+      "description": "Configuration"
     },
     {
       "type": "command",
       "path": "commands/git/clean-branches.md",
       "name": "clean-branches",
       "domain": "git",
-      "description": ""
+      "description": "Clean up merged branches and organize repository structure: $ARGUMENTS"
     },
     {
       "type": "command",
       "path": "commands/git/git-status.md",
       "name": "git-status",
       "domain": "git",
-      "description": ""
+      "description": "Show detailed git repository status"
     },
     {
       "type": "command",
       "path": "commands/git/update-branch-name.md",
       "name": "update-branch-name",
       "domain": "git",
-      "description": ""
+      "description": "Follow these steps to update the current branch name:"
     },
     {
       "type": "command",
       "path": "commands/git/fix-github-issue.md",
       "name": "fix-github-issue",
       "domain": "git",
-      "description": ""
+      "description": "Please analyze and fix the GitHub issue: $ARGUMENTS"
     },
     {
       "type": "command",
       "path": "commands/git/create-pr.md",
       "name": "create-pr",
       "domain": "git",
-      "description": ""
+      "description": "This guide explains how to create pull requests using GitHub CLI in our project"
     },
     {
       "type": "command",
       "path": "commands/git/create-worktrees.md",
       "name": "create-worktrees",
       "domain": "git",
-      "description": ""
+      "description": "Git Worktree Commands"
     },
     {
       "type": "command",
       "path": "commands/git/pr-review.md",
       "name": "pr-review",
       "domain": "git",
-      "description": ""
+      "description": "**PR Link/Number**: $ARGUMENTS"
     },
     {
       "type": "command",
       "path": "commands/git/git-bisect-helper.md",
       "name": "git-bisect-helper",
       "domain": "git",
-      "description": ""
+      "description": "Automated git bisect session to find regression commits: $ARGUMENTS"
     },
     {
       "type": "command",
       "path": "commands/debug/smart-debug.md",
       "name": "smart-debug",
       "domain": "debug",
-      "description": ""
+      "description": "Process issue from: $ARGUMENTS"
     },
     {
       "type": "command",
       "path": "commands/debug/incident-response.md",
       "name": "incident-response",
       "domain": "debug",
-      "description": ""
+      "description": "Configuration"
     },
     {
       "type": "command",
       "path": "commands/debug/error-trace.md",
       "name": "error-trace",
       "domain": "debug",
-      "description": ""
+      "description": "You are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions"
     },
     {
       "type": "command",
       "path": "commands/debug/error-analysis.md",
       "name": "error-analysis",
       "domain": "debug",
-      "description": ""
+      "description": "You are an expert error analysis specialist with deep expertise in debugging distributed systems, analyzing production incidents, and implementing comprehensive observability solutions"
     }
   ],
   "skills": [
@@ -2209,6 +2209,16 @@
       "domain": null,
       "description": "Python scripting with uv and PEP 723 inline dependencies. Use when creating standalone Python scripts with automatic dependency management.",
       "has_references": true,
+      "has_scripts": false,
+      "has_assets": false
+    },
+    {
+      "type": "skill",
+      "path": "skills/use-conductor/SKILL.md",
+      "name": "use-conductor",
+      "domain": null,
+      "description": "Scan conductor/ directory for project direction, workflows, and task planning when present",
+      "has_references": false,
       "has_scripts": false,
       "has_assets": false
     },
@@ -2547,7 +2557,7 @@
       "path": "skills/tool-presets/SKILL.md",
       "name": "tool-presets",
       "domain": null,
-      "description": "",
+      "description": "Standardized tool set definitions for Claude Code agents ensuring consistent tool access across similar agent types",
       "has_references": false,
       "has_scripts": false,
       "has_assets": false
@@ -2757,72 +2767,72 @@
     {
       "type": "hook",
       "path": "hooks/analyzers/typecheck_changed.md",
-      "name": "typecheck_changed",
+      "name": "typecheck-changed",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run TypeScript type checking on changed files."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/lint_changed.md",
-      "name": "lint_changed",
+      "name": "lint-changed",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run linting on changed files."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/check_any_changed.md",
-      "name": "check_any_changed",
+      "name": "check-any-changed",
       "domain": "analyzers",
-      "description": ""
+      "description": "Check for any types in TypeScript files"
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/import_validator.md",
-      "name": "import_validator",
+      "name": "import-validator",
       "domain": "analyzers",
-      "description": ""
+      "description": "Import validator hook."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/test_project.md",
-      "name": "test_project",
+      "name": "test-project",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run full test suite when stopping."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/check_unused_parameters.md",
-      "name": "check_unused_parameters",
+      "name": "check-unused-parameters",
       "domain": "analyzers",
-      "description": ""
+      "description": "Detect lazy refactoring with underscore-prefixed params."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/typecheck_on_save.md",
-      "name": "typecheck_on_save",
+      "name": "typecheck-on-save",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run type checking on changed files."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/typecheck_project.md",
-      "name": "typecheck_project",
+      "name": "typecheck-project",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run TypeScript validation on entire project."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/lint_project.md",
-      "name": "lint_project",
+      "name": "lint-project",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run linting on entire project."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/dependency_vuln_check.md",
-      "name": "dependency_vuln_check",
+      "name": "dependency-vuln-check",
       "domain": "analyzers",
-      "description": ""
+      "description": "Check for dependency vulnerabilities when package files change."
     },
     {
       "type": "hook",
@@ -2834,65 +2844,65 @@
     {
       "type": "hook",
       "path": "hooks/analyzers/git_diff_logger.md",
-      "name": "git_diff_logger",
+      "name": "git-diff-logger",
       "domain": "analyzers",
-      "description": ""
+      "description": "Log git diffs for all file changes in a session."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/todo_tracker.md",
-      "name": "todo_tracker",
+      "name": "todo-tracker",
       "domain": "analyzers",
-      "description": ""
+      "description": "TO-DO tracker hook."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/security_audit.md",
-      "name": "security_audit",
+      "name": "security-audit",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run security audit on changed files."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/complexity_checker.md",
-      "name": "complexity_checker",
+      "name": "complexity-checker",
       "domain": "analyzers",
-      "description": ""
+      "description": "Complexity checker hook."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/check_comment_replacement.md",
-      "name": "check_comment_replacement",
+      "name": "check-comment-replacement",
       "domain": "analyzers",
-      "description": ""
+      "description": "Detect when code is replaced with comments."
     },
     {
       "type": "hook",
       "path": "hooks/analyzers/test_changed.md",
-      "name": "test_changed",
+      "name": "test-changed",
       "domain": "analyzers",
-      "description": ""
+      "description": "Run tests for changed files when saving."
     },
     {
       "type": "hook",
       "path": "hooks/context/related_files.md",
-      "name": "related_files",
+      "name": "related-files",
       "domain": "context",
-      "description": ""
+      "description": "Related files hook."
     },
     {
       "type": "hook",
       "path": "hooks/context/project_detector.md",
-      "name": "project_detector",
+      "name": "project-detector",
       "domain": "context",
-      "description": ""
+      "description": "Project detector hook."
     },
     {
       "type": "hook",
       "path": "hooks/context/context_injector.md",
-      "name": "context_injector",
+      "name": "context-injector",
       "domain": "context",
-      "description": ""
+      "description": "Inject relevant context based on keywords in prompt."
     },
     {
       "type": "hook",
@@ -2904,30 +2914,30 @@
     {
       "type": "hook",
       "path": "hooks/context/jit_context.md",
-      "name": "jit_context",
+      "name": "jit-context",
       "domain": "context",
-      "description": ""
+      "description": "JIT Context Hook for Claude Code UserPromptSubmit events."
     },
     {
       "type": "hook",
       "path": "hooks/context/session_logger.md",
-      "name": "session_logger",
+      "name": "session-logger",
       "domain": "context",
-      "description": ""
+      "description": "Log all prompts for later review."
     },
     {
       "type": "hook",
       "path": "hooks/context/codebase_map.md",
-      "name": "codebase_map",
+      "name": "codebase-map",
       "domain": "context",
-      "description": ""
+      "description": "Add codebase map to context at session start."
     },
     {
       "type": "hook",
       "path": "hooks/context/recent_changes.md",
-      "name": "recent_changes",
+      "name": "recent-changes",
       "domain": "context",
-      "description": ""
+      "description": "Recent changes hook."
     },
     {
       "type": "hook",
@@ -2939,58 +2949,58 @@
     {
       "type": "hook",
       "path": "hooks/lifecycle/create_checkpoint.md",
-      "name": "create_checkpoint",
+      "name": "create-checkpoint",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Git auto-checkpoint on stop."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/metrics_collector.md",
-      "name": "metrics_collector",
+      "name": "metrics-collector",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Metrics collector hook."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/commit_suggester.md",
-      "name": "commit_suggester",
+      "name": "commit-suggester",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Commit suggester hook."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/export_conversation.md",
-      "name": "export_conversation",
+      "name": "export-conversation",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Export conversation transcript to file."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/self_review.md",
-      "name": "self_review",
+      "name": "self-review",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Prompt critical self-review."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/check_todos.md",
-      "name": "check_todos",
+      "name": "check-todos",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Validate todo completions before stop."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/knowledge_update.md",
-      "name": "knowledge_update",
+      "name": "knowledge-update",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Knowledge update hook."
     },
     {
       "type": "hook",
       "path": "hooks/lifecycle/session_summary.md",
-      "name": "session_summary",
+      "name": "session-summary",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Generate markdown summary of what was accomplished in the session when stopping."
     },
     {
       "type": "hook",
@@ -3002,100 +3012,100 @@
     {
       "type": "hook",
       "path": "hooks/lifecycle/cleanup_handler.md",
-      "name": "cleanup_handler",
+      "name": "cleanup-handler",
       "domain": "lifecycle",
-      "description": ""
+      "description": "Clean up temporary files and resources at end of session."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/session_start.md",
-      "name": "session_start",
+      "name": "session-start",
       "domain": "workflows",
-      "description": ""
+      "description": "SessionStart workflow - runs when a Claude Code session starts."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/subagent_stop.md",
-      "name": "subagent_stop",
+      "name": "subagent-stop",
       "domain": "workflows",
-      "description": ""
+      "description": "SubagentStop workflow - runs when a Claude Code subagent (Task tool) finishes."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/session_end.md",
-      "name": "session_end",
+      "name": "session-end",
       "domain": "workflows",
-      "description": ""
+      "description": "SessionEnd workflow - runs when a Claude Code session ends."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/post_tool_use.md",
-      "name": "post_tool_use",
+      "name": "post-tool-use",
       "domain": "workflows",
-      "description": ""
+      "description": "PostToolUse workflow - runs analyzers after tool execution."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/user_prompt.md",
-      "name": "user_prompt",
+      "name": "user-prompt",
       "domain": "workflows",
-      "description": ""
+      "description": "UserPromptSubmit workflow - injects context when user submits a prompt."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/pre_tool_use.md",
-      "name": "pre_tool_use",
+      "name": "pre-tool-use",
       "domain": "workflows",
-      "description": ""
+      "description": "PreToolUse workflow - runs all guard checks before tool execution."
     },
     {
       "type": "hook",
       "path": "hooks/workflows/todo_sync.md",
-      "name": "todo_sync",
+      "name": "todo-sync",
       "domain": "workflows",
-      "description": ""
+      "description": "PostToolUse hook for TodoWrite - syncs todos to joedb SQLite database"
     },
     {
       "type": "hook",
       "path": "hooks/workflows/stop.md",
       "name": "stop",
       "domain": "workflows",
-      "description": ""
+      "description": "Stop workflow - runs lifecycle hooks when session ends."
     },
     {
       "type": "hook",
       "path": "hooks/lib/base.md",
       "name": "base",
       "domain": "lib",
-      "description": ""
+      "description": "Base class for Claude Code hooks."
     },
     {
       "type": "hook",
       "path": "hooks/lib/patterns.md",
       "name": "patterns",
       "domain": "lib",
-      "description": ""
+      "description": "Pattern matching utilities for hooks."
     },
     {
       "type": "hook",
       "path": "hooks/lib/config.md",
       "name": "config",
       "domain": "lib",
-      "description": ""
+      "description": "Configuration loading for hooks."
     },
     {
       "type": "hook",
       "path": "hooks/lib/logging.md",
       "name": "logging",
       "domain": "lib",
-      "description": ""
+      "description": "Shared hook invocation logging."
     },
     {
       "type": "hook",
       "path": "hooks/lib/detection.md",
       "name": "detection",
       "domain": "lib",
-      "description": ""
+      "description": "Tool and project detection utilities."
     },
     {
       "type": "hook",
@@ -3109,49 +3119,49 @@
       "path": "hooks/lib/subprocess.md",
       "name": "subprocess",
       "domain": "lib",
-      "description": ""
+      "description": "Async subprocess utilities for hooks."
     },
     {
       "type": "hook",
       "path": "hooks/guards/dangerous_command_guard.md",
-      "name": "dangerous_command_guard",
+      "name": "dangerous-command-guard",
       "domain": "guards",
-      "description": ""
+      "description": "Block dangerous shell commands before execution."
     },
     {
       "type": "hook",
       "path": "hooks/guards/file_protection.md",
-      "name": "file_protection",
+      "name": "file-protection",
       "domain": "guards",
-      "description": ""
+      "description": "Prevent modifications to critical files."
     },
     {
       "type": "hook",
       "path": "hooks/guards/path_validation.md",
-      "name": "path_validation",
+      "name": "path-validation",
       "domain": "guards",
-      "description": ""
+      "description": "Path validation hook."
     },
     {
       "type": "hook",
       "path": "hooks/guards/large_file_guard.md",
-      "name": "large_file_guard",
+      "name": "large-file-guard",
       "domain": "guards",
-      "description": ""
+      "description": "Large file guard hook."
     },
     {
       "type": "hook",
       "path": "hooks/guards/readonly_guard.md",
-      "name": "readonly_guard",
+      "name": "readonly-guard",
       "domain": "guards",
-      "description": ""
+      "description": "Readonly files guard hook."
     },
     {
       "type": "hook",
       "path": "hooks/guards/secret_scanner.md",
-      "name": "secret_scanner",
+      "name": "secret-scanner",
       "domain": "guards",
-      "description": ""
+      "description": "Scan file content for exposed secrets before writing."
     },
     {
       "type": "hook",
@@ -3163,9 +3173,9 @@
     {
       "type": "hook",
       "path": "hooks/guards/branch_protection.md",
-      "name": "branch_protection",
+      "name": "branch-protection",
       "domain": "guards",
-      "description": ""
+      "description": "Branch protection hook."
     }
   ],
   "templates": [

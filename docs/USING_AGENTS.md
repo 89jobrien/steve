@@ -106,77 +106,77 @@ Or search by keyword:
 
 Agents are organized by domain:
 
-| Domain | Use Cases |
-|--------|-----------|
-| `code-quality` | Code review, linting, refactoring |
-| `development` | Debugging, feature development |
-| `devops-infrastructure` | CI/CD, deployment, Docker |
-| `database` | Schema design, query optimization |
-| `data-ai` | ML pipelines, data analysis |
-| `documentation` | Technical writing, API docs |
-| `quality` | Testing, TDD, performance |
-| `web-tools` | Frontend, SEO, accessibility |
+| Domain                  | Use Cases                         |
+| ----------------------- | --------------------------------- |
+| `code-quality`          | Code review, linting, refactoring |
+| `development`           | Debugging, feature development    |
+| `devops-infrastructure` | CI/CD, deployment, Docker         |
+| `database`              | Schema design, query optimization |
+| `data-ai`               | ML pipelines, data analysis       |
+| `documentation`         | Technical writing, API docs       |
+| `quality`               | Testing, TDD, performance         |
+| `web-tools`             | Frontend, SEO, accessibility      |
 
 ### Recommended Agents by Task
 
-| Task | Agent |
-|------|-------|
-| Review code changes | `code-reviewer` |
-| Debug an error | `debugger` |
-| Write tests | `test-engineer` |
-| Design database schema | `database-architect` |
-| Optimize queries | `database-optimizer` |
-| Set up CI/CD | `github-actions-expert` |
-| Create Docker setup | `docker-expert` |
-| Research a topic | `research-orchestrator-v2` |
+| Task                   | Agent                      |
+| ---------------------- | -------------------------- |
+| Review code changes    | `code-reviewer`            |
+| Debug an error         | `debugger`                 |
+| Write tests            | `test-engineer`            |
+| Design database schema | `database-architect`       |
+| Optimize queries       | `database-optimizer`       |
+| Set up CI/CD           | `github-actions-expert`    |
+| Create Docker setup    | `docker-expert`            |
+| Research a topic       | `research-orchestrator-v2` |
 
 ## Agent Configuration
 
 ### Frontmatter Fields
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | Unique identifier (kebab-case) |
-| `description` | Yes | What the agent does |
-| `tools` | No | Comma-separated tool list |
-| `model` | No | `haiku`, `sonnet`, or `opus` (default: sonnet) |
-| `skills` | No | Comma-separated skill names |
-| `color` | No | Terminal color for output |
+| Field         | Required | Description                                    |
+| ------------- | -------- | ---------------------------------------------- |
+| `name`        | Yes      | Unique identifier (kebab-case)                 |
+| `description` | Yes      | What the agent does                            |
+| `tools`       | No       | Comma-separated tool list                      |
+| `model`       | No       | `haiku`, `sonnet`, or `opus` (default: sonnet) |
+| `skills`      | No       | Comma-separated skill names                    |
+| `color`       | No       | Terminal color for output                      |
 
 ### Tool Restrictions
 
 Agents can only use tools listed in their `tools` field:
 
 ```yaml
-tools: Read, Grep, Glob  # Read-only agent
+tools: Read, Grep, Glob # Read-only agent
 ```
 
 ```yaml
-tools: Read, Write, Edit, Bash  # Full access agent
+tools: Read, Write, Edit, Bash # Full access agent
 ```
 
 ```yaml
-tools: All tools  # Unrestricted access
+tools: All tools # Unrestricted access
 ```
 
 Common tool combinations:
 
-| Use Case | Tools |
-|----------|-------|
-| Read-only analysis | `Read, Grep, Glob` |
-| Code modification | `Read, Write, Edit, Grep, Glob` |
-| Full development | `Read, Write, Edit, Bash, Grep, Glob` |
-| Research | `Read, WebFetch, WebSearch` |
+| Use Case           | Tools                                 |
+| ------------------ | ------------------------------------- |
+| Read-only analysis | `Read, Grep, Glob`                    |
+| Code modification  | `Read, Write, Edit, Grep, Glob`       |
+| Full development   | `Read, Write, Edit, Bash, Grep, Glob` |
+| Research           | `Read, WebFetch, WebSearch`           |
 
 ### Model Selection
 
 Choose the model based on task complexity:
 
-| Model | Best For |
-|-------|----------|
-| `haiku` | Simple, fast tasks (formatting, quick lookups) |
-| `sonnet` | Most tasks (code review, debugging, development) |
-| `opus` | Complex reasoning (architecture, research synthesis) |
+| Model    | Best For                                             |
+| -------- | ---------------------------------------------------- |
+| `haiku`  | Simple, fast tasks (formatting, quick lookups)       |
+| `sonnet` | Most tasks (code review, debugging, development)     |
+| `opus`   | Complex reasoning (architecture, research synthesis) |
 
 ### Skill References
 
@@ -230,7 +230,6 @@ description: Does something specific
 tools: Read, Write, Edit
 model: sonnet
 ---
-
 # My Custom Agent
 
 [Purpose and instructions here]

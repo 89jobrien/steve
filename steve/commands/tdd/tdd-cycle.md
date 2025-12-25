@@ -1,9 +1,12 @@
 ---
+allowed-tools: Task, Write
+description: Configuration
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: tdd-cycle
 ---
 
 Execute a comprehensive Test-Driven Development (TDD) workflow with strict red-green-refactor discipline:

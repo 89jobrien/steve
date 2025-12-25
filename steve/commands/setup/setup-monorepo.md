@@ -1,4 +1,7 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Configure comprehensive monorepo structure with advanced workspace management:
+  **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

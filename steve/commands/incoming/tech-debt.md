@@ -1,9 +1,13 @@
 ---
+allowed-tools: Read, Write
+description: You are a technical debt expert specializing in identifying, quantifying,
+  and prioritizing technical debt in software projects
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: tech-debt
 ---
 
 # Technical Debt Analysis and Remediation

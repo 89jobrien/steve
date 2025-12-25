@@ -1,9 +1,13 @@
 ---
+allowed-tools: Grep, Write
+description: You are an expert LangChain agent developer specializing in production-grade
+  AI systems using LangChain 0.1+ and LangGraph
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: langchain-agent
 ---
 
 # LangChain/LangGraph Agent Development Expert

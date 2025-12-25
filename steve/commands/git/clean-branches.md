@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Grep, Read
+description: 'Clean up merged branches and organize repository structure: $ARGUMENTS'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

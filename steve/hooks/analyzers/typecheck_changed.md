@@ -1,11 +1,12 @@
 ---
+name: typecheck-changed
+description: Run TypeScript type checking on changed files.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Typecheck Changed
 
 ```python

@@ -127,37 +127,37 @@ The agent gains expertise from all referenced skills.
 
 ### Development Skills
 
-| Skill | Description |
-|-------|-------------|
-| `code-review` | Code review methodology |
-| `debugging` | Debugging workflows and patterns |
-| `testing` | TDD and testing practices |
-| `dead-code-removal` | Unused code detection |
+| Skill               | Description                      |
+| ------------------- | -------------------------------- |
+| `code-review`       | Code review methodology          |
+| `debugging`         | Debugging workflows and patterns |
+| `testing`           | TDD and testing practices        |
+| `dead-code-removal` | Unused code detection            |
 
 ### Documentation Skills
 
-| Skill | Description |
-|-------|-------------|
-| `documentation` | Technical writing standards |
-| `git-workflow` | Git and PR conventions |
-| `git-commit-helper` | Commit message generation |
+| Skill               | Description                 |
+| ------------------- | --------------------------- |
+| `documentation`     | Technical writing standards |
+| `git-workflow`      | Git and PR conventions      |
+| `git-commit-helper` | Commit message generation   |
 
 ### Infrastructure Skills
 
-| Skill | Description |
-|-------|-------------|
-| `cloud-infrastructure` | AWS/Azure/GCP patterns |
-| `network-engineering` | Network architecture |
-| `shell-scripting` | Shell script best practices |
+| Skill                  | Description                 |
+| ---------------------- | --------------------------- |
+| `cloud-infrastructure` | AWS/Azure/GCP patterns      |
+| `network-engineering`  | Network architecture        |
+| `shell-scripting`      | Shell script best practices |
 
 ### Specialized Skills
 
-| Skill | Description |
-|-------|-------------|
-| `database-optimization` | Query and schema optimization |
-| `security-audit` | Security assessment methodology |
-| `performance` | Performance optimization |
-| `ai-ethics` | Responsible AI development |
+| Skill                   | Description                     |
+| ----------------------- | ------------------------------- |
+| `database-optimization` | Query and schema optimization   |
+| `security-audit`        | Security assessment methodology |
+| `performance`           | Performance optimization        |
+| `ai-ethics`             | Responsible AI development      |
 
 See [Component Catalog](COMPONENT_CATALOG.md#skills) for the complete list.
 
@@ -206,6 +206,7 @@ Create `SKILL.md`:
 ---
 name: my-skill
 description: What this skill provides
+allowed-tools: Read, Write, Edit, Grep, Glob
 ---
 
 # My Skill
@@ -294,8 +295,8 @@ Skills that define a process:
 ---
 name: incident-response
 description: Systematic incident response methodology
+allowed-tools: Read, Write, Edit, Grep, Glob
 ---
-
 ## Phases
 
 1. Detection
@@ -313,6 +314,7 @@ Skills that provide verification lists:
 ---
 name: deployment-checklist
 description: Pre-deployment verification checklist
+allowed-tools: Read, Write, Edit, Grep, Glob
 ---
 
 ## Pre-Deployment
@@ -327,10 +329,11 @@ description: Pre-deployment verification checklist
 
 Skills that collect domain knowledge:
 
-```yaml
+````yaml
 ---
 name: sql-patterns
 description: Common SQL patterns and anti-patterns
+allowed-tools: Read, Write, Edit, Grep, Glob
 ---
 
 ## Query Patterns
@@ -338,15 +341,15 @@ description: Common SQL patterns and anti-patterns
 ### Pagination
 ```sql
 SELECT * FROM users LIMIT 10 OFFSET 20;
-```
+````
 
 ### Anti-patterns to Avoid
 
-- SELECT *
+- SELECT \*
 - Missing indexes
 - N+1 queries
 
-```
+````
 
 ### The Toolbox Pattern
 
@@ -359,7 +362,7 @@ skill/
     ├── analyze.py
     ├── report.py
     └── validate.py
-```
+````
 
 ## Troubleshooting
 

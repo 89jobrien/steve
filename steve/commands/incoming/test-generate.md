@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Grep, Read, Write
+description: You are a test automation expert specializing in generating comprehensive,
+  maintainable unit tests across multiple languages and frameworks
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: test-generate
 ---
 
 # Automated Unit Test Generation

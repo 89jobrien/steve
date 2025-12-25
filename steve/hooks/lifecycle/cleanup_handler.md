@@ -1,11 +1,12 @@
 ---
+name: cleanup-handler
+description: Clean up temporary files and resources at end of session.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Cleanup Handler
 
 ```python

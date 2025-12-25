@@ -9,6 +9,7 @@ status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: smart-fix
 ---
 
 # Intelligent Issue Resolution with Multi-Agent Orchestration

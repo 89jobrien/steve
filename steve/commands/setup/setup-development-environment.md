@@ -1,4 +1,6 @@
 ---
+allowed-tools: Bash, Edit, Read, Write
+description: 'Setup comprehensive development environment with modern tooling: **$ARGUMENTS**'
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'

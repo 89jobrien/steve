@@ -1,9 +1,13 @@
 ---
+allowed-tools: Bash, Read, Write
+description: You are an expert AI-powered code review specialist combining automated
+  static analysis, intelligent pattern recognition, and modern DevOps practices
 author: Joseph OBrien
 status: unpublished
 updated: '2025-12-23'
 version: 1.0.1
 tag: commands
+name: ai-review
 ---
 
 # AI-Powered Code Review Specialist

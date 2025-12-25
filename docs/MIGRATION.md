@@ -30,10 +30,10 @@ Initial stable release of the Steve component library.
 
 The following skills are deprecated and should be replaced:
 
-| Deprecated | Replacement | Notes |
-|------------|-------------|-------|
-| `design-docs` | `documentation` | Merged into unified documentation skill |
-| `migrations` | `documentation` | Migration guides now part of documentation skill |
+| Deprecated    | Replacement     | Notes                                            |
+| ------------- | --------------- | ------------------------------------------------ |
+| `design-docs` | `documentation` | Merged into unified documentation skill          |
+| `migrations`  | `documentation` | Migration guides now part of documentation skill |
 
 **Migration:**
 
@@ -51,9 +51,11 @@ skills: documentation
 
 ```markdown
 # Deprecated: Direct Bash in command
+
 Run: `bash scripts/lint.sh $ARGUMENTS`
 
 # Preferred: Invoke agent
+
 Use the code-linter agent to lint $ARGUMENTS
 ```
 
@@ -67,7 +69,6 @@ name: code-reviewer
 ## Code Review Process
 1. Check for bugs...
 2. Check for security...
-
 # Preferred: Reference skill
 ---
 name: code-reviewer
@@ -87,7 +88,6 @@ If migrating from early development versions:
 # Old format (unsupported)
 name = "agent-name"
 tools = ["Read", "Write"]
-
 # New format
 ---
 name: agent-name
@@ -157,11 +157,11 @@ Ensure all required fields are present:
 
 ```yaml
 ---
-name: agent-name          # Required
+name: agent-name # Required
 description: What it does # Required
-tools: Read, Write        # Recommended
-model: sonnet             # Optional, defaults to sonnet
-skills: skill1, skill2    # Optional
+tools: Read, Write # Recommended
+model: sonnet # Optional, defaults to sonnet
+skills: skill1, skill2 # Optional
 ---
 ```
 
@@ -177,7 +177,6 @@ name: my-agent
 ## Process
 1. Step one
 2. Step two
-
 # After: Reference skill
 ---
 name: my-agent
@@ -260,12 +259,12 @@ allowed-tools: Read, Write
 
 **1. Convert to New Event Names**
 
-| Old | New |
-|-----|-----|
-| `pre_write` | `PreToolUse` with `matcher: "Write"` |
-| `post_write` | `PostToolUse` with `matcher: "Write"` |
-| `session_init` | `SessionStart` |
-| `session_cleanup` | `SessionEnd` |
+| Old               | New                                   |
+| ----------------- | ------------------------------------- |
+| `pre_write`       | `PreToolUse` with `matcher: "Write"`  |
+| `post_write`      | `PostToolUse` with `matcher: "Write"` |
+| `session_init`    | `SessionStart`                        |
+| `session_cleanup` | `SessionEnd`                          |
 
 **2. Update settings.json**
 
@@ -305,15 +304,15 @@ tool_name = os.environ.get("TOOL", "unknown")
 
 ### Claude Code Versions
 
-| Steve Version | Claude Code Version | Notes |
-|---------------|---------------------|-------|
-| 1.0.x | 1.0+ | Full compatibility |
+| Steve Version | Claude Code Version | Notes              |
+| ------------- | ------------------- | ------------------ |
+| 1.0.x         | 1.0+                | Full compatibility |
 
 ### Python Requirements
 
-| Steve Version | Python Version | Notes |
-|---------------|----------------|-------|
-| 1.0.x | 3.12+ | Required for scripts |
+| Steve Version | Python Version | Notes                |
+| ------------- | -------------- | -------------------- |
+| 1.0.x         | 3.12+          | Required for scripts |
 
 ### Dependencies
 

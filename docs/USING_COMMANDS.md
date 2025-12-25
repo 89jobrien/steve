@@ -86,74 +86,74 @@ Some commands work without arguments:
 
 ### Development (`/dev:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `review-code` | Code quality review | `/dev:review-code [file]` |
-| `review-architecture` | Architecture analysis | `/dev:review-architecture [scope]` |
-| `containerize-application` | Create Dockerfile | `/dev:containerize-application [type]` |
-| `design-rest-api` | API design | `/dev:design-rest-api [version]` |
-| `remove-ai-slop` | Clean AI-generated code | `/dev:remove-ai-slop [branch]` |
+| Command                    | Description             | Usage                                  |
+| -------------------------- | ----------------------- | -------------------------------------- |
+| `review-code`              | Code quality review     | `/dev:review-code [file]`              |
+| `review-architecture`      | Architecture analysis   | `/dev:review-architecture [scope]`     |
+| `containerize-application` | Create Dockerfile       | `/dev:containerize-application [type]` |
+| `design-rest-api`          | API design              | `/dev:design-rest-api [version]`       |
+| `remove-ai-slop`           | Clean AI-generated code | `/dev:remove-ai-slop [branch]`         |
 
 ### Git (`/git:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `clean-branches` | Clean merged branches | `/git:clean-branches [--dry-run]` |
+| Command             | Description             | Usage                              |
+| ------------------- | ----------------------- | ---------------------------------- |
+| `clean-branches`    | Clean merged branches   | `/git:clean-branches [--dry-run]`  |
 | `git-bisect-helper` | Find regression commits | `/git:git-bisect-helper [commits]` |
 
 ### Testing (`/test:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `init` | Initialize test config | `/test:init [--framework]` |
-| `run` | Run tests | `/test:run [--coverage]` |
-| `report` | Generate test report | `/test:report [--verbose]` |
-| `test` | Write tests (TDD) | `/test:test [file]` |
+| Command  | Description            | Usage                      |
+| -------- | ---------------------- | -------------------------- |
+| `init`   | Initialize test config | `/test:init [--framework]` |
+| `run`    | Run tests              | `/test:run [--coverage]`   |
+| `report` | Generate test report   | `/test:report [--verbose]` |
+| `test`   | Write tests (TDD)      | `/test:test [file]`        |
 
 ### Documentation (`/docs:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `create-prd` | Create PRD | `/docs:create-prd [feature]` |
-| `update-docs` | Update documentation | `/docs:update-docs [type]` |
-| `create-architecture-documentation` | Generate arch docs | `/docs:create-architecture-documentation` |
-| `create-onboarding-guide` | Create onboarding guide | `/docs:create-onboarding-guide [type]` |
+| Command                             | Description             | Usage                                     |
+| ----------------------------------- | ----------------------- | ----------------------------------------- |
+| `create-prd`                        | Create PRD              | `/docs:create-prd [feature]`              |
+| `update-docs`                       | Update documentation    | `/docs:update-docs [type]`                |
+| `create-architecture-documentation` | Generate arch docs      | `/docs:create-architecture-documentation` |
+| `create-onboarding-guide`           | Create onboarding guide | `/docs:create-onboarding-guide [type]`    |
 
 ### Setup (`/setup:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `setup-ci-cd-pipeline` | Setup CI/CD | `/setup:setup-ci-cd-pipeline [platform]` |
-| `setup-docker-containers` | Setup Docker dev env | `/setup:setup-docker-containers` |
-| `setup-linting` | Configure linting | `/setup:setup-linting [language]` |
-| `setup-formatting` | Configure formatting | `/setup:setup-formatting [language]` |
-| `setup-monorepo` | Configure monorepo | `/setup:setup-monorepo [tool]` |
+| Command                   | Description          | Usage                                    |
+| ------------------------- | -------------------- | ---------------------------------------- |
+| `setup-ci-cd-pipeline`    | Setup CI/CD          | `/setup:setup-ci-cd-pipeline [platform]` |
+| `setup-docker-containers` | Setup Docker dev env | `/setup:setup-docker-containers`         |
+| `setup-linting`           | Configure linting    | `/setup:setup-linting [language]`        |
+| `setup-formatting`        | Configure formatting | `/setup:setup-formatting [language]`     |
+| `setup-monorepo`          | Configure monorepo   | `/setup:setup-monorepo [tool]`           |
 
 ### Memory (`/memory:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `add` | Add to knowledge graph | `/memory:add` |
+| Command  | Description            | Usage            |
+| -------- | ---------------------- | ---------------- |
+| `add`    | Add to knowledge graph | `/memory:add`    |
 | `search` | Search knowledge graph | `/memory:search` |
-| `view` | View knowledge graph | `/memory:view` |
-| `relate` | Create relationships | `/memory:relate` |
-| `forget` | Remove from graph | `/memory:forget` |
+| `view`   | View knowledge graph   | `/memory:view`   |
+| `relate` | Create relationships   | `/memory:relate` |
+| `forget` | Remove from graph      | `/memory:forget` |
 
 ### Meta (`/meta:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `create-subagent` | Create new agent | `/meta:create-subagent [description]` |
-| `create-skill` | Create new skill | `/meta:create-skill [name] [description]` |
-| `create-command` | Create new command | `/meta:create-command [name] [description]` |
+| Command           | Description        | Usage                                       |
+| ----------------- | ------------------ | ------------------------------------------- |
+| `create-subagent` | Create new agent   | `/meta:create-subagent [description]`       |
+| `create-skill`    | Create new skill   | `/meta:create-skill [name] [description]`   |
+| `create-command`  | Create new command | `/meta:create-command [name] [description]` |
 
 ### Utilities (`/util:*`)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `ultra-think` | Deep analysis | `/util:ultra-think [problem]` |
-| `update-dependencies` | Update deps | `/util:update-dependencies [strategy]` |
-| `audit-components` | Audit components | `/util:audit-components [type]` |
+| Command               | Description      | Usage                                  |
+| --------------------- | ---------------- | -------------------------------------- |
+| `ultra-think`         | Deep analysis    | `/util:ultra-think [problem]`          |
+| `update-dependencies` | Update deps      | `/util:update-dependencies [strategy]` |
+| `audit-components`    | Audit components | `/util:audit-components [type]`        |
 
 See [Component Catalog](COMPONENT_CATALOG.md#commands) for the complete list.
 
@@ -209,7 +209,6 @@ Create a file in `~/.claude/commands/`:
 ---
 description: What this command does
 ---
-
 # My Command
 
 Instructions for what to do when invoked.
@@ -235,7 +234,6 @@ Process the specified file or all files if --all is provided.
 description: Read-only analysis
 allowed-tools: Read, Grep, Glob
 ---
-
 # Analysis Command
 
 Analyze code without making changes.
@@ -265,7 +263,6 @@ Commands that orchestrate multi-step processes:
 ---
 description: Full code review workflow
 ---
-
 # Code Review Workflow
 
 1. Check for uncommitted changes
@@ -284,14 +281,13 @@ Commands that gather and present information:
 description: Analyze codebase structure
 allowed-tools: Read, Grep, Glob
 ---
-
 # Codebase Analysis
 
 Analyze and report on:
-- Directory structure
-- File counts by type
-- Dependency graph
-- Code metrics
+  - Directory structure
+  - File counts by type
+  - Dependency graph
+  - Code metrics
 ```
 
 ### The Generator Pattern
@@ -302,7 +298,6 @@ Commands that create new content:
 ---
 description: Generate API documentation
 ---
-
 # API Documentation Generator
 
 Generate OpenAPI spec for all endpoints in the codebase.

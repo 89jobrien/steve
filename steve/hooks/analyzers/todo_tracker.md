@@ -1,11 +1,12 @@
 ---
+name: todo-tracker
+description: TO-DO tracker hook.
 author: Joseph OBrien
 status: unpublished
-updated: '2025-12-23'
+updated: 2025-12-23
 version: 1.0.1
 tag: hook
 ---
-
 # Todo Tracker
 
 ```python
