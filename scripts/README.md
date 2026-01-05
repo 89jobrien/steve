@@ -253,6 +253,63 @@ This creates a Gist containing `.gist-registry.json` that others can use to disc
    python scripts/install_from_gist.py <gist-url>
    ```
 
+## Analysis Scripts
+
+### health.py
+
+Generate workspace health report with component counts and storage breakdown.
+
+```bash
+uv run python -m scripts.health
+uv run python -m scripts.health --json
+```
+
+### audit.py
+
+Security audit for the repository. Scans for exposed credentials, sensitive files, and security issues.
+
+```bash
+uv run python -m scripts.audit
+uv run python -m scripts.audit --json
+```
+
+### lint.py
+
+Component linter that checks for quality issues, missing fields, and best practices.
+
+```bash
+uv run python -m scripts.lint
+uv run python -m scripts.lint --json
+uv run python -m scripts.lint --errors-only
+```
+
+**Lint Rules:**
+
+- **Agents:** name, description, tools required; model recommended
+- **Commands:** description required; allowed-tools recommended
+- **Skills:** name required in SKILL.md; description recommended
+- **Hooks:** name, description required
+- **Structure:** kebab-case filenames; name/filename matching
+
+### stale.py
+
+Find components that haven't been modified recently.
+
+```bash
+uv run python -m scripts.stale
+uv run python -m scripts.stale --days 30
+uv run python -m scripts.stale --json
+```
+
+### coverage.py
+
+Analyze tool usage across agents. Shows which tools are most/least used.
+
+```bash
+uv run python -m scripts.coverage
+uv run python -m scripts.coverage --json
+```
+
 ## Other Scripts
 
 - `python_to_markdown.py` - Convert Python scripts to markdown documentation
@@ -262,5 +319,5 @@ This creates a Gist containing `.gist-registry.json` that others can use to disc
 Install all Python dependencies:
 
 ```bash
-pip install -r scripts/requirements.txt
+uv sync --dev
 ```

@@ -2,7 +2,8 @@
 # Common development workflows
 
 .PHONY: help install dev lint format typecheck test clean index index-fast pre-commit hooks \
-        run-index run-list run-install run-publish run-publish-all run-secrets run-metadata run-batch-metadata
+        run-index run-list run-install run-publish run-publish-all run-secrets run-metadata run-batch-metadata \
+        health audit lint-components stale coverage
 
 # Default target
 help:
@@ -28,6 +29,13 @@ help:
 	@echo "  make index        Build component index"
 	@echo "  make index-fast   Build index with caching (~4x faster)"
 	@echo "  make list         List all components"
+	@echo ""
+	@echo "Analysis:"
+	@echo "  make health       Workspace health report"
+	@echo "  make audit        Security audit"
+	@echo "  make lint-components  Lint all components"
+	@echo "  make stale        Find stale components (use ARGS='--days N')"
+	@echo "  make coverage     Tool coverage analysis"
 	@echo ""
 	@echo "Scripts:"
 	@echo "  make run-index    Run build_index.py"
@@ -98,6 +106,25 @@ index-fast:
 
 list:
 	uv run python scripts/list_components.py
+
+# =============================================================================
+# Analysis
+# =============================================================================
+
+health:
+	uv run python -m scripts.health
+
+audit:
+	uv run python -m scripts.audit
+
+lint-components:
+	uv run python -m scripts.lint
+
+stale:
+	uv run python -m scripts.stale $(ARGS)
+
+coverage:
+	uv run python -m scripts.coverage
 
 # =============================================================================
 # Scripts (use ARGS='...' for arguments)
