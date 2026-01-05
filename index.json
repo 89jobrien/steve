@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2025-12-24T19:05:40.035813+00:00",
+  "generated_at": "2026-01-05T23:00:21.368308+00:00",
   "agents": [
     {
       "type": "agent",
@@ -15,11 +15,22 @@
     },
     {
       "type": "agent",
+      "path": "agents/data-ai/notebook-analyst.md",
+      "name": "notebook-analyst",
+      "domain": "data-ai",
+      "description": "Reads and analyzes Jupyter notebooks for code review, documentation, and understanding ML/data science workflows. Use PROACTIVELY when working with .ipynb files.",
+      "tools": "Read, NotebookRead, Grep, Glob, Write",
+      "model": "sonnet",
+      "color": "cyan",
+      "skills": ""
+    },
+    {
+      "type": "agent",
       "path": "agents/data-ai/ml-engineer.md",
       "name": "ml-engineer",
       "domain": "data-ai",
       "description": "ML production systems and model deployment specialist. Use PROACTIVELY for ML pipelines, model serving, feature engineering, A/B testing, monitoring, and production ML infrastructure.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(machine-learning), Skill(python-scripting)",
       "model": "sonnet",
       "color": "orange",
       "skills": "machine-learning, performance, python-scripting"
@@ -67,6 +78,17 @@
       "model": "sonnet",
       "color": "purple",
       "skills": "machine-learning, python-scripting, database-optimization"
+    },
+    {
+      "type": "agent",
+      "path": "agents/data-ai/notebook-developer.md",
+      "name": "notebook-developer",
+      "domain": "data-ai",
+      "description": "Creates and edits Jupyter notebooks for data science and ML workflows. Use PROACTIVELY when building analysis notebooks, ML experiments, or data exploration.",
+      "tools": "Read, NotebookRead, NotebookEdit, Write, Bash, Grep, Glob",
+      "model": "sonnet",
+      "color": "green",
+      "skills": ""
     },
     {
       "type": "agent",
@@ -129,7 +151,7 @@
       "name": "database-optimizer",
       "domain": "database",
       "description": "Database performance optimization, query tuning, and schema design specialist. Use PROACTIVELY for slow queries, N+1 problems, indexing strategies, execution plan analysis, migration strategies, and caching solutions.",
-      "tools": "Read, Write, Edit, Bash",
+      "tools": "Read, Write, Edit, Bash, Skill(database-optimization)",
       "model": "sonnet",
       "color": "blue",
       "skills": "database-optimization, tool-presets"
@@ -228,7 +250,7 @@
       "name": "memory-manager",
       "domain": "core",
       "description": "Specialist for managing persistent memory using the knowledge graph. Use for storing entities, creating relationships, adding observations, searching stored knowledge, and maintaining context across conversations.",
-      "tools": "Read, Write, Edit, Grep, Glob, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes",
+      "tools": "Read, Write, Edit, Grep, Glob, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, Skill(context-management)",
       "model": "sonnet",
       "color": "purple",
       "skills": "context-management"
@@ -293,7 +315,7 @@
       "name": "docker-expert",
       "domain": "expert-advisors",
       "description": "Specialist for Docker containerization, image optimization, security hardening, and production deployment patterns. Use proactively when encountering Dockerfile optimization, multi-stage builds, container debugging, security concerns, or production deployment questions.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(cloud-infrastructure), Skill(devops-runbooks)",
       "model": "sonnet",
       "color": "cyan",
       "skills": "cloud-infrastructure, devops-runbooks"
@@ -315,7 +337,7 @@
       "name": "pytest-tdd-expert",
       "domain": "expert-advisors",
       "description": "Python/pytest TDD specialist for auditing test quality, running tests with coverage, and generating comprehensive test reports. Use PROACTIVELY for test audits, pytest execution, coverage analysis, and generating TESTING_REPORT.local.md with findings and recommendations.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, Skill(tdd-pytest), Skill(testing)",
       "model": "sonnet",
       "color": "green",
       "skills": "testing, tdd-pytest"
@@ -337,7 +359,7 @@
       "name": "nextjs-expert",
       "domain": "expert-advisors",
       "description": "Next.js framework expert specializing in App Router, Server Components, performance optimization, and full-stack patterns. Use PROACTIVELY for Next.js routing issues, hydration errors, build problems, or deployment challenges.",
-      "tools": "Read, Grep, Glob, Bash, Edit, MultiEdit, Write, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Grep, Glob, Bash, Edit, MultiEdit, Write, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(nextjs-architecture), Skill(performance)",
       "model": "sonnet",
       "color": "purple",
       "skills": "nextjs-architecture, performance"
@@ -491,7 +513,7 @@
       "name": "test-engineer",
       "domain": "quality",
       "description": "Test automation and quality assurance specialist. Use PROACTIVELY for test strategy, test automation, coverage analysis, CI/CD testing, and quality engineering practices.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, Skill(testing), Skill(tdd-pytest)",
       "model": "sonnet",
       "color": "blue",
       "skills": "testing, tool-presets, tdd-pytest"
@@ -590,7 +612,7 @@
       "name": "performance-profiler",
       "domain": "quality",
       "description": "Performance analysis and optimization specialist. Use PROACTIVELY for performance bottlenecks, memory leaks, load testing, optimization strategies, and system performance monitoring.",
-      "tools": "Read, Write, Edit, Bash",
+      "tools": "Read, Write, Edit, Bash, Skill(performance)",
       "model": "sonnet",
       "color": "orange",
       "skills": "performance, tool-presets, meta-cognitive-reasoning"
@@ -612,7 +634,7 @@
       "name": "backend-architect",
       "domain": "development",
       "description": "Backend system architecture and API design specialist. Use PROACTIVELY for RESTful APIs, microservice boundaries, database schemas, scalability planning, and performance optimization.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, Skill(database-optimization), Skill(cloud-infrastructure)",
       "model": "opus",
       "color": "blue",
       "skills": "documentation, database-optimization, cloud-infrastructure"
@@ -623,7 +645,7 @@
       "name": "debugger",
       "domain": "development",
       "description": "Debugging specialist for errors, test failures, and unexpected behavior. Use PROACTIVELY when encountering issues, analyzing stack traces, or investigating system problems.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__ide__getDiagnostics, mcp__ide__executeCode",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__ide__getDiagnostics, mcp__ide__executeCode, Skill(debugging)",
       "model": "sonnet",
       "color": "red",
       "skills": "debugging, meta-cognitive-reasoning"
@@ -740,6 +762,17 @@
     },
     {
       "type": "agent",
+      "path": "agents/development/refactoring-planner.md",
+      "name": "refactoring-planner",
+      "domain": "development",
+      "description": "Plans complex refactoring with user approval before changes. Use PROACTIVELY for code reorganization, pattern migration, or structural changes affecting multiple files.",
+      "tools": "Read, Grep, Glob, EnterPlanMode, ExitPlanMode, AskUserQuestion",
+      "model": "sonnet",
+      "color": "orange",
+      "skills": ""
+    },
+    {
+      "type": "agent",
       "path": "agents/development/ui-ux-designer.md",
       "name": "ui-ux-designer",
       "domain": "development",
@@ -751,11 +784,22 @@
     },
     {
       "type": "agent",
+      "path": "agents/development/architecture-planner.md",
+      "name": "architecture-planner",
+      "domain": "development",
+      "description": "Designs feature architecture before implementation. Use PROACTIVELY for complex features, multi-file changes, or when implementation approach is unclear. Plans with user approval before writing code.",
+      "tools": "Read, Grep, Glob, EnterPlanMode, ExitPlanMode, AskUserQuestion",
+      "model": "sonnet",
+      "color": "purple",
+      "skills": ""
+    },
+    {
+      "type": "agent",
       "path": "agents/development/frontend-developer.md",
       "name": "frontend-developer",
       "domain": "development",
       "description": "Frontend development specialist for React applications and responsive design. Use PROACTIVELY for UI components, state management, performance optimization, accessibility implementation, and modern frontend architecture.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(web-accessibility), Skill(performance)",
       "model": "sonnet",
       "color": "cyan",
       "skills": "performance, web-accessibility, testing"
@@ -766,7 +810,7 @@
       "name": "prompt-engineer",
       "domain": "ai-specialists",
       "description": "Expert prompt optimization for LLMs and AI systems. Use PROACTIVELY when building AI features, improving agent performance, or crafting system prompts. Masters prompt patterns and techniques.",
-      "tools": "Read, Write, Edit",
+      "tools": "Read, Write, Edit, Skill(prompt-optimization)",
       "model": "opus",
       "color": "purple",
       "skills": "prompt-optimization"
@@ -1030,7 +1074,7 @@
       "name": "golang-pro",
       "domain": "programming-languages",
       "description": "Use proactively for enterprise-level Golang development including clean architecture, DDD, concurrency patterns, testing strategies, performance optimization, production readiness, API design, and security best practices",
-      "tools": "Read, Edit, Write, Bash, Grep, Glob, Task, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Edit, Write, Bash, Grep, Glob, Task, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(golang-enterprise-patterns), Skill(golang-testing)",
       "model": "sonnet",
       "color": "cyan",
       "skills": "golang-enterprise-patterns, golang-testing, golang-performance, testing"
@@ -1085,7 +1129,7 @@
       "name": "python-pro",
       "domain": "programming-languages",
       "description": "Write idiomatic Python code with advanced features like decorators, generators, and async/await. Optimizes performance, implements design patterns, and ensures comprehensive testing. Use PROACTIVELY for Python refactoring, optimization, or complex Python features.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(tdd-pytest), Skill(python-scripting)",
       "model": "sonnet",
       "color": "yellow",
       "skills": "tdd-pytest, testing, python-scripting"
@@ -1114,6 +1158,17 @@
     },
     {
       "type": "agent",
+      "path": "agents/devops-infrastructure/long-running-monitor.md",
+      "name": "long-running-monitor",
+      "domain": "devops-infrastructure",
+      "description": "Monitors and controls long-running processes and background tasks. Use PROACTIVELY for watching builds, deployments, or any operation that takes extended time.",
+      "tools": "Bash, TaskOutput, KillShell, Read, Grep",
+      "model": "haiku",
+      "color": "red",
+      "skills": ""
+    },
+    {
+      "type": "agent",
       "path": "agents/devops-infrastructure/monorepo-architect.md",
       "name": "monorepo-architect",
       "domain": "devops-infrastructure",
@@ -1129,7 +1184,7 @@
       "name": "cloud-architect",
       "domain": "devops-infrastructure",
       "description": "Cloud infrastructure design and optimization specialist for AWS/Azure/GCP. Use PROACTIVELY for infrastructure architecture, Terraform IaC, cost optimization, auto-scaling, and multi-region deployments.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, Skill(cloud-infrastructure), Skill(devops-runbooks)",
       "model": "opus",
       "color": "blue",
       "skills": "cloud-infrastructure, security-engineering, devops-runbooks"
@@ -1151,7 +1206,7 @@
       "name": "security-engineer",
       "domain": "devops-infrastructure",
       "description": "Security infrastructure and compliance specialist. Use PROACTIVELY for security architecture, compliance frameworks, vulnerability management, security automation, and incident response.",
-      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch",
+      "tools": "Read, Write, Edit, Bash, Grep, Glob, WebFetch, Skill(security-engineering), Skill(security-audit)",
       "model": "opus",
       "color": "red",
       "skills": "security-engineering, cloud-infrastructure, security-audit, meta-cognitive-reasoning"
@@ -1166,6 +1221,17 @@
       "model": "sonnet",
       "color": "green",
       "skills": "developer-experience, devops-runbooks, cloud-infrastructure"
+    },
+    {
+      "type": "agent",
+      "path": "agents/devops-infrastructure/parallel-task-coordinator.md",
+      "name": "parallel-task-coordinator",
+      "domain": "devops-infrastructure",
+      "description": "Orchestrates multiple background tasks and agents running in parallel. Use PROACTIVELY for concurrent operations, batch processing, or coordinating multiple independent workflows.",
+      "tools": "Task, Bash, TaskOutput, KillShell, Read, Write",
+      "model": "sonnet",
+      "color": "yellow",
+      "skills": ""
     },
     {
       "type": "agent",
@@ -1294,7 +1360,7 @@
       "name": "web-accessibility-checker",
       "domain": "web-tools",
       "description": "Web accessibility compliance specialist. Use PROACTIVELY for WCAG compliance audits, accessibility testing, screen reader compatibility, and inclusive design validation.",
-      "tools": "Read, Write, Edit, Grep, Glob",
+      "tools": "Read, Write, Edit, Grep, Glob, Skill(web-accessibility), Skill(testing)",
       "model": "sonnet",
       "color": "green",
       "skills": "web-accessibility, testing"
@@ -1305,7 +1371,7 @@
       "name": "seo-analyzer",
       "domain": "web-tools",
       "description": "SEO analysis and optimization specialist. Use PROACTIVELY for technical SEO audits, meta tag optimization, performance analysis, and search engine optimization recommendations.",
-      "tools": "Read, Write, WebFetch, WebSearch, Grep, Glob, mcp__MCP_DOCKER__tavily-search",
+      "tools": "Read, Write, WebFetch, WebSearch, Grep, Glob, mcp__MCP_DOCKER__tavily-search, Skill(seo-analysis), Skill(performance)",
       "model": "sonnet",
       "color": "green",
       "skills": "seo-analysis, performance"

@@ -1,6 +1,8 @@
 import re
-import yaml
 from pathlib import Path
+
+import yaml
+
 
 def parse_and_merge_frontmatter(content):
     # Double pattern
@@ -13,7 +15,7 @@ def parse_and_merge_frontmatter(content):
     if double_match:
         yaml1 = double_match.group(1)
         yaml2 = double_match.group(2)
-        body = content[double_match.end():]
+        body = content[double_match.end() :]
 
         data1 = yaml.safe_load(yaml1) or {}
         data2 = yaml.safe_load(yaml2) or {}
@@ -25,11 +27,12 @@ def parse_and_merge_frontmatter(content):
     single_match = single_pattern.match(content)
     if single_match:
         yaml1 = single_match.group(1)
-        body = content[single_match.end():]
+        body = content[single_match.end() :]
         data = yaml.safe_load(yaml1) or {}
         return data, body
 
     return {}, content
+
 
 def extract_description_from_body(body):
     # 1. H1 title + optional description
@@ -38,17 +41,18 @@ def extract_description_from_body(body):
     match = re.search(r"^#+ .*\n\n(.*)", body, re.MULTILINE)
     if match:
         desc = match.group(1).strip()
-        if len(desc) > 10 and not desc.startswith('!['):
-             return desc.split('\n')[0]
+        if len(desc) > 10 and not desc.startswith("!["):
+            return desc.split("\n")[0]
 
     # 2. First paragraph
     match = re.search(r"^(?!#)(.*)", body, re.MULTILINE)
     if match:
         desc = match.group(1).strip()
         if len(desc) > 10:
-            return desc.split('\n')[0]
+            return desc.split("\n")[0]
 
     return "Command configuration."
+
 
 def fix_command_file(file_path):
     content = file_path.read_text(encoding="utf-8")
@@ -72,6 +76,7 @@ def fix_command_file(file_path):
         return True
     return False
 
+
 def main():
     commands_dir = Path("steve/commands")
     count = 0
@@ -79,7 +84,8 @@ def main():
         return
 
     for f in commands_dir.rglob("*.md"):
-        if f.name == "README.md": continue
+        if f.name == "README.md":
+            continue
         try:
             if fix_command_file(f):
                 count += 1
@@ -87,6 +93,7 @@ def main():
             print(f"Error {f}: {e}")
 
     print(f"Total Commands Fixed: {count}")
+
 
 if __name__ == "__main__":
     main()

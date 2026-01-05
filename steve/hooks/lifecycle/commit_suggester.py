@@ -156,7 +156,7 @@ def save_suggestion(cwd: str, message: str, files: list[str], diff_stat: str) ->
 
 ## Changed Files
 
-{chr(10).join(f'- {f}' for f in files)}
+{chr(10).join(f"- {f}" for f in files)}
 
 ## Diff Stats
 

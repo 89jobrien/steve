@@ -17,7 +17,9 @@ def safe_yaml_load(yaml_text: str) -> dict:
                 key = key.strip()
                 value = value.strip()
                 # Remove quotes if present
-                if (value.startswith("'") and value.endswith("'")) or (value.startswith('"') and value.endswith('"')):
+                if (value.startswith("'") and value.endswith("'")) or (
+                    value.startswith('"') and value.endswith('"')
+                ):
                     value = value[1:-1]
                 result[key] = value
         return result
@@ -26,9 +28,7 @@ def safe_yaml_load(yaml_text: str) -> dict:
 def parse_and_merge_frontmatter(content: str) -> tuple[dict, str]:
     """Parse frontmatter and merge multiple blocks into one."""
     # Double pattern - matches two consecutive frontmatter blocks
-    double_pattern = re.compile(
-        r"^---\s*\n(.*?)\n---\s*\n\s*---\s*\n(.*?)\n---\s*\n", re.DOTALL
-    )
+    double_pattern = re.compile(r"^---\s*\n(.*?)\n---\s*\n\s*---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 
     # Single pattern
     single_pattern = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
@@ -56,19 +56,21 @@ def parse_and_merge_frontmatter(content: str) -> tuple[dict, str]:
 
     return {}, content
 
+
 def extract_description_from_body(body):
     # Look for heading followed by text
     match = re.search(r"^#+ .*\n\n(.*)", body, re.MULTILINE)
     if match:
         desc = match.group(1).strip()
-        if len(desc) > 10 and not desc.startswith('!['):
-             return desc.split('\n')[0]
+        if len(desc) > 10 and not desc.startswith("!["):
+            return desc.split("\n")[0]
 
     match = re.search(r"^(You are .*|This agent .*)", body, re.MULTILINE)
     if match:
         return match.group(1).strip()
 
     return "Agent configuration."
+
 
 def fix_agent_file(file_path):
     content = file_path.read_text(encoding="utf-8")
@@ -87,6 +89,7 @@ def fix_agent_file(file_path):
         return True
     return False
 
+
 def main():
     agents_dir = Path("steve/agents")
     count = 0
@@ -103,6 +106,7 @@ def main():
             print(f"Error {f}: {e}")
 
     print(f"Total Agents Fixed: {count}")
+
 
 if __name__ == "__main__":
     main()

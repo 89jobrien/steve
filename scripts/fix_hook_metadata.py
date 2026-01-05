@@ -65,9 +65,7 @@ def extract_name_from_body(body: str, filename: str) -> str:
 def extract_description_from_body(body: str) -> str:
     """Extract description from the body content."""
     # Look for docstring in Python code block
-    docstring_match = re.search(
-        r'```python\n.*?"""(.*?)"""', body, re.DOTALL | re.MULTILINE
-    )
+    docstring_match = re.search(r'```python\n.*?"""(.*?)"""', body, re.DOTALL | re.MULTILINE)
     if docstring_match:
         docstring = docstring_match.group(1).strip()
         # Get first line/sentence of docstring

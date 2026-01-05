@@ -6,7 +6,7 @@ john_cena/
 chatlog__*.txt
 htmlcov/
 _inbox_*
-
+.secrets.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

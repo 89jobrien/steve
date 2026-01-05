@@ -18,9 +18,14 @@ import requests
 def load_local_registry(repo_root: Path) -> dict[str, Any]:
     """Load local gist registry."""
     registry_path = repo_root / ".gist-registry.json"
-    if registry_path.exists():
-        return json.loads(registry_path.read_text())
-    return {"components": {}}
+    try:
+        if registry_path.exists():
+            return json.loads(registry_path.read_text())
+        elif not registry_path.exists():
+            return repo_root / "index.json"
+        return {"components": {}}
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def load_remote_registry(registry_url: str) -> dict[str, Any]:

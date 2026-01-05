@@ -605,8 +605,7 @@ def run_benchmark(
         "median": statistics.median(times),
         "stdev": statistics.stdev(times) if len(times) > 1 else 0,
         "component_count": sum(
-            len(result.get(k, []))
-            for k in ["agents", "commands", "skills", "hooks", "templates"]
+            len(result.get(k, [])) for k in ["agents", "commands", "skills", "hooks", "templates"]
         ),
     }
 
@@ -625,8 +624,8 @@ def print_results(results: list[dict[str, Any]], baseline_name: str = "Sequentia
         speedup = baseline["mean"] / r["mean"] if r["mean"] > 0 else 0
         speedup_str = f"{speedup:.2f}x" if r["name"] != baseline_name else "baseline"
         print(
-            f"{r['name']:<25} {r['mean']*1000:>9.1f}ms {r['median']*1000:>9.1f}ms "
-            f"{r['min']*1000:>9.1f}ms {speedup_str:>10}"
+            f"{r['name']:<25} {r['mean'] * 1000:>9.1f}ms {r['median'] * 1000:>9.1f}ms "
+            f"{r['min'] * 1000:>9.1f}ms {speedup_str:>10}"
         )
 
     print("-" * 80)
@@ -652,10 +651,8 @@ def main() -> None:
 
     # Variation A: Sequential
     print("Testing A: Sequential...", end=" ", flush=True)
-    results.append(
-        run_benchmark("Sequential", build_index_sequential, repo_root, args.iterations)
-    )
-    print(f"{results[-1]['mean']*1000:.1f}ms")
+    results.append(run_benchmark("Sequential", build_index_sequential, repo_root, args.iterations))
+    print(f"{results[-1]['mean'] * 1000:.1f}ms")
 
     # Variation B: ThreadPool
     print(f"Testing B: ThreadPool ({args.workers} workers)...", end=" ", flush=True)
@@ -663,7 +660,7 @@ def main() -> None:
     results.append(
         run_benchmark(f"ThreadPool-{args.workers}", threaded_func, repo_root, args.iterations)
     )
-    print(f"{results[-1]['mean']*1000:.1f}ms")
+    print(f"{results[-1]['mean'] * 1000:.1f}ms")
 
     # Variation B2: ThreadPool with different worker counts
     for workers in [4, 16]:
@@ -673,13 +670,13 @@ def main() -> None:
             results.append(
                 run_benchmark(f"ThreadPool-{workers}", threaded_func, repo_root, args.iterations)
             )
-            print(f"{results[-1]['mean']*1000:.1f}ms")
+            print(f"{results[-1]['mean'] * 1000:.1f}ms")
 
     # Variation C: Async
     if HAS_AIOFILES:
         print("Testing C: Async...", end=" ", flush=True)
         results.append(run_benchmark("Async", build_index_async, repo_root, args.iterations))
-        print(f"{results[-1]['mean']*1000:.1f}ms")
+        print(f"{results[-1]['mean'] * 1000:.1f}ms")
     else:
         print("Skipping C: Async (aiofiles not installed)")
 
@@ -691,14 +688,14 @@ def main() -> None:
     results.append(
         run_benchmark("Incremental-cold", build_index_incremental, repo_root, args.iterations)
     )
-    print(f"{results[-1]['mean']*1000:.1f}ms")
+    print(f"{results[-1]['mean'] * 1000:.1f}ms")
 
     # Variation D: Incremental (warm cache)
     print("Testing D: Incremental (warm)...", end=" ", flush=True)
     results.append(
         run_benchmark("Incremental-warm", build_index_incremental, repo_root, args.iterations)
     )
-    print(f"{results[-1]['mean']*1000:.1f}ms")
+    print(f"{results[-1]['mean'] * 1000:.1f}ms")
 
     # Cleanup cache
     if cache_path.exists():
