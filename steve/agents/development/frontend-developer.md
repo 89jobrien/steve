@@ -3,7 +3,7 @@ name: frontend-developer
 description: Frontend development specialist for React applications and responsive
   design. Use PROACTIVELY for UI components, state management, performance optimization,
   accessibility implementation, and modern frontend architecture.
-tools: Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id
+tools: Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(web-accessibility), Skill(performance)
 model: sonnet
 color: cyan
 skills: performance, web-accessibility, testing

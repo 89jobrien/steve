@@ -3,7 +3,7 @@ name: web-accessibility-checker
 description: Web accessibility compliance specialist. Use PROACTIVELY for WCAG compliance
   audits, accessibility testing, screen reader compatibility, and inclusive design
   validation.
-tools: Read, Write, Edit, Grep, Glob
+tools: Read, Write, Edit, Grep, Glob, Skill(web-accessibility), Skill(testing)
 model: sonnet
 color: green
 skills: web-accessibility, testing

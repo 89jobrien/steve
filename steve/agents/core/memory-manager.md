@@ -6,7 +6,7 @@ description: Specialist for managing persistent memory using the knowledge graph
 tools: Read, Write, Edit, Grep, Glob, mcp__memory__create_entities, mcp__memory__create_relations,
   mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations,
   mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes,
-  mcp__memory__open_nodes
+  mcp__memory__open_nodes, Skill(context-management)
 model: sonnet
 color: purple
 skills: context-management

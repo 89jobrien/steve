@@ -3,7 +3,7 @@ name: backend-architect
 description: Backend system architecture and API design specialist. Use PROACTIVELY
   for RESTful APIs, microservice boundaries, database schemas, scalability planning,
   and performance optimization.
-tools: Read, Write, Edit, Bash, Grep, Glob
+tools: Read, Write, Edit, Bash, Grep, Glob, Skill(database-optimization), Skill(cloud-infrastructure)
 model: opus
 color: blue
 skills: documentation, database-optimization, cloud-infrastructure

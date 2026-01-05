@@ -3,7 +3,7 @@ name: performance-profiler
 description: Performance analysis and optimization specialist. Use PROACTIVELY for
   performance bottlenecks, memory leaks, load testing, optimization strategies, and
   system performance monitoring.
-tools: Read, Write, Edit, Bash
+tools: Read, Write, Edit, Bash, Skill(performance)
 model: sonnet
 color: orange
 skills: performance, tool-presets, meta-cognitive-reasoning

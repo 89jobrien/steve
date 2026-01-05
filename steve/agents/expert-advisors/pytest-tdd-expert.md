@@ -4,7 +4,7 @@ description: Python/pytest TDD specialist for auditing test quality, running tes
   with coverage, and generating comprehensive test reports. Use PROACTIVELY for test
   audits, pytest execution, coverage analysis, and generating TESTING_REPORT.local.md
   with findings and recommendations.
-tools: Read, Write, Edit, Bash, Grep, Glob
+tools: Read, Write, Edit, Bash, Grep, Glob, Skill(tdd-pytest), Skill(testing)
 model: sonnet
 color: green
 skills: testing, tdd-pytest

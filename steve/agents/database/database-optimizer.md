@@ -3,7 +3,7 @@ name: database-optimizer
 description: Database performance optimization, query tuning, and schema design specialist.
   Use PROACTIVELY for slow queries, N+1 problems, indexing strategies, execution plan
   analysis, migration strategies, and caching solutions.
-tools: Read, Write, Edit, Bash
+tools: Read, Write, Edit, Bash, Skill(database-optimization)
 model: sonnet
 color: blue
 skills: database-optimization, tool-presets

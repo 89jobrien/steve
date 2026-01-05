@@ -347,7 +347,15 @@ def parse_tools_list(tools_str: str) -> list[str]:
     tools = []
     for raw_tool in tools_str.split(","):
         tool_name = raw_tool.strip()
-        # Skip empty, MCP tools, and bash restrictions
-        if tool_name and not tool_name.startswith("mcp__") and "(" not in tool_name:
+        # Skip empty and MCP tools
+        if not tool_name or tool_name.startswith("mcp__"):
+            continue
+        # Handle Skill(name) syntax - count as "Skill" tool
+        if tool_name.startswith("Skill("):
+            tools.append("Skill")
+        # Skip Bash restrictions like Bash(npm:*)
+        elif "(" in tool_name:
+            continue
+        else:
             tools.append(tool_name)
     return tools

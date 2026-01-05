@@ -4,7 +4,7 @@ description: Write idiomatic Python code with advanced features like decorators,
   and async/await. Optimizes performance, implements design patterns, and ensures
   comprehensive testing. Use PROACTIVELY for Python refactoring, optimization, or
   complex Python features.
-tools: Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id
+tools: Read, Write, Edit, Bash, Grep, Glob, mcp__context7__get-library-docs, mcp__context7__resolve-library-id, Skill(tdd-pytest), Skill(python-scripting)
 model: sonnet
 color: yellow
 skills: tdd-pytest, testing, python-scripting

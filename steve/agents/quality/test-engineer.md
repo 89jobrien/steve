@@ -3,7 +3,7 @@ name: test-engineer
 description: Test automation and quality assurance specialist. Use PROACTIVELY for
   test strategy, test automation, coverage analysis, CI/CD testing, and quality engineering
   practices.
-tools: Read, Write, Edit, Bash, Grep, Glob
+tools: Read, Write, Edit, Bash, Grep, Glob, Skill(testing), Skill(tdd-pytest)
 model: sonnet
 color: blue
 skills: testing, tool-presets, tdd-pytest

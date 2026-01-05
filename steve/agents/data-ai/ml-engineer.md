@@ -4,7 +4,7 @@ description: ML production systems and model deployment specialist. Use PROACTIV
   for ML pipelines, model serving, feature engineering, A/B testing, monitoring, and
   production ML infrastructure.
 tools: Read, Write, Edit, Bash, Grep, Glob, WebFetch, mcp__context7__get-library-docs,
-  mcp__context7__resolve-library-id
+  mcp__context7__resolve-library-id, Skill(machine-learning), Skill(python-scripting)
 model: sonnet
 color: orange
 skills: machine-learning, performance, python-scripting

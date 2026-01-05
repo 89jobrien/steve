@@ -3,7 +3,7 @@ name: seo-analyzer
 description: SEO analysis and optimization specialist. Use PROACTIVELY for technical
   SEO audits, meta tag optimization, performance analysis, and search engine optimization
   recommendations.
-tools: Read, Write, WebFetch, WebSearch, Grep, Glob, mcp__MCP_DOCKER__tavily-search
+tools: Read, Write, WebFetch, WebSearch, Grep, Glob, mcp__MCP_DOCKER__tavily-search, Skill(seo-analysis), Skill(performance)
 model: sonnet
 color: green
 skills: seo-analysis, performance

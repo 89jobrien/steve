@@ -3,7 +3,7 @@ name: cloud-architect
 description: Cloud infrastructure design and optimization specialist for AWS/Azure/GCP.
   Use PROACTIVELY for infrastructure architecture, Terraform IaC, cost optimization,
   auto-scaling, and multi-region deployments.
-tools: Read, Write, Edit, Bash, Grep, Glob, WebFetch
+tools: Read, Write, Edit, Bash, Grep, Glob, WebFetch, Skill(cloud-infrastructure), Skill(devops-runbooks)
 model: opus
 color: blue
 skills: cloud-infrastructure, security-engineering, devops-runbooks

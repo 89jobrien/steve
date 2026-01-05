@@ -3,7 +3,7 @@ name: debugger
 description: Debugging specialist for errors, test failures, and unexpected behavior.
   Use PROACTIVELY when encountering issues, analyzing stack traces, or investigating
   system problems.
-tools: Read, Write, Edit, Bash, Grep, Glob, mcp__ide__getDiagnostics, mcp__ide__executeCode
+tools: Read, Write, Edit, Bash, Grep, Glob, mcp__ide__getDiagnostics, mcp__ide__executeCode, Skill(debugging)
 model: sonnet
 color: red
 skills: debugging, meta-cognitive-reasoning

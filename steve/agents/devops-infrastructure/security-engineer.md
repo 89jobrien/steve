@@ -3,7 +3,7 @@ name: security-engineer
 description: Security infrastructure and compliance specialist. Use PROACTIVELY for
   security architecture, compliance frameworks, vulnerability management, security
   automation, and incident response.
-tools: Read, Write, Edit, Bash, Grep, Glob, WebFetch
+tools: Read, Write, Edit, Bash, Grep, Glob, WebFetch, Skill(security-engineering), Skill(security-audit)
 model: opus
 color: red
 skills: security-engineering, cloud-infrastructure, security-audit, meta-cognitive-reasoning
