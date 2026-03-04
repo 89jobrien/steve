@@ -1,0 +1,136 @@
+# Centralized configuration for Claude Code hooks
+# This file is loaded by workflows and provides settings for all checks
+# Set 'enabled: false' to disable any check
+
+guards:
+
+  dangerous_commands:
+    enabled: true
+
+  shellcheck:
+    enabled: true
+    severity: warning  # minimum severity to report (error, warning, info, style)
+    block_on_errors: true
+    warn_on_warnings: false
+
+  branch_protection:
+    enabled: false
+
+  secrets:
+    enabled: true
+  file_protection:
+    enabled: true
+  large_file:
+    enabled: true
+    warn_threshold_kb: 100
+    block_threshold_kb: 1024
+  path_validation:
+    enabled: true
+  readonly:
+    enabled: false
+
+analyzers:
+  lint:
+    enabled: true
+    auto_fix: true
+    timeout_seconds: 30
+  complexity:
+    enabled: true
+    warn_threshold: 10
+    error_threshold: 15
+  todo_tracker:
+    enabled: false
+  typecheck:
+    enabled: true
+    timeout_seconds: 60
+  test:
+    enabled: true
+    timeout_seconds: 120
+
+context:
+  project_detector:
+    enabled: true
+  recent_changes:
+    enabled: true
+    trigger_keywords:
+      - recent
+      - history
+      - diff
+      - changelog
+  related_files:
+    enabled: true
+    max_results: 5
+  jit_context:
+    enabled: true
+    max_tokens: 500           # Maximum total tokens for all JIT context
+    max_files: 3              # Maximum files to include
+    max_file_size_kb: 50      # Skip files larger than this
+    context_lines: 3          # Lines before/after matches
+    max_matches_per_file: 3   # Max matches to show per file
+    snippet_chars: 200        # Max characters per snippet
+
+lifecycle:
+  metrics:
+    enabled: false
+    min_tool_calls: 3
+    output_dir: ~/logs/claude-code/metrics
+  commit_suggester:
+    enabled: true
+    conventional_commits: true
+  knowledge_update:
+    enabled: true
+  session_summary:
+    enabled: true
+  checkpoint:
+    enabled: true
+  export_conversation:
+    enabled: false
+    output_dir: ~/logs/claude-code/exported_chatlogs
+
+session:
+  # SessionStart hooks
+  git_context:
+    enabled: true
+  env_setup:
+    enabled: true
+  # SessionEnd hooks
+  session_logging:
+    enabled: false
+    log_dir: ~/logs/claude-code/hooks/session_logging
+
+subagent:
+  # SubagentStop hooks
+  verify_completion:
+    enabled: true
+
+setup:
+  # Environment validation
+  env_validation:
+    enabled: false  # Manual trigger via /setup:validate-environment command
+    required_tools:
+      - git
+      - node:>=18.0.0
+      - python3:>=3.12
+    required_env_vars:
+      - HOME
+      - PATH
+    warn_only: true  # Don't block on missing tools
+
+  # Workspace initialization
+  workspace_init:
+    enabled: false  # Manual trigger via /setup:init-workspace command
+    default_template: basic
+    auto_git_init: true
+    create_readme: true
+
+  # Dependency checking
+  dependency_check:
+    enabled: false  # Manual trigger via /setup:check-dependencies command
+    check_vulnerabilities: true
+    update_lockfile: false  # Never auto-update
+
+  # Project scaffolding
+  project_scaffold:
+    enabled: false  # Manual trigger via /setup:scaffold-project command
+    auto_install_deps: false
+    create_git_repo: true
