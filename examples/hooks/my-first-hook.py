@@ -3,12 +3,10 @@ import claude_hooks
 
 
 def handler(payload: claude_hooks.HookPayload) -> claude_hooks.HookResponse:
-    """
-    GAW Hook Handler
+    """GAW Hook Handler
     - Use payload.tool_name to check the tool
     - Use payload.tool_input to check arguments
     """
-
     # Example: Block dangerous commands
     if payload.tool_name == 'Bash':
         cmd = payload.tool_input.get('command', '')

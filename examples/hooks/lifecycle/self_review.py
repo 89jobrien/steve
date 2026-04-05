@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Prompt critical self-review.
+"""Prompt critical self-review.
 
 This hook checks if a session included self-review markers.
 Runs on Stop and SubagentStop events.
@@ -14,6 +13,7 @@ Runs on Stop and SubagentStop events.
 import json
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

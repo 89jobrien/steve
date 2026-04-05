@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Inject relevant context based on keywords in prompt.
+"""Inject relevant context based on keywords in prompt.
 
 This hook automatically appends relevant docs/patterns based on prompt content.
 Runs on UserPromptSubmit event.
@@ -16,8 +15,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Context mappings: keyword patterns -> context files/content
 CONTEXT_MAPPINGS = [

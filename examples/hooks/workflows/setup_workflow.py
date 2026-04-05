@@ -20,12 +20,13 @@ import json
 import sys
 from pathlib import Path
 
+
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))
 
-from hook_logging import hook_invocation  # noqa: E402, I001
-from setup import SetupReport, ValidationResult  # noqa: E402, I001
+from hook_logging import hook_invocation  # noqa: E402
+from setup import SetupReport, ValidationResult  # noqa: E402
 
 
 def main() -> None:
@@ -47,7 +48,7 @@ def main() -> None:
         # Route to appropriate setup module
         if task == "validate":
             # Environment validation
-            from setup.env_validator import validate_environment  # noqa: E402, I001
+            from setup.env_validator import validate_environment
 
             required_tools = payload.get("required_tools", [])
             required_env_vars = payload.get("required_env_vars", [])
@@ -55,7 +56,7 @@ def main() -> None:
 
         elif task == "init":
             # Workspace initialization
-            from setup.workspace_initializer import initialize_workspace  # noqa: E402, I001
+            from setup.workspace_initializer import initialize_workspace
 
             template = payload.get("template", "basic")
             auto_git_init = payload.get("auto_git_init", True)
@@ -63,14 +64,14 @@ def main() -> None:
 
         elif task == "deps":
             # Dependency checking
-            from setup.dependency_manager import validate_dependencies  # noqa: E402, I001
+            from setup.dependency_manager import validate_dependencies
 
             check_outdated = payload.get("check_outdated", False)
             report = validate_dependencies(cwd, check_outdated)
 
         elif task == "scaffold":
             # Project scaffolding
-            from setup.project_scaffolder import scaffold_project  # noqa: E402, I001
+            from setup.project_scaffolder import scaffold_project
 
             project_type = payload.get("type")
             auto_install = payload.get("auto_install", False)

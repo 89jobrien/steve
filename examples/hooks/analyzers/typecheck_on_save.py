@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Run type checking on changed files.
+"""Run type checking on changed files.
 
 This hook runs mypy (Python) or tsc (TypeScript) on changed files.
 Runs after Write, Edit, or MultiEdit operations (PostToolUse).
@@ -16,6 +15,7 @@ import json
 import shutil
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

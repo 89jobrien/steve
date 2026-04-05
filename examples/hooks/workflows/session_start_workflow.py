@@ -28,6 +28,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
+
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))
@@ -60,9 +61,9 @@ def build_json_output(additional_context: str | None = None) -> dict:
 
 def run_session_start(payload: dict[str, Any], config: dict) -> list[str]:
     """Run session start hooks and collect context."""
-    import asyncio  # noqa: E402, I001
+    import asyncio
 
-    from lib.subprocess import (  # noqa: E402, I001
+    from lib.subprocess import (
         get_git_branch,
         get_modified_files,
         git_command,

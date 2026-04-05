@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT / "workflows"))
 
@@ -126,7 +127,7 @@ class TestSyncTodosToDoob:
 
         call_args = mock_run.call_args[0][0]
         tags_idx = call_args.index("-t") + 1
-        assert "claude,in_progress" == call_args[tags_idx]
+        assert call_args[tags_idx] == "claude,in_progress"
 
 
 class TestMain:

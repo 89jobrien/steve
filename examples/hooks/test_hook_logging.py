@@ -30,17 +30,14 @@ class TestHookLogging(unittest.TestCase):
 
                 with patch.dict(
                     os.environ, {"CLAUDE_HOOK_LOG_DIR": str(log_dir)}, clear=False
-                ):
-                    with patch.object(hook_logging, "datetime") as dt:
-                        dt.now.side_effect = [fixed_start, fixed_end]
-                        with patch.object(
-                            hook_logging.time, "monotonic", side_effect=[10.0, 10.123]
-                        ):
-                            with patch.object(sys, "stderr", stderr):
-                                with hook_logging.hook_invocation(
-                                    "secret_scanner"
-                                ) as inv:
-                                    inv.set_payload(payload)
+                ), patch.object(hook_logging, "datetime") as dt:
+                    dt.now.side_effect = [fixed_start, fixed_end]
+                    with patch.object(
+                        hook_logging.time, "monotonic", side_effect=[10.0, 10.123]
+                    ), patch.object(sys, "stderr", stderr), hook_logging.hook_invocation(
+                        "secret_scanner"
+                    ) as inv:
+                        inv.set_payload(payload)
 
                 log_path = log_dir / "hooks_20251217.jsonl"
                 self.assertTrue(log_path.exists())
@@ -75,19 +72,18 @@ class TestHookLogging(unittest.TestCase):
 
                 with patch.dict(
                     os.environ, {"CLAUDE_HOOK_LOG_DIR": str(log_dir)}, clear=False
-                ):
-                    with patch.object(hook_logging, "datetime") as dt:
-                        dt.now.side_effect = [fixed_start, fixed_end]
-                        with patch.object(
-                            hook_logging.time, "monotonic", side_effect=[10.0, 10.010]
-                        ):
-                            stderr = io.StringIO()
-                            with patch.object(sys, "stderr", stderr):
-                                with self.assertRaises(SystemExit) as cm:
-                                    with hook_logging.hook_invocation(
-                                        "dangerous_command_guard"
-                                    ):
-                                        raise SystemExit(2)
+                ), patch.object(hook_logging, "datetime") as dt:
+                    dt.now.side_effect = [fixed_start, fixed_end]
+                    with patch.object(
+                        hook_logging.time, "monotonic", side_effect=[10.0, 10.010]
+                    ):
+                        stderr = io.StringIO()
+                        with patch.object(sys, "stderr", stderr):
+                            with self.assertRaises(SystemExit) as cm:
+                                with hook_logging.hook_invocation(
+                                    "dangerous_command_guard"
+                                ):
+                                    raise SystemExit(2)
 
                 self.assertEqual(cm.exception.code, 2)
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Generate boundary test cases from function signatures.
+"""Generate boundary test cases from function signatures.
 
 This script analyzes function parameters and generates comprehensive boundary
 test cases including edge cases, boundary values, and common error conditions.
@@ -232,16 +231,15 @@ class BoundaryGenerator:
                                 ParamType.INT64, ParamType.UINT8, ParamType.UINT16,
                                 ParamType.UINT32, ParamType.UINT64, ParamType.GENERIC_INT]:
             return self.generate_integer_boundaries(param)
-        elif param.param_type in [ParamType.FLOAT32, ParamType.FLOAT64, ParamType.GENERIC_FLOAT]:
+        if param.param_type in [ParamType.FLOAT32, ParamType.FLOAT64, ParamType.GENERIC_FLOAT]:
             return self.generate_float_boundaries(param)
-        elif param.param_type == ParamType.BOOL:
+        if param.param_type == ParamType.BOOL:
             return self.generate_bool_boundaries(param)
-        elif param.param_type in [ParamType.STRING, ParamType.GENERIC_STR]:
+        if param.param_type in [ParamType.STRING, ParamType.GENERIC_STR]:
             return self.generate_string_boundaries(param)
-        elif param.param_type == ParamType.ARRAY:
+        if param.param_type == ParamType.ARRAY:
             return self.generate_array_boundaries(param)
-        else:
-            return [None, "default", 0]
+        return [None, "default", 0]
 
     def _get_normal_value(self, param: Parameter) -> Any:
         """Get a normal (non-boundary) value for a parameter."""
@@ -273,36 +271,33 @@ class BoundaryGenerator:
         """Categorize a test value."""
         if value is None:
             return "null"
-        elif param.param_type in [ParamType.STRING, ParamType.GENERIC_STR]:
+        if param.param_type in [ParamType.STRING, ParamType.GENERIC_STR]:
             if value == "":
                 return "empty"
-            elif len(value) > 100:
+            if len(value) > 100:
                 return "large"
-            elif not value.strip():
+            if not value.strip():
                 return "whitespace"
-            else:
-                return "boundary"
-        elif param.param_type == ParamType.ARRAY:
+            return "boundary"
+        if param.param_type == ParamType.ARRAY:
             if len(value) == 0:
                 return "empty"
-            elif len(value) == 1:
+            if len(value) == 1:
                 return "single"
-            elif len(value) > 50:
+            if len(value) > 50:
                 return "large"
-            else:
-                return "boundary"
-        elif isinstance(value, (int, float)):
+            return "boundary"
+        if isinstance(value, (int, float)):
             if value == 0:
                 return "zero"
-            elif abs(value) == 1:
+            if abs(value) == 1:
                 return "unit"
-            elif param.param_type in self.TYPE_LIMITS:
+            if param.param_type in self.TYPE_LIMITS:
                 min_val, max_val = self.TYPE_LIMITS[param.param_type]
                 if value == min_val or value == max_val:
                     return "limit"
             return "boundary"
-        else:
-            return "boundary"
+        return "boundary"
 
 
 class FunctionParser:

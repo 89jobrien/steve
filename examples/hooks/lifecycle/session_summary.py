@@ -5,8 +5,7 @@
 # dependencies = []
 # ///
 
-"""
-Generate markdown summary of what was accomplished in the session when stopping.
+"""Generate markdown summary of what was accomplished in the session when stopping.
 
 This hook creates a summary of the session's activities.
 Runs on Stop event.
@@ -17,6 +16,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

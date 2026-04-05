@@ -18,14 +18,15 @@ import json
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import asyncio  # noqa: E402, F401, I001
+import asyncio
 
-from hook_logging import hook_invocation  # noqa: E402, I001
-from lib.detection import PACKAGE_MANAGER_MARKERS, detect_package_manager  # noqa: E402, I001
-from lib.setup import SetupReport, ValidationResult, load_setup_config  # noqa: E402, I001
-from lib.subprocess import command_exists  # noqa: E402, I001
+from hook_logging import hook_invocation
+from lib.detection import PACKAGE_MANAGER_MARKERS, detect_package_manager
+from lib.setup import SetupReport, ValidationResult, load_setup_config
+from lib.subprocess import command_exists
 
 
 def check_lockfile(cwd: Path, package_manager: str) -> ValidationResult:

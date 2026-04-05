@@ -154,7 +154,7 @@ def hook_invocation(hook_name: str) -> Iterator[HookInvocation]:
 
         ok = exit_code == 0
         raise
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:
         exit_code = 1
         ok = False
         exc_type = type(e).__name__
@@ -194,8 +194,7 @@ def log_error(
     error: Exception | None = None,
     context: dict[str, Any] | None = None,
 ) -> None:
-    """
-    Log structured error messages to the central log sink.
+    """Log structured error messages to the central log sink.
 
     Args:
         message: Human-readable error message
@@ -238,8 +237,7 @@ def log_info(
     hook_name: str = "unknown",
     context: dict[str, Any] | None = None,
 ) -> None:
-    """
-    Log structured info messages to the central log sink.
+    """Log structured info messages to the central log sink.
 
     Args:
         message: Human-readable info message

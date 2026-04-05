@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Block dangerous shell commands before execution.
+"""Block dangerous shell commands before execution.
 
 This hook blocks destructive commands like rm -rf, git push -f, DROP TABLE, etc.
 Runs before Bash tool execution (PreToolUse).
@@ -16,8 +15,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 DANGEROUS_PATTERNS = [
     # Destructive file operations

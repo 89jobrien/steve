@@ -17,8 +17,10 @@ import shutil
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Complexity thresholds
 WARN_THRESHOLD = 10
@@ -111,7 +113,7 @@ async def check_complexity(file_path: Path, cwd: str) -> list[str]:
 
     if ext == ".py":
         return await check_python_complexity(file_path, cwd)
-    elif ext in {".ts", ".tsx", ".js", ".jsx"}:
+    if ext in {".ts", ".tsx", ".js", ".jsx"}:
         return await check_typescript_complexity(file_path, cwd)
 
     return []

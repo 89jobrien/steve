@@ -20,16 +20,17 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from hook_logging import hook_invocation  # noqa: E402, I001
-from lib.setup import (  # noqa: E402, I001
+from hook_logging import hook_invocation
+from lib.setup import (
     SetupReport,
     ValidationResult,
     check_env_var,
     load_setup_config,
 )
-from lib.subprocess import command_exists  # noqa: E402, I001
+from lib.subprocess import command_exists
 
 
 def parse_version(version_str: str) -> tuple[int, ...]:
@@ -115,7 +116,7 @@ def get_tool_version(tool: str) -> str | None:
     try:
         result = subprocess.run(
             cmd,
-            capture_output=True,
+            check=False, capture_output=True,
             text=True,
             timeout=5,
         )

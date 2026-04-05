@@ -17,8 +17,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Combined regex for TODO comments (16x faster than multi-pattern approach)
 _TODO_RE = re.compile(

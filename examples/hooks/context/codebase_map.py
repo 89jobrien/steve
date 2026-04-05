@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Add codebase map to context at session start.
+"""Add codebase map to context at session start.
 
 This hook generates a tree structure of the codebase for context.
 Runs on SessionStart and UserPromptSubmit events (once per session).
@@ -16,8 +15,10 @@ import sys
 from fnmatch import fnmatch
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 SESSION_CACHE: set[str] = set()
 

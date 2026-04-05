@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Git auto-checkpoint on stop.
+"""Git auto-checkpoint on stop.
 
 This hook creates automatic git stash checkpoints when stopping.
 Runs on Stop and SubagentStop events.
@@ -16,6 +15,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

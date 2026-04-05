@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Scan file content for exposed secrets before writing.
+"""Scan file content for exposed secrets before writing.
 
 This hook blocks writes containing API keys, tokens, passwords, etc.
 Runs before Write, Edit, or MultiEdit operations (PreToolUse).
@@ -16,8 +15,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 SECRET_PATTERNS = [
     # API Keys
@@ -85,7 +86,7 @@ def get_content_to_check(tool_input: dict, tool_name: str) -> str | None:
     """Extract content to check based on tool type."""
     if tool_name == "Write":
         return tool_input.get("content")
-    elif tool_name in ("Edit", "MultiEdit"):
+    if tool_name in ("Edit", "MultiEdit"):
         return tool_input.get("new_string")
     return None
 

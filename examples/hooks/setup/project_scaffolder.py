@@ -18,12 +18,13 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from hook_logging import hook_invocation  # noqa: E402, I001
-from lib.detection import detect_project_type  # noqa: E402, I001
-from lib.setup import SetupReport, ValidationResult, load_setup_config  # noqa: E402, I001
-from lib.subprocess import command_exists  # noqa: E402, I001
+from hook_logging import hook_invocation
+from lib.detection import detect_project_type
+from lib.setup import SetupReport, ValidationResult, load_setup_config
+from lib.subprocess import command_exists
 
 
 # Framework initialization commands
@@ -199,7 +200,7 @@ def scaffold_project(
     try:
         result = subprocess.run(
             command,
-            cwd=cwd_path,
+            check=False, cwd=cwd_path,
             capture_output=True,
             text=True,
             timeout=120,  # Allow 2 minutes for initialization

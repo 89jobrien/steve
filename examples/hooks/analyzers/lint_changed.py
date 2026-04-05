@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Run linting on changed files.
+"""Run linting on changed files.
 
 This hook runs the appropriate linter (biome, eslint, ruff) on changed files.
 Runs after Write, Edit, or MultiEdit operations.
@@ -16,6 +15,7 @@ import json
 import shutil
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

@@ -4,8 +4,7 @@
 # dependencies = ["jsonschema"]
 # ///
 
-"""
-Prompt critical self-review with improved error handling and validation.
+"""Prompt critical self-review with improved error handling and validation.
 
 This hook checks if a session included self-review markers.
 Runs on Stop and SubagentStop events.
@@ -29,11 +28,13 @@ from typing import TypedDict
 
 from jsonschema import ValidationError, validate
 
+
 HOOKS_ROOT = Path(__file__).parent.parent
 if str(HOOKS_ROOT) not in sys.path:
     sys.path.insert(0, str(HOOKS_ROOT))
 
 from hook_logging import hook_invocation  # noqa: E402
+
 
 # ============================================================================
 # Type Definitions
@@ -111,8 +112,7 @@ CODE_EXTENSIONS = {".py", ".ts", ".js", ".tsx", ".jsx", ".go", ".rs", ".sh", ".z
 
 
 def normalize_content(content: str) -> str:
-    """
-    Normalize content for marker matching.
+    """Normalize content for marker matching.
 
     Converts to lowercase and replaces dashes/underscores with spaces
     for flexible marker matching.
@@ -132,8 +132,7 @@ def check_for_self_review_marker(
     case_sensitive: bool = False,
     recent_lines_only: int | None = None,
 ) -> bool:
-    """
-    Check if content contains any self-review markers.
+    """Check if content contains any self-review markers.
 
     Supports checking recent lines only for performance with large transcripts.
 
@@ -162,8 +161,7 @@ def generate_review_questions(
     file_path: str | None,
     config: ReviewConfig,
 ) -> list[str]:
-    """
-    Generate relevant review questions based on context.
+    """Generate relevant review questions based on context.
 
     Adds language-specific questions for code files.
 
@@ -185,8 +183,7 @@ def generate_review_questions(
 
 
 def validate_payload(payload: dict) -> tuple[bool, str | None]:
-    """
-    Validate payload against schema.
+    """Validate payload against schema.
 
     Args:
         payload: Payload dict to validate
@@ -205,8 +202,7 @@ def process_payload(
     payload: dict,
     logger: logging.Logger,
 ) -> list[str] | None:
-    """
-    Core processing logic - returns questions if review needed, else None.
+    """Core processing logic - returns questions if review needed, else None.
 
     Performs validation, reads transcript, checks for markers, and generates
     questions as needed.
@@ -266,8 +262,7 @@ def process_payload(
 
 
 def setup_logging() -> logging.Logger:
-    """
-    Configure logging for hook output.
+    """Configure logging for hook output.
 
     Sets up stderr logging with warning level and structured formatting.
     Only configures if not already configured.
@@ -295,8 +290,7 @@ def generate_structured_output(
     questions: list[str],
     payload: dict,
 ) -> dict:
-    """
-    Generate machine-readable structured output.
+    """Generate machine-readable structured output.
 
     Args:
         questions: Review questions to include
@@ -322,8 +316,7 @@ def generate_structured_output(
 
 
 def main(test_mode: bool = False) -> None:
-    """
-    Main entry point for the hook.
+    """Main entry point for the hook.
 
     Reads JSON payload from stdin, processes it, and outputs results.
     Supports test mode for local development.

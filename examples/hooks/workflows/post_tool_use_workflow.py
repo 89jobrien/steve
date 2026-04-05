@@ -31,6 +31,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))
@@ -83,7 +84,7 @@ def run_linter(file_path: str, cwd: str) -> AnalysisResult:
         try:
             result = subprocess.run(
                 ["uvx", "ruff", "check", file_path],
-                cwd=cwd,
+                check=False, cwd=cwd,
                 capture_output=True,
                 text=True,
                 timeout=30
@@ -100,7 +101,7 @@ def run_linter(file_path: str, cwd: str) -> AnalysisResult:
             try:
                 result = subprocess.run(
                     linter,
-                    cwd=cwd,
+                    check=False, cwd=cwd,
                     capture_output=True,
                     text=True,
                     timeout=30

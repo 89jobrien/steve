@@ -4,6 +4,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+
 try:
     from hook_logging import log_error, log_info
 except ImportError:
@@ -75,8 +76,7 @@ def list_hook_scripts() -> list[Path]:
 
 
 def run(handler):
-    """
-    Standard entry point for hooks.
+    """Standard entry point for hooks.
     Reads payload from stdin, calls handler, and writes response to stdout.
     """
     hook_name = "unknown"

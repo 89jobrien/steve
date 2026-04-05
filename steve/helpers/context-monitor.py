@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Claude Code Context Monitor
+"""Claude Code Context Monitor
 Real-time context usage monitoring with visual indicators and session analytics
 """
 
@@ -132,14 +131,12 @@ def get_directory_display(workspace_data):
         if current_dir.startswith(project_dir):
             rel_path = current_dir[len(project_dir) :].lstrip("/")
             return rel_path or os.path.basename(project_dir)
-        else:
-            return os.path.basename(current_dir)
-    elif project_dir:
-        return os.path.basename(project_dir)
-    elif current_dir:
         return os.path.basename(current_dir)
-    else:
-        return "unknown"
+    if project_dir:
+        return os.path.basename(project_dir)
+    if current_dir:
+        return os.path.basename(current_dir)
+    return "unknown"
 
 
 def get_session_metrics(cost_data):

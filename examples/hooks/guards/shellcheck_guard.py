@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Validate Bash commands with shellcheck before execution.
+"""Validate Bash commands with shellcheck before execution.
 
 This hook runs shellcheck on Bash tool commands to catch syntax errors,
 common mistakes, and potential issues before execution.
@@ -18,6 +17,7 @@ import sys
 import tempfile
 from pathlib import Path
 from typing import Literal
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
@@ -40,8 +40,7 @@ def check_shellcheck_installed() -> bool:
 def run_shellcheck(
     command: str,
 ) -> tuple[Literal["pass", "warning", "error"], list[str]]:
-    """
-    Run shellcheck on the command and return result.
+    """Run shellcheck on the command and return result.
 
     Returns:
         ("pass", []): No issues found
@@ -71,7 +70,7 @@ def run_shellcheck(
                 "--exclude=SC2317",  # Exclude "unreachable code" (common in hooks)
                 str(tmp_path),
             ],
-            capture_output=True,
+            check=False, capture_output=True,
             text=True,
             timeout=5,
         )
@@ -118,8 +117,7 @@ def run_shellcheck(
 
 
 def check_command(command: str) -> tuple[str | None, list[str]]:
-    """
-    Check Bash command with shellcheck.
+    """Check Bash command with shellcheck.
 
     Returns:
         (None, []): Command is valid

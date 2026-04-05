@@ -18,8 +18,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 SUGGESTIONS_DIR = Path.home() / ".claude" / "commit-suggestions"
 
@@ -126,13 +128,12 @@ def generate_commit_message(files: list[str], diff_stat: str) -> str:
     if len(primary_files) == 1:
         scope = Path(primary_files[0]).stem
         return f"{primary_type}({scope}): update {Path(primary_files[0]).name}"
-    elif len(primary_files) <= 3:
+    if len(primary_files) <= 3:
         return f"{primary_type}: update {', '.join(Path(f).name for f in primary_files[:3])}"
-    else:
-        # Find common directory
-        dirs = [str(Path(f).parent) for f in primary_files]
-        common = Path(dirs[0]).parts[0] if dirs else "project"
-        return f"{primary_type}({common}): update {len(primary_files)} files"
+    # Find common directory
+    dirs = [str(Path(f).parent) for f in primary_files]
+    common = Path(dirs[0]).parts[0] if dirs else "project"
+    return f"{primary_type}({common}): update {len(primary_files)} files"
 
 
 def save_suggestion(cwd: str, message: str, files: list[str], diff_stat: str) -> Path:

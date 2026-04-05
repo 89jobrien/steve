@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Prevent modifications to critical files.
+"""Prevent modifications to critical files.
 
 This hook blocks writes to sensitive files like .env, credentials, production configs.
 Runs before Write, Edit, or MultiEdit operations (PreToolUse).
@@ -16,8 +15,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Exact file names to protect
 PROTECTED_FILES = [

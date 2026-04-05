@@ -16,8 +16,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # File patterns that should not be manually edited
 READONLY_PATTERNS = [

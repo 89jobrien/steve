@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Validate todo completions before stop.
+"""Validate todo completions before stop.
 
 This hook checks for incomplete TODOs in the transcript before allowing stop.
 Runs on Stop and SubagentStop events.
@@ -16,8 +15,10 @@ import re
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 MAX_TRANSCRIPT_SIZE = 10 * 1024 * 1024
 

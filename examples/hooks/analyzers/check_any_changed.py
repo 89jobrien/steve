@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Check for 'any' types in TypeScript files.
+"""Check for 'any' types in TypeScript files.
 
 This hook forbids 'any' types in TypeScript files to enforce better type safety.
 Runs after Write, Edit, or MultiEdit operations on .ts/.tsx files.
@@ -15,6 +14,7 @@ import json
 import re
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Run TypeScript validation on entire project.
+"""Run TypeScript validation on entire project.
 
 This hook runs TypeScript compiler on the entire project.
 Runs on Stop and SubagentStop events.
@@ -15,6 +14,7 @@ import asyncio
 import json
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

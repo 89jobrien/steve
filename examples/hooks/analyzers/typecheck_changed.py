@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Run TypeScript type checking on changed files.
+"""Run TypeScript type checking on changed files.
 
 This hook runs TypeScript compiler on changed .ts/.tsx files.
 Runs after Write, Edit, or MultiEdit operations.
@@ -15,6 +14,7 @@ import asyncio
 import json
 import sys
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

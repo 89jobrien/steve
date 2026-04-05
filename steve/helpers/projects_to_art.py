@@ -27,6 +27,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+
 # Allow running as a script
 _ROOT = Path(__file__).resolve().parents[1]
 if str(_ROOT) not in sys.path:

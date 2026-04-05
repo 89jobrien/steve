@@ -3,8 +3,7 @@
 # requires-python = ">=3.12"
 # dependencies = []
 # ///
-"""
-PostToolUse hook for TodoWrite - syncs Claude's todos to doob SurrealDB database.
+"""PostToolUse hook for TodoWrite - syncs Claude's todos to doob SurrealDB database.
 
 This hook captures TodoWrite tool calls and syncs them to the local doob todo system.
 """
@@ -17,6 +16,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))
@@ -25,8 +25,7 @@ from hook_logging import hook_invocation  # noqa: E402
 
 
 def sync_todos_to_doob(todos: list[dict]) -> tuple[int, int]:
-    """
-    Sync todos to doob.
+    """Sync todos to doob.
 
     Returns tuple of (synced_count, error_count).
     """
@@ -54,7 +53,7 @@ def sync_todos_to_doob(todos: list[dict]) -> tuple[int, int]:
         try:
             result = subprocess.run(
                 cmd,
-                capture_output=True,
+                check=False, capture_output=True,
                 text=True,
                 timeout=5
             )

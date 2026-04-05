@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Log all prompts for later review.
+"""Log all prompts for later review.
 
 This hook logs prompts to a daily file for analysis.
 Runs on UserPromptSubmit event.
@@ -16,6 +15,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

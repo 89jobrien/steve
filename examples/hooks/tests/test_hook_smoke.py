@@ -3,6 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 
+
 HOOKS_ROOT = Path(__file__).resolve().parents[1]
 if str(HOOKS_ROOT) not in sys.path:
     sys.path.insert(0, str(HOOKS_ROOT))
@@ -23,7 +24,7 @@ class TestHookSmoke(unittest.TestCase):
         for script in scripts:
             result = subprocess.run(
                 ["uv", "run", str(script)],
-                input="",
+                check=False, input="",
                 text=True,
                 capture_output=True,
                 timeout=10,

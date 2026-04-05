@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Validate MLX fine-tuning environment on Apple Silicon.
+"""Validate MLX fine-tuning environment on Apple Silicon.
 
 This script checks:
 - Apple Silicon architecture
@@ -90,9 +89,8 @@ def check_metal_gpu():
         if str(device) == "gpu":
             print("✓ Metal GPU available and active")
             return True
-        else:
-            print("✗ GPU not active - check Metal support")
-            return False
+        print("✗ GPU not active - check Metal support")
+        return False
     except Exception as e:
         print("\nGPU Status:")
         print(f"✗ Cannot check GPU: {e}")
@@ -107,7 +105,7 @@ def check_memory():
         # Get memory info using sysctl
         result = subprocess.run(
             ["sysctl", "-n", "hw.memsize"],
-            capture_output=True,
+            check=False, capture_output=True,
             text=True
         )
 
@@ -133,10 +131,9 @@ def check_memory():
                 pass
 
             return mem_gb >= 8
-        else:
-            print("\nSystem Memory:")
-            print("✗ Could not determine memory capacity")
-            return False
+        print("\nSystem Memory:")
+        print("✗ Could not determine memory capacity")
+        return False
 
     except Exception as e:
         print("\nSystem Memory:")
@@ -153,9 +150,8 @@ def check_python_version():
     if version.major == 3 and version.minor >= 9:
         print("✓ Python version compatible")
         return True
-    else:
-        print("✗ Python 3.9+ required for MLX")
-        return False
+    print("✗ Python 3.9+ required for MLX")
+    return False
 
 
 def check_uv_installation():
@@ -163,7 +159,7 @@ def check_uv_installation():
     try:
         result = subprocess.run(
             ["uv", "--version"],
-            capture_output=True,
+            check=False, capture_output=True,
             text=True
         )
 
@@ -171,10 +167,9 @@ def check_uv_installation():
             print("\nPackage Manager:")
             print(f"✓ uv installed: {result.stdout.strip()}")
             return True
-        else:
-            print("\nPackage Manager:")
-            print("✗ uv not found")
-            return False
+        print("\nPackage Manager:")
+        print("✗ uv not found")
+        return False
     except FileNotFoundError:
         print("\nPackage Manager:")
         print("✗ uv not installed")
@@ -226,7 +221,7 @@ def main():
     try:
         result = subprocess.run(
             ["sysctl", "-n", "hw.memsize"],
-            capture_output=True,
+            check=False, capture_output=True,
             text=True
         )
         if result.returncode == 0:

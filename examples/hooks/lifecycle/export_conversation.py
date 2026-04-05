@@ -4,8 +4,7 @@
 # dependencies = ["pyyaml"]
 # ///
 
-"""
-Export conversation transcript to file.
+"""Export conversation transcript to file.
 
 This hook copies the raw conversation JSON to an export directory.
 Runs on Stop and SessionEnd events.
@@ -19,6 +18,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
 
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))

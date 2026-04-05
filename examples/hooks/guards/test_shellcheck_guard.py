@@ -23,7 +23,7 @@ def run_guard(command: str) -> tuple[int, str, str]:
 
     result = subprocess.run(
         ["uv", "run", str(guard_path)],
-        input=json.dumps(payload),
+        check=False, input=json.dumps(payload),
         capture_output=True,
         text=True,
     )

@@ -15,8 +15,10 @@ import json
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Size thresholds in bytes
 WARN_THRESHOLD = 100 * 1024  # 100KB - warn
@@ -38,10 +40,9 @@ def format_size(size: int) -> str:
     """Format size in human-readable format."""
     if size < 1024:
         return f"{size} bytes"
-    elif size < 1024 * 1024:
+    if size < 1024 * 1024:
         return f"{size / 1024:.1f} KB"
-    else:
-        return f"{size / (1024 * 1024):.1f} MB"
+    return f"{size / (1024 * 1024):.1f} MB"
 
 
 def is_allowed_file(file_path: str) -> bool:

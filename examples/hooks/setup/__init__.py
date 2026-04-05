@@ -14,11 +14,12 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+
 # Add hooks root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Re-export from lib.setup for backwards compatibility
-from lib.setup import (  # noqa: E402
+from lib.setup import (
     HOOKS_ROOT,
     SetupReport,
     ValidationResult,
@@ -26,6 +27,7 @@ from lib.setup import (  # noqa: E402
     get_env_var,
     load_setup_config,
 )
+
 
 __all__ = [
     "HOOKS_ROOT",

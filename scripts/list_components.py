@@ -21,8 +21,6 @@ def load_local_registry(repo_root: Path) -> dict[str, Any]:
     try:
         if registry_path.exists():
             return json.loads(registry_path.read_text())
-        elif not registry_path.exists():
-            return repo_root / "index.json"
         return {"components": {}}
     except Exception as e:
         print(f"Error: {e}")

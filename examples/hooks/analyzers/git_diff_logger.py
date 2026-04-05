@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Log git diffs for all file changes in a session.
+"""Log git diffs for all file changes in a session.
 
 This hook logs file changes to a session-specific diff file.
 Runs after Write, Edit, or MultiEdit operations (PostToolUse).
@@ -17,6 +16,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation

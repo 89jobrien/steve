@@ -4,8 +4,7 @@
 # dependencies = ["pyyaml"]
 # ///
 
-"""
-Just-In-Time Context Hook for Claude Code UserPromptSubmit events.
+"""Just-In-Time Context Hook for Claude Code UserPromptSubmit events.
 
 Provides token-controlled context injection with configurable limits.
 Extracts snippets around matches instead of full file dumps.

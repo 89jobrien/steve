@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Clean up temporary files and resources at end of session.
+"""Clean up temporary files and resources at end of session.
 
 This hook removes temp files, debug artifacts, and other session debris.
 Runs on Stop event.
@@ -16,8 +15,10 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Patterns for files to clean up
 CLEANUP_PATTERNS = [

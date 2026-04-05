@@ -3,8 +3,7 @@
 # requires-python = ">=3.12"
 # dependencies = []
 # ///
-"""
-Generate README.md from component frontmatter.
+"""Generate README.md from component frontmatter.
 
 Usage:
     uv run scripts/generate_readme.py [--check] [--output FILE]

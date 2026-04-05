@@ -3,8 +3,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["pyyaml"]
 # ///
-"""
-SubagentStop workflow - runs when a Claude Code subagent (Task tool) finishes.
+"""SubagentStop workflow - runs when a Claude Code subagent (Task tool) finishes.
 
 Useful for:
 - Evaluating if subagent completed its task
@@ -18,6 +17,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Any
+
 
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent

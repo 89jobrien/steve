@@ -29,6 +29,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+
 # Add hooks root to path
 HOOKS_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(HOOKS_ROOT))
@@ -116,7 +117,7 @@ def suggest_commit(cwd: str) -> str | None:
         # Get staged and unstaged changes
         result = subprocess.run(
             ["git", "diff", "--stat", "HEAD"],
-            cwd=cwd,
+            check=False, cwd=cwd,
             capture_output=True,
             text=True,
             timeout=5,
@@ -128,7 +129,7 @@ def suggest_commit(cwd: str) -> str | None:
         # Get list of changed files
         files_result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD"],
-            cwd=cwd,
+            check=False, cwd=cwd,
             capture_output=True,
             text=True,
             timeout=5,

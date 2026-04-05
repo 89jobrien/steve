@@ -17,10 +17,11 @@ import json
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from hook_logging import hook_invocation  # noqa: E402, I001
-from lib.setup import SetupReport, ValidationResult, load_setup_config  # noqa: E402, I001
+from hook_logging import hook_invocation
+from lib.setup import SetupReport, ValidationResult, load_setup_config
 
 
 # Template definitions
@@ -317,7 +318,7 @@ def initialize_workspace(
         try:
             result = subprocess.run(
                 ["git", "init"],
-                cwd=cwd_path,
+                check=False, cwd=cwd_path,
                 capture_output=True,
                 text=True,
                 timeout=10,

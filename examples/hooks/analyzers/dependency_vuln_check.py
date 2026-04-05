@@ -4,8 +4,7 @@
 # dependencies = []
 # ///
 
-"""
-Check for dependency vulnerabilities when package files change.
+"""Check for dependency vulnerabilities when package files change.
 
 This hook runs vulnerability checks when package.json, pyproject.toml, etc. change.
 Runs after Write, Edit, or MultiEdit operations (PostToolUse).
@@ -17,8 +16,10 @@ import shutil
 import sys
 from pathlib import Path
 
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from hook_logging import hook_invocation
+
 
 # Files that trigger vulnerability checks
 PACKAGE_FILES = [
@@ -129,7 +130,7 @@ def get_checker_for_file(filename: str) -> str | None:
 
     if filename in npm_files:
         return "npm"
-    elif filename in python_files:
+    if filename in python_files:
         return "pip"
 
     return None
