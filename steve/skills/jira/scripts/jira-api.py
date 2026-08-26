@@ -82,6 +82,18 @@ def get_base_url():
     return f"{domain}/rest/api/3"
 
 
+def validate_authenticated_url(url):
+    """Reject URLs that could expose Jira credentials in transit or authority metadata."""
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.scheme != "https":
+        raise ValueError("Authenticated Jira requests require HTTPS")
+    if parsed.username is not None or parsed.password is not None:
+        raise ValueError("Authenticated Jira URLs must not contain embedded credentials")
+    if parsed.hostname is None:
+        raise ValueError("Authenticated Jira URLs require a hostname")
+    return url
+
+
 def make_request(method, endpoint, data=None, query=None):
     """Make an authenticated request to Jira API."""
     base_url = get_base_url()
@@ -90,6 +102,7 @@ def make_request(method, endpoint, data=None, query=None):
     if query:
         url = f"{url}?{query}"
 
+    url = validate_authenticated_url(url)
     headers = {
         "Authorization": get_auth_header(),
         "Content-Type": "application/json",
@@ -103,10 +116,14 @@ def make_request(method, endpoint, data=None, query=None):
         else:
             body = json.dumps(data).encode()
 
-    req = urllib.request.Request(url, data=body, headers=headers, method=method)
+    req = urllib.request.Request(  # noqa: S310 - URL is validated before auth is attached.
+        url, data=body, headers=headers, method=method
+    )
 
     try:
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(  # noqa: S310 - Request URL passed HTTPS/auth validation.
+            req
+        ) as response:
             if response.status == 204:
                 return {"status": "success", "code": 204}
 

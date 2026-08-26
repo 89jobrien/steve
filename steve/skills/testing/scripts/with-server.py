@@ -32,6 +32,16 @@ def is_server_ready(port, timeout=30):
     return False
 
 
+def start_trusted_local_server(command):
+    """Start a trusted local command that intentionally uses shell operators."""
+    return subprocess.Popen(  # noqa: S602 - Trusted local CLI boundary requires shell syntax.
+        command,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(description="Run command with one or more servers")
     parser.add_argument(
@@ -85,14 +95,8 @@ def main():
         for i, server in enumerate(servers):
             print(f"Starting server {i + 1}/{len(servers)}: {server['cmd']}")
 
-            # Use shell=True to support commands with cd and &&
-            # Security: cmd comes from user-controlled config, validated at parse time
-            process = subprocess.Popen(
-                server["cmd"],
-                shell=True,  # nosec B602
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-            )
+            # The local operator is the trust boundary; shell syntax such as cd and && is required.
+            process = start_trusted_local_server(server["cmd"])
             server_processes.append(process)
 
             # Wait for this server to be ready
