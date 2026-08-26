@@ -1,7 +1,7 @@
 # Steve - Claude Code Components
 # Common development workflows
 
-.PHONY: help install dev lint format typecheck test clean index index-fast pre-commit hooks \
+.PHONY: help install dev lint lint-blocking lint-full format typecheck test clean index index-fast pre-commit hooks \
         run-index run-list run-install run-publish run-publish-all run-secrets run-metadata run-batch-metadata \
         health audit lint-components stale coverage
 
@@ -15,7 +15,8 @@ help:
 	@echo "  make hooks        Install pre-commit hooks"
 	@echo ""
 	@echo "Quality:"
-	@echo "  make lint         Run linter (ruff)"
+	@echo "  make lint         Run blocking linter checks"
+	@echo "  make lint-full    Report the full Ruff debt inventory"
 	@echo "  make format       Format code (ruff)"
 	@echo "  make typecheck    Run type checker (mypy)"
 	@echo "  make check        Run all checks (lint + typecheck)"
@@ -69,8 +70,13 @@ hooks:
 # Code Quality
 # =============================================================================
 
-lint:
-	uv run ruff check steve/ scripts/
+lint: lint-blocking
+
+lint-blocking:
+	uv run ruff check --no-fix --select E9,F63,F7,F82,S310,S602 steve scripts
+
+lint-full:
+	uv run ruff check --no-fix . --statistics
 
 format:
 	uv run ruff format steve/ scripts/

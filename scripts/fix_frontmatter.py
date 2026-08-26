@@ -1,6 +1,8 @@
 import re
-import yaml
 from pathlib import Path
+
+import yaml
+
 
 def parse_all_frontmatter(content):
     """Extract all YAML frontmatter blocks from the beginning of the file."""
@@ -17,7 +19,7 @@ def parse_all_frontmatter(content):
                 data = yaml.safe_load(frontmatter_str) or {}
                 frontmatter_blocks.append(data)
                 # Remove the matched block and any leading whitespace for the next iteration
-                current_content = current_content[match.end():].lstrip()
+                current_content = current_content[match.end() :].lstrip()
             except yaml.YAMLError:
                 # If it's not valid YAML, it's probably a horizontal rule or just content
                 break
@@ -25,6 +27,7 @@ def parse_all_frontmatter(content):
             break
 
     return frontmatter_blocks, current_content
+
 
 def fix_file(file_path):
     content = file_path.read_text(encoding="utf-8")
@@ -46,12 +49,10 @@ def fix_file(file_path):
         # For agents, sometimes it's in a 'description' field in a second block
         # which we already merged.
         # If still missing, look at the body.
-        match = re.search(r"^#+ .*
-
-(.*)", body)
+        match = re.search(r"^#+ .*\n\n(.+)", body, re.MULTILINE)
         if match:
-            desc = match.group(1).strip().split('\n')[0]
-            if len(desc) > 10: # Only if it looks like a real description
+            desc = match.group(1).strip().split("\n")[0]
+            if len(desc) > 10:  # Only if it looks like a real description
                 merged_frontmatter["description"] = desc
             else:
                 merged_frontmatter["description"] = f"Component in {file_path.parent.name}"
@@ -66,6 +67,7 @@ def fix_file(file_path):
         file_path.write_text(new_content, encoding="utf-8")
         return True
     return False
+
 
 steve_dir = Path("steve")
 # Include templates as well as they were in the audit
